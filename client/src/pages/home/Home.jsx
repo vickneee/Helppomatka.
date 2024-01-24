@@ -1,10 +1,6 @@
 import Navbar from "../../components/navbar/Navbar"
 import Header from "../../components/header/Header"
 import "./home.css"
-<<<<<<< HEAD
-=======
-
->>>>>>> ahmed
 
 
 function Home() {
@@ -12,10 +8,6 @@ function Home() {
     <div>
       <Navbar />
       <Header />
-<<<<<<< HEAD
-=======
-      
->>>>>>> ahmed
     </div>
   )
 }
