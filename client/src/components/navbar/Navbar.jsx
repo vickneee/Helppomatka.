@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="navContainer">
-        <span className="logo">Helppomatka.fi</span>
+       <a className='logo' href="">Helppomatka.fi</a> 
         <div className="navItems">
           <button className="navButton">Register</button>
           <button className="navButton">Login</button>
