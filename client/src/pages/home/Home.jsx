@@ -8,10 +8,10 @@ import MailList from "../../components/mailList/MailList"
 import Footer from "../../components/footer/Footer"
 
 
-
 function Home() {
   return (
     <div>
+
         <Navbar />
         <Header />
         <div className="homeContainer">
@@ -24,6 +24,10 @@ function Home() {
           <Footer/>
         </div>
 
+
+
+      <Navbar />
+      <Header />
 
     </div>
   )
