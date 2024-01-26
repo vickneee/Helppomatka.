@@ -6,10 +6,10 @@ import PropertyList from "../../components/propertyList/PropertyList"
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties"
 
 
-
 function Home() {
   return (
     <div>
+
         <Navbar />
         <Header />
         <div className="homeContainer">
@@ -20,6 +20,10 @@ function Home() {
           <FeaturedProperties />
         </div>
 
+
+
+      <Navbar />
+      <Header />
 
     </div>
   )
