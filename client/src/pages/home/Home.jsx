@@ -26,8 +26,7 @@ function Home() {
 
 
 
-      <Navbar />
-      <Header />
+
 
     </div>
   )
