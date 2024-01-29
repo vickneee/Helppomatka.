@@ -1,5 +1,6 @@
 .footer {
-    width: 1024px;
+    width: 100%;
+    /*width: 1024px;*/
     font-size: 12px;
     margin-bottom: 30px;
 }
@@ -14,6 +15,12 @@
 .fList {
     list-style: none;
     padding: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.fText {
+    margin-left: 10px;
 }
 
 .fListItem {
