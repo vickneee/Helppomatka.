@@ -1,12 +1,12 @@
 .footer {
     width: 100%;
-    /*width: 1024px;*/
+    max-width: 1024px;
     font-size: 12px;
     margin-bottom: 30px;
 }
 
 .fLists {
-    width: 100%;
+    /*width: 100%;*/
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
@@ -25,6 +25,6 @@
 
 .fListItem {
     margin-bottom: 10px;
-    color: #4B966E;
+    color: #0F5A32;  /*color-primary-3*/
     cursor: pointer;
 }
