@@ -6,7 +6,6 @@ function Navbar() {
       <div className="navContainer">
        <a className='logo' href="">Helppomatka.fi</a> 
         <div className="navItems">
-          <button className="navButton">Register</button>
           <button className="navButton">Login</button>
         </div>
       </div>

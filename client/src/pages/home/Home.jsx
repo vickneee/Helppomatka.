@@ -12,9 +12,10 @@ function Home() {
   return (
     <div>
 
-        <Navbar />
+        
         <Header />
         <div className="homeContainer">
+        <h1 className="homeTitle mb-3">Property by Cities</h1>
           <Featured />
           <h1 className="homeTitle">Browse by property type</h1>
           <PropertyList />
