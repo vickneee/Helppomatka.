@@ -1,5 +1,9 @@
 .header {
-    background-color: #006aff;
+  background: linear-gradient(rgba(16, 95, 79, 0.5), rgba( 15, 90, 50,0.5)),
+  url("./image/hotel2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
     color: white;
     display: flex;
     justify-content: center;
@@ -9,9 +13,40 @@
   .headerContainer {
     width: 100%;
     max-width: 1024px;
-
-    margin: 20px 0px 70px 0px;
+    height: 70vh;
+    margin: 20px 0px 0px 0px;
   }
+
+  .headerTitle {
+    color: white;
+    font-size: 70px;
+    margin-top: 50px;
+  }
+
+  .headerDesc {
+    margin: 5px 0px 20px 0;
+    color: white;
+    font-size: 20px;
+  }
+
+  .headerDesc span {
+
+    font-size: 20px;
+  }
+
+  .Btn{
+    background-color: #ffffff;
+    color: #4B966E;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+
   
   .headerContainer.listMode {
     margin: 20px 0px 0px 0px;
@@ -52,7 +87,7 @@
   .headerSearch {
     height: 30px;
     background-color: white;
-    border: 3px solid #fe6b02;
+    border: 3px solid #4B966E;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -62,6 +97,7 @@
     bottom: -25px;
     width: 100%;
     max-width: 1024px;
+    border-radius: 50px;
   }
   
   .headerIcon {
@@ -119,8 +155,8 @@
   .optionCounterButton {
     width: 30px;
     height: 30px;
-    border: 1px solid #006aff;
-    color: #006aff;
+    border: 1px solid #78B494;
+    color: #78B494;
     cursor: pointer;
     background-color: white;
   }
@@ -130,10 +166,11 @@
   }
   
   .headerBtn {
-    background-color: #006aff;
+    background-color: #4B966E;
     color: white;
     font-weight: 500;
     border: none;
-    padding: 15px 20px;
+    border-radius: 0 50px 50px 0;
+    padding: 15px 30px;
     cursor: pointer;
   }

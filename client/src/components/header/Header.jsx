@@ -15,6 +15,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../navbar/Navbar";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -55,28 +56,7 @@ const Header = ({ type }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-        <div className="headerList">
-          <div className="headerListItem active">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faMagnet} />
-            <span>Attractions</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
-          </div>
-        </div>
+    <Navbar />
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
@@ -85,6 +65,18 @@ const Header = ({ type }) => {
             <p className="headerDesc">
             Search <span className="deals">deals</span> on hotels, homes, and much more...
             </p>
+            <div className="col-md-12 button-cont">
+                      <button
+                        className="Btn"
+                        onClick={() => {
+                          navigate("/hotels", {
+                            state: { destination, date, options },
+                          });
+                        }}
+                      >
+                        Find
+                      </button>
+                    </div>
 
             <div className="headerSearch">
               <div className="headerSearchItem">

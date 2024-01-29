@@ -1,11 +1,19 @@
 import "./featured.css";
+import { useNavigate } from "react-router-dom";
 
 const Featured = () => {
+  const navigate = useNavigate();
   return (
     <div className="featured">
-      <div className="featuredItem">
+      <div className="featuredItem"
+                        onClick={() => {
+                          navigate("/hotels", {
+                            state: { destination: "helsinki" },
+                          });
+                        }}
+      >
         <img
-          src="https://cf.bstatic.com/xdata/images/city/600x600/674838.jpg?k=3cf9d13f65ebbe9e5b1e7329c37ddc26b82114285b035ba547e9826a72245b29&o="
+          src="https://images.unsplash.com/photo-1557261651-a6beab93541f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt=""
           className="featuredImg"
         />
@@ -14,19 +22,30 @@ const Featured = () => {
         </div>
       </div>
       
-      <div className="featuredItem">
+      <div className="featuredItem"
+       onClick={() => {
+        navigate("/hotels", {
+          state: { destination: "berlin" },
+        });
+      }}
+      >
         <img
-          src="https://cf.bstatic.com/xdata/images/city/600x600/674831.jpg?k=1ac4b9c1f283a4ad1572357388f292999e4f912578fc8a81ca2b28eb6d7052ae&o="
+          src="https://images.unsplash.com/photo-1540224485413-4c7939106f3a?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt=""
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Tampere</h1>
+          <h1>Berlin</h1>
         </div>
       </div>
-      <div className="featuredItem">
+      <div className="featuredItem"  onClick={() => {
+          navigate("/hotels", {
+          state: { destination: "tallin" },
+        });
+       }}
+       >
         <img
-          src="https://cf.bstatic.com/xdata/images/city/600x600/687752.jpg?k=3e6ad26db50adc1b3d34bf2deba9e9e06b92e37a0cdc11afd340ffb3a89a36a5&o="
+          src="https://images.unsplash.com/photo-1561449306-42d9b4bd16c7?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt=""
           className="featuredImg"
         />
