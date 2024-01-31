@@ -152,7 +152,7 @@
 
 @media screen and (max-width: 720px) {
     .headerSearchInput {
-        font-size: 12px; /* Adjust the font-size for screen size */
+        font-size: 14px; /* Adjust the font-size for screen size */
     }
 }
 
