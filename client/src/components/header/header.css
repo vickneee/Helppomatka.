@@ -1,9 +1,7 @@
 .header {
-    background: linear-gradient(rgba(16, 95, 79, 0.5), rgba(15, 90, 50, 0.5)),
-    url("./image/hotel2.jpg");
+    background: linear-gradient(rgba(41, 125, 100, 0.5), rgba(40, 120, 77, 0.5)),
+    url("./image/hotel2.jpg") bottom no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
     color: white;
     display: flex;
     justify-content: center;
@@ -19,16 +17,21 @@
 
 .headerTitle {
     color: white;
-    font-size: 65px;
+    font-size: 60px;
     margin-top: 70px;
 }
 
 @media screen and (max-width: 1024px) {
     .headerTitle {
-        font-size: 45px; /* Adjust the font-size for tablet wide screen size */
+        font-size: 55px; /* Adjust the font-size for screen size */
     }
 }
 
+@media screen and (max-width: 720px) {
+    .headerTitle {
+        font-size: 50px; /* Adjust the font-size for screen size */
+    }
+}
 .headerDesc {
     margin: 5px 0 20px 0;
     color: white;
@@ -37,7 +40,7 @@
 
 @media screen and (max-width: 1024px) {
     .headerDesc {
-        font-size: 20px; /* Adjust the font-size for tablet wide screen size */
+        font-size: 20px; /* Adjust the font-size for screen size */
     }
 }
 
