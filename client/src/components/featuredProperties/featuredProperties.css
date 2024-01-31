@@ -9,9 +9,9 @@
   .fpItem{
     flex: 1;
     gap: 10px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-
   }
 
 .fpImg:hover {
