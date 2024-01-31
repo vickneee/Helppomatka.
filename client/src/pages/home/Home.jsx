@@ -1,4 +1,3 @@
-import Navbar from "../../components/navbar/Navbar"
 import Header from "../../components/header/Header"
 import "./home.css"
 import Featured from "../../components/featured/Featured"
@@ -11,24 +10,17 @@ import Footer from "../../components/footer/Footer"
 function Home() {
   return (
     <div>
-
-        
         <Header />
         <div className="homeContainer">
-        <h1 className="homeTitle mb-3">Property by Cities</h1>
+        <h1 className="homeTitle mb-3">Kiinteistöt kaupungeittain</h1>
           <Featured />
-          <h1 className="homeTitle">Browse by property type</h1>
+          <h1 className="homeTitle">Selaa kiinteistötyypin mukaan</h1>
           <PropertyList />
-          <h1 className="homeTitle">Homes guestes love</h1>
+          <h1 className="homeTitle">Vieraiden rakastamia paikkoja</h1>
           <FeaturedProperties />
           <MailList/>
           <Footer/>
         </div>
-
-
-
-
-
     </div>
   )
 }

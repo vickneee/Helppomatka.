@@ -1,40 +1,63 @@
 .header {
-  background: linear-gradient(rgba(16, 95, 79, 0.5), rgba( 15, 90, 50,0.5)),
-  url("./image/hotel2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
+    background: linear-gradient(rgba(41, 125, 100, 0.5), rgba(40, 120, 77, 0.5)),
+    url("./image/hotel2.jpg") bottom no-repeat;
+    background-size: cover;
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
-  }
-  
-  .headerContainer {
+}
+
+.headerContainer {
     width: 100%;
     max-width: 1024px;
     height: 70vh;
-    margin: 20px 0px 0px 0px;
-  }
+    margin: 20px 0 0 0;
+}
 
-  .headerTitle {
+.headerTitle {
     color: white;
-    font-size: 70px;
-    margin-top: 50px;
-  }
+    font-size: 60px;
+    margin-top: 70px;
+}
 
-  .headerDesc {
-    margin: 5px 0px 20px 0;
+@media screen and (max-width: 1024px) {
+    .headerTitle {
+        font-size: 55px; /* Adjust the font-size for screen size */
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .headerTitle {
+        font-size: 50px; /* Adjust the font-size for screen size */
+    }
+}
+
+.headerDesc {
+    margin: 5px 0 20px 0;
     color: white;
     font-size: 20px;
-  }
+}
 
-  .headerDesc span {
+@media screen and (max-width: 1024px) {
+    .headerDesc {
+        font-size: 20px; /* Adjust the font-size for screen size */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .headerDesc {
+        font-size: 15px; /* Adjust the font-size for tablet wide screen size */
+    }
+}
+
+.headerDesc span {
 
     font-size: 20px;
-  }
+}
 
-  .Btn{
+.Btn {
     background-color: #ffffff;
     color: #4B966E;
     font-weight: 600;
@@ -44,128 +67,157 @@
     border-radius: 50px;
     margin-top: 20px;
     cursor: pointer;
-  }
+}
 
+.headerContainer.listMode {
+    margin: 20px 0 0 0;
+}
 
-  
-  .headerContainer.listMode {
-    margin: 20px 0px 0px 0px;
-  }
-  
-  .headerList {
+.headerList {
     display: flex;
     gap: 40px;
     margin-bottom: 50px;
-  }
-  
-  .headerListItem {
+}
+
+.headerListItem {
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
     transition: .6s;
-  }
+}
 
-
-  
-  .headerListItem.active {
+.headerListItem.active {
     border: 1px solid white;
     padding: 10px 15px;
     border-radius: 50px;
-  }
-  
-  .headerDesc {
-    margin: 20px 0px;
-  }
+}
 
-  .deals{
+.headerDesc {
+    margin: 20px 0;
+}
+
+.deals {
     font-weight: 800;
     font-size: 18px;
-  }
-  
-  
-  .headerSearch {
+}
+
+.headerSearch {
     height: 30px;
     background-color: white;
     border: 3px solid #4B966E;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0px 10px 15px;
-    border-radius: 5px;
+    padding: 10px 0 10px 0;
     position: absolute;
     bottom: -25px;
     width: 100%;
     max-width: 1024px;
     border-radius: 50px;
-  }
-  
-  .headerIcon {
+}
+
+@media screen and (max-width: 720px) {
+    .headerSearch {
+        font-size: 12px; /* Adjust the font-size for screen size */
+    }
+}
+
+.headerIcon {
     color: lightgray;
-  }
-  
-  .headerSearchItem {
+}
+
+@media screen and (max-width: 920px) {
+    .headerIcon {
+        font-size: 13px; /* Adjust the font-size for screen size */
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .headerIcon {
+        font-size: 12px; /* Adjust the font-size for screen size */
+    }
+}
+
+.headerSearchItem {
     display: flex;
     align-items: center;
-    gap: 10px;
-  }
-  
-  .headerSearchInput {
+    gap: 8px;
+}
+
+.headerSearchInput {
     border: none;
     outline: none;
-  }
-  
-  .headerSearchText {
-    color: lightgray;
+}
+
+@media screen and (max-width: 720px) {
+    .headerSearchInput {
+        font-size: 14px; /* Adjust the font-size for screen size */
+    }
+}
+
+.bedIcon {
+    margin-left: 25px;
+}
+
+.headerSearchText {
+    color: #999999;
     cursor: pointer;
-  }
-  
-  .date {
+}
+
+@media screen and (max-width: 920px) {
+    .headerSearchText {
+        font-size: 13px; /* Adjust the font-size for screen size */
+        display: flex;
+    }
+}
+
+.date {
     position: absolute;
     top: 50px;
     z-index: 2;
-  }
-  
-  .options {
+}
+
+.options {
     z-index: 2;
     position: absolute;
     top: 50px;
     background-color: white;
     color: gray;
     border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
-    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
-  }
-  
-  .optionItem {
+    -webkit-box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.optionItem {
     width: 200px;
     display: flex;
     justify-content: space-between;
     margin: 10px;
-  }
-  
-  .optionCounter {
+}
+
+.optionCounter {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 12px;
     color: black;
-  }
-  
-  .optionCounterButton {
+}
+
+.optionCounterButton {
     width: 30px;
     height: 30px;
     border: 1px solid #78B494;
     color: #78B494;
     cursor: pointer;
     background-color: white;
-  }
-  
-  .optionCounterButton:disabled {
+}
+
+.optionCounterButton:disabled {
     cursor: not-allowed;
-  }
-  
-  .headerBtn {
+}
+
+.headerBtn {
     background-color: #4B966E;
     color: white;
     font-weight: 500;
@@ -173,4 +225,4 @@
     border-radius: 0 50px 50px 0;
     padding: 15px 30px;
     cursor: pointer;
-  }
+}

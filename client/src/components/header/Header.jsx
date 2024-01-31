@@ -1,11 +1,7 @@
 import {
   faBed,
   faCalendarDays,
-  faCar,
-  faMagnet,
   faPerson,
-  faPlane,
-  faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
@@ -60,10 +56,10 @@ const Header = ({ type }) => {
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-            Find your next stay
+              Löydä seuraava majoituksesi
             </h1>
             <p className="headerDesc">
-            Search <span className="deals">deals</span> on hotels, homes, and much more...
+            Etsi <span className="deals">diilejä</span> hotelleista, kaupungeista ja paljon muutakin...
             </p>
             <div className="col-md-12 button-cont">
                       <button
@@ -74,16 +70,16 @@ const Header = ({ type }) => {
                           });
                         }}
                       >
-                        Find
+                        Etsi
                       </button>
                     </div>
-
+            <div className="flexWrap">
             <div className="headerSearch">
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                <FontAwesomeIcon icon={faBed} className="headerIcon bedIcon" />
                 <input
                   type="text"
-                  placeholder="Where are you going?"
+                  placeholder="MATKAKOHDE?"
                   className="headerSearchInput"
                   onChange={(e) => setDestination(e.target.value)}
                 />
@@ -93,7 +89,7 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
-                >{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
+                >{`${format(date[0].startDate, "MM/dd/yyyy")} - ${format(
                   date[0].endDate,
                   "MM/dd/yyyy"
                 )}`}</span>
@@ -113,11 +109,11 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenOptions(!openOptions)}
                   className="headerSearchText"
-                >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
+                >{`${options.adult} aikuinen · ${options.children} lapsi · ${options.room} huone`}</span>
                 {openOptions && (
                   <div className="options">
                     <div className="optionItem">
-                      <span className="optionText">Adult</span>
+                      <span className="optionText">Aikuinen</span>
                       <div className="optionCounter">
                         <button
                           disabled={options.adult <= 1}
@@ -138,7 +134,7 @@ const Header = ({ type }) => {
                       </div>
                     </div>
                     <div className="optionItem">
-                      <span className="optionText">Children</span>
+                      <span className="optionText">Lapsi</span>
                       <div className="optionCounter">
                         <button
                           disabled={options.children <= 0}
@@ -159,7 +155,7 @@ const Header = ({ type }) => {
                       </div>
                     </div>
                     <div className="optionItem">
-                      <span className="optionText">Room</span>
+                      <span className="optionText">Huone</span>
                       <div className="optionCounter">
                         <button
                           disabled={options.room <= 1}
@@ -184,9 +180,10 @@ const Header = ({ type }) => {
               </div>
               <div className="headerSearchItem">
                 <button className="headerBtn" onClick={handleSearch}>
-                  Search
+                  Etsi
                 </button>
               </div>
+            </div>
             </div>
           </>
         )}
