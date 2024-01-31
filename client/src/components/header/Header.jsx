@@ -76,7 +76,7 @@ const Header = ({ type }) => {
             <div className="flexWrap">
             <div className="headerSearch">
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                <FontAwesomeIcon icon={faBed} className="headerIcon bedIcon" />
                 <input
                   type="text"
                   placeholder="Mihin olet menossa?"
