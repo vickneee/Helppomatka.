@@ -10,8 +10,8 @@ const PropertyList = () => {
           className="pListImg"
         />
         <div className="pListTitles">
-          <h1>Hotels</h1>
-          <h2>233 hotels</h2>
+          <h1>Hotellit</h1>
+          <h2>230 hotellia</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -21,8 +21,8 @@ const PropertyList = () => {
           className="pListImg"
         />
         <div className="pListTitles">
-          <h1>Apartments</h1>
-          <h2>2331 hotels</h2>
+          <h1>Asunnot</h1>
+          <h2>2809 asuntoa</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -32,8 +32,8 @@ const PropertyList = () => {
           className="pListImg"
         />
         <div className="pListTitles">
-          <h1>Resorts</h1>
-          <h2>2331 hotels</h2>
+          <h1>Lomakeskukset</h1>
+          <h2>38 lomakeskuksta</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -43,8 +43,8 @@ const PropertyList = () => {
           className="pListImg"
         />
         <div className="pListTitles">
-          <h1>Villas</h1>
-          <h2>2331 hotels</h2>
+          <h1>Huvilat</h1>
+          <h2>14 huvilaa</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -54,8 +54,8 @@ const PropertyList = () => {
           className="pListImg"
         />
         <div className="pListTitles">
-          <h1>Cabins</h1>
-          <h2>2331 hotels</h2>
+          <h1>Mökit</h1>
+          <h2>621 mökkiä</h2>
         </div>
       </div>
     </div>
