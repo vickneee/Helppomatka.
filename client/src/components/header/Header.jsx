@@ -73,7 +73,7 @@ const Header = ({ type }) => {
                         Etsi
                       </button>
                     </div>
-
+            <div className="flexWrap">
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -183,6 +183,7 @@ const Header = ({ type }) => {
                   Etsi
                 </button>
               </div>
+            </div>
             </div>
           </>
         )}

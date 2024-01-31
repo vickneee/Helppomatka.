@@ -1,175 +1,194 @@
 .header {
-  background: linear-gradient(rgba(16, 95, 79, 0.5), rgba( 15, 90, 50,0.5)),
-  url("./image/hotel2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
+    background: linear-gradient(rgba(16, 95, 79, 0.5), rgba(15, 90, 50, 0.5)),
+    url("./image/hotel2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
     color: white;
     display: flex;
     justify-content: center;
     position: relative;
-  }
+}
 
-  .headerContainer {
+.headerContainer {
     width: 100%;
     max-width: 1024px;
     height: 70vh;
     margin: 20px 0 0 0;
-  }
+}
 
-  .headerTitle {
+.headerTitle {
     color: white;
-    font-size: 60px;
+    font-size: 65px;
     margin-top: 70px;
-  }
+}
 
-  .headerDesc {
+@media screen and (max-width: 1024px) {
+    .headerTitle {
+        font-size: 45px; /* Adjust the font-size for tablet wide screen size */
+    }
+}
+
+.headerDesc {
     margin: 5px 0 20px 0;
     color: white;
     font-size: 20px;
-  }
+}
 
-  .headerDesc span {
+@media screen and (max-width: 1024px) {
+    .headerDesc {
+        font-size: 20px; /* Adjust the font-size for tablet wide screen size */
+    }
+}
 
-    font-size: 20px;
-  }
+    @media screen and (max-width: 600px) {
+        .headerDesc {
+            font-size: 15px; /* Adjust the font-size for tablet wide screen size */
+        }
+    }
 
-  .Btn {
-    background-color: #ffffff;
-    color: #4B966E;
-    font-weight: 600;
-    font-size: 15px;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 50px;
-    margin-top: 20px;
-    cursor: pointer;
-  }
+    .headerDesc span {
 
+        font-size: 20px;
+    }
 
+    .Btn {
+        background-color: #ffffff;
+        color: #4B966E;
+        font-weight: 600;
+        font-size: 15px;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
 
-  .headerContainer.listMode {
-    margin: 20px 0 0 0;
-  }
+    .headerContainer.listMode {
+        margin: 20px 0 0 0;
+    }
 
-  .headerList {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 50px;
-  }
+    .headerList {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 50px;
+    }
 
-  .headerListItem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: .6s;
-  }
+    .headerListItem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        transition: .6s;
+    }
 
+    .headerListItem.active {
+        border: 1px solid white;
+        padding: 10px 15px;
+        border-radius: 50px;
+    }
 
+    .headerDesc {
+        margin: 20px 0;
+    }
 
-  .headerListItem.active {
-    border: 1px solid white;
-    padding: 10px 15px;
-    border-radius: 50px;
-  }
+    .deals {
+        font-weight: 800;
+        font-size: 18px;
+    }
 
-  .headerDesc {
-    margin: 20px 0;
-  }
+    .headerSearch {
+        height: 30px;
+        background-color: white;
+        border: 3px solid #4B966E;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0 10px 15px;
+        position: absolute;
+        bottom: -25px;
+        width: 100%;
+        max-width: 1024px;
+        border-radius: 50px;
+    }
 
-  .deals {
-    font-weight: 800;
-    font-size: 18px;
-  }
+    .headerIcon {
+        color: lightgray;
+    }
 
+    .headerSearchItem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-  .headerSearch {
-    height: 30px;
-    background-color: white;
-    border: 3px solid #4B966E;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0 10px 15px;
-    position: absolute;
-    bottom: -25px;
-    width: 100%;
-    max-width: 1024px;
-    border-radius: 50px;
-  }
+    .headerSearchInput {
+        border: none;
+        outline: none;
+    }
 
-  .headerIcon {
-    color: lightgray;
-  }
+    .headerSearchText {
+        color: lightgray;
+        cursor: pointer;
+    }
 
-  .headerSearchItem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+    .date {
+        position: absolute;
+        top: 50px;
+        z-index: 2;
+    }
 
-  .headerSearchInput {
-    border: none;
-    outline: none;
-  }
+    .options {
+        z-index: 2;
+        position: absolute;
+        top: 50px;
+        background-color: white;
+        color: gray;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.4);
+    }
 
-  .headerSearchText {
-    color: lightgray;
-    cursor: pointer;
-  }
+    .optionItem {
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+    }
 
-  .date {
-    position: absolute;
-    top: 50px;
-    z-index: 2;
-  }
+    .optionCounter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+        color: black;
+    }
 
-  .options {
-    z-index: 2;
-    position: absolute;
-    top: 50px;
-    background-color: white;
-    color: gray;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.4);
-  }
+    .optionCounterButton {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #78B494;
+        color: #78B494;
+        cursor: pointer;
+        background-color: white;
+    }
 
-  .optionItem {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-  }
+    .optionCounterButton:disabled {
+        cursor: not-allowed;
+    }
 
-  .optionCounter {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    color: black;
-  }
+    .headerBtn {
+        background-color: #4B966E;
+        color: white;
+        font-weight: 500;
+        border: none;
+        border-radius: 0 50px 50px 0;
+        padding: 15px 30px;
+        cursor: pointer;
+    }
 
-  .optionCounterButton {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #78B494;
-    color: #78B494;
-    cursor: pointer;
-    background-color: white;
-  }
-
-  .optionCounterButton:disabled {
-    cursor: not-allowed;
-  }
-
-  .headerBtn {
-    background-color: #4B966E;
-    color: white;
-    font-weight: 500;
-    border: none;
-    border-radius: 0 50px 50px 0;
-    padding: 15px 30px;
-    cursor: pointer;
-  }
+    .flexWrap {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
