@@ -18,10 +18,10 @@ const Featured = () => {
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Helsinki </h1>
+          <h1>Helsinki</h1>
         </div>
       </div>
-      
+
       <div className="featuredItem"
        onClick={() => {
         navigate("/hotels", {
@@ -40,7 +40,7 @@ const Featured = () => {
       </div>
       <div className="featuredItem"  onClick={() => {
           navigate("/hotels", {
-          state: { destination: "tallin" },
+          state: { destination: "tallinn" },
         });
        }}
        >
@@ -50,7 +50,7 @@ const Featured = () => {
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Tallin</h1>
+          <h1>Tallinn</h1>
         </div>
       </div>
     </div>

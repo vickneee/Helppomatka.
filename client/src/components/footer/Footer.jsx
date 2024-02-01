@@ -8,15 +8,16 @@ const Footer = () => {
                   <li className="fListItem">Maat</li>
                   <li className="fListItem">Alueet</li>
                   <li className="fListItem">Kaupungit</li>
-                  <li className="fListItem">Piirit</li>
+                  <li className="fListItem">Kaupunginosat</li>
                   <li className="fListItem">Lentokentät</li>
                   <li className="fListItem">Hotellit</li>
               </ul>
               <ul className="fList">
-                  <li className="fListItem">Kodit</li>
-                  <li className="fListItem">Huoneistot</li>
+                  <li className="fListItem">Asunnot</li>
                   <li className="fListItem">Lomakeskukset</li>
                   <li className="fListItem">Huvilat</li>
+                  <li className="fListItem">Mökit</li>
+                  <li className="fListItem">Hotellit</li>
                   <li className="fListItem">Hostellit</li>
                   <li className="fListItem">Vierastalot</li>
               </ul>
