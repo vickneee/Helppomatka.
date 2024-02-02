@@ -55,25 +55,14 @@ const Header = ({ type }) => {
     <Navbar />
         {type !== "list" && (
           <>
+            <div className="flex-center">
             <h1 className="headerTitle">
-              Löydä seuraava majoituksesi
+              Unelmoitko lomastasi?
             </h1>
             <p className="headerDesc">
-            Etsi <span className="deals">diilejä</span> hotelleista, kaupungeista ja paljon muutakin...
+              Anna meidän auttaa sinua löytämään täydellinen kohde seuraavaa seikkailuasi varten!
             </p>
-            <div className="col-md-12 button-cont">
-                      <button
-                        className="Btn"
-                        onClick={() => {
-                          navigate("/hotels", {
-                            state: { destination, date, options },
-                          });
-                        }}
-                      >
-                        Etsi
-                      </button>
-                    </div>
-            <div className="flexWrap">
+            </div>
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon bedIcon" />
@@ -183,7 +172,6 @@ const Header = ({ type }) => {
                   Etsi
                 </button>
               </div>
-            </div>
             </div>
           </>
         )}
