@@ -10,17 +10,6 @@ const PropertyList = () => {
       <div className="pList">
           <div className="pListItem">
               <img
-                  src={HotelliImage}
-                  alt=""
-                  className="pListImg"
-              />
-              <div className="pListTitles">
-                  <h1>Hotellit</h1>
-                  <h2>230 hotellia</h2>
-              </div>
-          </div>
-          <div className="pListItem">
-              <img
                   src={AsuntoImage}
                   alt=""
                   className="pListImg"
@@ -39,6 +28,17 @@ const PropertyList = () => {
               <div className="pListTitles">
                   <h1>Mökit</h1>
                   <h2>621 mökkiä</h2>
+              </div>
+          </div>
+          <div className="pListItem">
+              <img
+                  src={HotelliImage}
+                  alt=""
+                  className="pListImg"
+              />
+              <div className="pListTitles">
+                  <h1>Hotellit</h1>
+                  <h2>230 hotellia</h2>
               </div>
           </div>
           <div className="pListItem">
