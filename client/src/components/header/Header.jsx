@@ -63,18 +63,6 @@ const Header = ({ type }) => {
               Anna meidän auttaa sinua löytämään täydellinen kohde seuraavaa seikkailuasi varten!
             </p>
             </div>
-            {/*<div className="col-md-12 button-cont">*/}
-            {/*          <button*/}
-            {/*            className="Btn"*/}
-            {/*            onClick={() => {*/}
-            {/*              navigate("/hotels", {*/}
-            {/*                state: { destination, date, options },*/}
-            {/*              });*/}
-            {/*            }}*/}
-            {/*          >*/}
-            {/*            Etsi*/}
-            {/*          </button>*/}
-            {/*        </div>*/}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon bedIcon" />
