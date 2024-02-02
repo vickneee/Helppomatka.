@@ -43,7 +43,7 @@ const Footer = () => {
                   <li className="fListItem">Käyttöehdot</li>
               </ul>
               </div>
-          <div className="fText">Tekijänoikeus © 2024 Helppomatka</div>
+          <div className="fText">Helppomatka © 2024 </div>
     </div>
   );
 };
