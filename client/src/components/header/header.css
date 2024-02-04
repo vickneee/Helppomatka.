@@ -19,37 +19,12 @@
 .headerTitle {
     color: white;
     font-size: 60px;
-    margin-top: 70px;
-}
-
-@media screen and (max-width: 1024px) {
-    .headerTitle {
-        font-size: 55px; /* Adjust the font-size for screen size */
-    }
-}
-
-@media screen and (max-width: 720px) {
-    .headerTitle {
-        font-size: 50px; /* Adjust the font-size for screen size */
-    }
 }
 
 .headerDesc {
     margin: 5px 0 20px 0;
     color: white;
     font-size: 20px;
-}
-
-@media screen and (max-width: 1024px) {
-    .headerDesc {
-        font-size: 20px; /* Adjust the font-size for screen size */
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .headerDesc {
-        font-size: 15px; /* Adjust the font-size for tablet wide screen size */
-    }
 }
 
 .headerDesc span {
@@ -72,6 +47,11 @@
 .headerContainer.listMode {
     margin: 20px 0 0 0;
 }
+.headerContainer.listMode {
+    margin: 20px 0 0 0;
+    height: 30vh;
+
+  }
 
 .headerList {
     display: flex;
@@ -117,26 +97,8 @@
     border-radius: 50px;
 }
 
-@media screen and (max-width: 720px) {
-    .headerSearch {
-        font-size: 12px; /* Adjust the font-size for screen size */
-    }
-}
-
 .headerIcon {
     color: lightgray;
-}
-
-@media screen and (max-width: 920px) {
-    .headerIcon {
-        font-size: 13px; /* Adjust the font-size for screen size */
-    }
-}
-
-@media screen and (max-width: 720px) {
-    .headerIcon {
-        font-size: 12px; /* Adjust the font-size for screen size */
-    }
 }
 
 .headerSearchItem {
@@ -150,12 +112,6 @@
     outline: none;
 }
 
-@media screen and (max-width: 720px) {
-    .headerSearchInput {
-        font-size: 14px; /* Adjust the font-size for screen size */
-    }
-}
-
 .bedIcon {
     margin-left: 25px;
 }
@@ -163,13 +119,6 @@
 .headerSearchText {
     color: #999999;
     cursor: pointer;
-}
-
-@media screen and (max-width: 920px) {
-    .headerSearchText {
-        font-size: 13px; /* Adjust the font-size for screen size */
-        display: flex;
-    }
 }
 
 .date {
@@ -225,4 +174,11 @@
     border-radius: 0 50px 50px 0;
     padding: 15px 30px;
     cursor: pointer;
+}
+.flex-center {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
 }
