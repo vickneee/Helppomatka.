@@ -1,6 +1,6 @@
 import "./featuredProperties.css";
 import HelsinkiImage from "./image/vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg"
-import TallinnImage from "./image/jason-briscoe-UV81E0oXXWQ-unsplash.jpg"
+import TallinnaImage from "./image/jason-briscoe-UV81E0oXXWQ-unsplash.jpg"
 import CostaRicaImage from "./image/fernando-alvarez-rodriguez-M7GddPqJowg-unsplash.jpg"
 import MaroccoImage from "./image/maria-orlova-6viJObrmnBw-unsplash.jpg"
 
@@ -24,12 +24,12 @@ const FeaturedProperties = () => {
       </div>
       <div className="fpItem">
         <img
-          src={TallinnImage}
+          src={TallinnaImage}
           alt=""
           className="fpImg"
         />
         <span className="fpName">Sviiti Lentoasemalla</span>
-        <span className="fpCity">Tallinn</span>
+        <span className="fpCity">Tallinna</span>
         <span className="fpPrice">Alkaen 150€</span>
         <div className="fpRating">
           <button>9.3</button>
