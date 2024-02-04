@@ -16,7 +16,7 @@ const FeaturedProperties = () => {
         />
         <span className="fpName">Huoneisto Star Mio</span>
         <span className="fpCity">Helsinki</span>
-        <span className="fpPrice">Alkaen 120€</span>
+        <span className="fpPrice">Alkaen 120 €</span>
         <div className="fpRating">
           <button>8.9</button>
           <span>Erinomainen</span>
@@ -30,7 +30,7 @@ const FeaturedProperties = () => {
         />
         <span className="fpName">Sviiti Lentoasemalla</span>
         <span className="fpCity">Tallinna</span>
-        <span className="fpPrice">Alkaen 150€</span>
+        <span className="fpPrice">Alkaen 150 €</span>
         <div className="fpRating">
           <button>9.3</button>
           <span>Poikkeuksellinen</span>
@@ -44,7 +44,7 @@ const FeaturedProperties = () => {
         />
         <span className="fpName">Sesonki Huoneisto</span>
         <span className="fpCity">Costa Rica</span>
-        <span className="fpPrice">Alkaen 99€</span>
+        <span className="fpPrice">Alkaen 99 €</span>
         <div className="fpRating">
           <button>8.8</button>
           <span>Erinomainen</span>
@@ -58,7 +58,7 @@ const FeaturedProperties = () => {
         />
         <span className="fpName">Riad de Lavi - Paratiisi</span>
         <span className="fpCity">Morocco</span>
-        <span className="fpPrice">Alkaen 105€</span>
+        <span className="fpPrice">Alkaen 105 €</span>
         <div className="fpRating">
           <button>9.4</button>
           <span>Erinomainen</span>
