@@ -1,5 +1,4 @@
 import "./list.css";
-import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -10,6 +9,7 @@ import SearchItem from "../../components/searchItem/SearchItem";
 const List = () => {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
+  const [filteredHotels, setFilteredHotels] = useState(location.state.filteredHotels); 
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
@@ -30,8 +30,8 @@ const List = () => {
               <label>Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 date[0].startDate,
-                "MM/dd/yyyy"
-              )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                "dd.MM.yyyy"
+              )} to ${format(date[0].endDate, "dd.MM.yyyy")}`}</span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item.selection])}
@@ -87,17 +87,7 @@ const List = () => {
             <button>Search</button>
           </div>
           <div className="listResult">
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
+            <SearchItem filteredHotels={filteredHotels} setFilteredHotels={setFilteredHotels}/>
           </div>
         </div>
       </div>
