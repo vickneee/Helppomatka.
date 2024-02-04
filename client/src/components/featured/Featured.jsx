@@ -50,7 +50,7 @@ const Featured = () => {
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Tallinn</h1>
+          <h1>Tallinna</h1>
         </div>
       </div>
     </div>
