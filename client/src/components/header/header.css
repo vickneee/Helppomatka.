@@ -28,7 +28,6 @@
 }
 
 .headerDesc span {
-
     font-size: 20px;
 }
 
@@ -47,11 +46,11 @@
 .headerContainer.listMode {
     margin: 20px 0 0 0;
 }
+
 .headerContainer.listMode {
     margin: 20px 0 0 0;
     height: 30vh;
-
-  }
+}
 
 .headerList {
     display: flex;
@@ -110,6 +109,7 @@
 .headerSearchInput {
     border: none;
     outline: none;
+    font-size: 16px;
 }
 
 .bedIcon {
@@ -175,6 +175,7 @@
     padding: 15px 30px;
     cursor: pointer;
 }
+
 .flex-center {
     height: 80%;
     display: flex;
