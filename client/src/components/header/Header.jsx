@@ -12,9 +12,15 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
+import hotelData from "../searchItem/hotelList.json";
+
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
+  {
+    /*To save  filtered hotels after user search for a specific destination*/
+  }
+  const [filteredHotels, setFilteredHotels] = useState(hotelData);
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -42,7 +48,14 @@ const Header = ({ type }) => {
   };
 
   const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } });
+    const newFilteredHotels = filteredHotels.filter((hotel) =>
+      hotel.destination.toLowerCase().includes(destination.toLowerCase())
+    );
+    setFilteredHotels(newFilteredHotels);
+
+    navigate("/hotels", {
+      state: { date, options, destination, filteredHotels: newFilteredHotels },
+    });
   };
 
   return (
@@ -78,9 +91,9 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
-                >{`${format(date[0].startDate, "MM/dd/yyyy")} - ${format(
+                >{`${format(date[0].startDate, "dd.MM.yyyy")} - ${format(
                   date[0].endDate,
-                  "MM/dd/yyyy"
+                  "dd.MM.yyyy"
                 )}`}</span>
                 {openDate && (
                   <DateRange
