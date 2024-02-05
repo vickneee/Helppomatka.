@@ -6,21 +6,40 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
-    padding: 50px 50px 70px 50px;
+    padding: 70px 50px;
 }
 
-.mailInputContainer>input {
+.mailTitle {
+    font-size: 24px;
+}
+
+.mailInputContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.mailInputContainer > .inputClass {
+    width: 60%;
+    max-width: 300px;
     border-radius: 50px;
     padding: 10px 30px;
-    width: 300px;
     height: 30px;
     border: none;
     margin-right: 10px;
 }
 
-.mailInputContainer>button {
-    height: 50px;
+.mailInputContainer > .joinBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    max-width: 180px;
+    height: 30px;
     border-radius: 50px;
     padding: 10px 30px;
     background-color: #4B966E;
@@ -28,4 +47,19 @@
     font-weight: 500;
     border: none;
     cursor: pointer;
+}
+
+.mailInputContainer > .inputClass:hover {
+    background: #f9f9f9;
+    box-shadow: 1px 2px 4px #444444;
+}
+
+.mailInputContainer > .inputClass:active {
+    background: #f9f9f9;
+    box-shadow: 1px 2px 24px #444444;
+}
+
+.mailInputContainer > .joinBtn:hover {
+ background: #008009;
+    box-shadow: 1px 2px 4px #444444;
 }
