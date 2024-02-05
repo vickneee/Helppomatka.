@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./logIn.css"
-import {text} from "@fortawesome/fontawesome-svg-core";
 
 const LogIn = () => {
     const [uname, setUname] = useState('');
