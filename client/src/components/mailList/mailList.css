@@ -23,7 +23,7 @@
     align-content: center;
 }
 
-.mailInputContainer > input {
+.mailInputContainer > .inputClass {
     width: 60%;
     max-width: 300px;
     border-radius: 50px;
@@ -33,10 +33,13 @@
     margin-right: 10px;
 }
 
-.mailInputContainer > button {
+.mailInputContainer > .joinBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40%;
     max-width: 180px;
-    height: 50px;
+    height: 30px;
     border-radius: 50px;
     padding: 10px 30px;
     background-color: #4B966E;
@@ -46,17 +49,17 @@
     cursor: pointer;
 }
 
-.mailInputContainer > input:hover {
+.mailInputContainer > .inputClass:hover {
     background: #f9f9f9;
     box-shadow: 1px 2px 4px #444444;
 }
 
-.mailInputContainer > input:active {
+.mailInputContainer > .inputClass:active {
     background: #f9f9f9;
     box-shadow: 1px 2px 24px #444444;
 }
 
-.mailInputContainer > button:hover {
+.mailInputContainer > .joinBtn:hover {
  background: #008009;
     box-shadow: 1px 2px 4px #444444;
 }
