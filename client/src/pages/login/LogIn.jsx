@@ -12,7 +12,7 @@ const LogIn = () => {
 
     return (
         <div className="auth-form-container">
-            <h2>Kirjautuminen</h2>
+            <h2 className="logInTitle">Kirjautuminen</h2>
             <form className="login-form" onSubmit={handleSubmit}>
                 <label htmlFor="email">Sähköpostiositteesi</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="sahkopostiosoteesi@gmail.com" id="email" name="email" />
