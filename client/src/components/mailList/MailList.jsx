@@ -8,7 +8,7 @@ const MailList = () => {
             <span className="mailDesc">Rekisteröidy ja lähetämme sinulle parhaat tarjoukset</span>
             <div className="mailInputContainer">
                 <input className="inputClass" type="text" placeholder="Sähköpostiosoitteesi:"/>
-                <Link to="/register" className="joinBtn">Liity jäseneksi</Link>
+                <Link to="/register" className="joinBtn">Liity mukaan</Link>
             </div>
         </div>
     )
