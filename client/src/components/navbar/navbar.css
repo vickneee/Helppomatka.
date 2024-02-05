@@ -6,7 +6,7 @@
 
   }
 
-  .navContainer{
+  .navContainer {
     width: 100%;
     max-width: 1024px;
     color: white;
@@ -35,8 +35,27 @@
     cursor: pointer;
     color: #4B966E;
     font-weight: 500;
+    background: #f9f9f9;
   }
+
+.navButtonRegister {
+  margin-left: 20px;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 25px;
+  cursor: pointer;
+  color: #4B966E;
+  font-weight: 500;
+  background: #f9f9f9;
+}
+
 .navButton:hover {
   background: #f9f9f9;
   box-shadow: 1px 2px 4px #444444;
 }
+
+.navButtonRegister:hover {
+  background: #f9f9f9;
+  box-shadow: 1px 2px 4px #444444;
+}
+

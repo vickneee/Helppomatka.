@@ -8,6 +8,7 @@ function Navbar() {
             <div className="navContainer">
                 <a className='logo' href="">Helppomatka.fi</a>
                 <div className="navItems">
+                    <Link to="/register" className="navButtonRegister">Rekisteröidy</Link>
                     <Link to="/login" className="navButton">Kirjautuminen</Link>
                 </div>
             </div>
