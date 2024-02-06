@@ -27,6 +27,7 @@
   }
 
   .navButton {
+    font-size: 16px;
     margin-left: 20px;
     border: none;
     border-radius: 50px;
@@ -38,6 +39,7 @@
   }
 
 .navButtonRegister {
+  font-size: 16px;
   margin-left: 20px;
   border: none;
   border-radius: 50px;
@@ -50,11 +52,10 @@
 
 .navButton:hover {
   background: #f9f9f9;
-  box-shadow: 1px 2px 4px #444444;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .navButtonRegister:hover {
   background: #f9f9f9;
-  box-shadow: 1px 2px 4px #444444;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
-
