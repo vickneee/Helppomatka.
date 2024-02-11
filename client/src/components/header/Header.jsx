@@ -6,21 +6,34 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { DateRange } from "react-date-range";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
-import hotelData from "../searchItem/hotelList.json";
+
 
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
-  {
-    /*To save  filtered hotels after user search for a specific destination*/
-  }
-  const [filteredHotels, setFilteredHotels] = useState(hotelData);
+  {/*To save  filtered hotels after user search for a specific destination*/}
+  const [hotels, setHotels] = useState([]); // Original data from the API
+  useEffect(() => {
+    fetch('http://localhost:8800/api/hotels')
+      .then(response => response.json())
+      .then(hotels => setHotels(hotels))
+      .catch(error => console.error("Error accessing data:", error));
+  }, []);
+
+   // Filtered data to display
+   const [filteredHotels, setFilteredHotels] = useState([]);
+
+  useEffect(() => {
+    setFilteredHotels(hotels);
+  }, [hotels]); // Dependency on `hotels` to react to changes
+
+  
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -47,16 +60,18 @@ const Header = ({ type }) => {
     });
   };
 
+{/* Check if the 'value' of the 'city' field includes the word stored
+in the variable 'destination' */}
   const handleSearch = () => {
     const newFilteredHotels = filteredHotels.filter((hotel) =>
-      hotel.destination.toLowerCase().includes(destination.toLowerCase())
+      hotel.city.toLowerCase().includes(destination.toLowerCase())
     );
     setFilteredHotels(newFilteredHotels);
-
     navigate("/hotels", {
       state: { date, options, destination, filteredHotels: newFilteredHotels },
     });
   };
+
 
   return (
     <div className="header">
