@@ -1,4 +1,4 @@
-
+import cors from 'cors';
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
@@ -10,7 +10,7 @@ import roomsRoute from "./routes/rooms.js";
 
 const app = express();
 dotenv.config();
-
+app.use(cors());
 // Function to connect to MongoDB database
 const connect = async () => {
     try {
