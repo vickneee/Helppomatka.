@@ -9,6 +9,7 @@
 .custom-header {
     width: 100%;
     max-width: 1024px;
+    min-width: 620px;
     height: 70px;
     padding-top: 20px;
     background: #4B966E;
