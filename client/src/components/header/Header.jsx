@@ -12,18 +12,16 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
-
+import fetchHotels from '../../services/fetchHotels';
 
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
   {/*To save  filtered hotels after user search for a specific destination*/}
   const [hotels, setHotels] = useState([]); // Original data from the API
+
   useEffect(() => {
-    fetch('http://localhost:8800/api/hotels')
-      .then(response => response.json())
-      .then(hotels => setHotels(hotels))
-      .catch(error => console.error("Error accessing data:", error));
+    fetchHotels().then(hotels => setHotels(hotels));
   }, []);
 
    // Filtered data to display
