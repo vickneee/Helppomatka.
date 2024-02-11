@@ -12,7 +12,6 @@ function Navbar() {
                     {location.pathname !== "/" && (
                         <Link to="/register" className="navButtonRegister">Rekisteröidy</Link>
                     )}
-                    {/*<Link to="/register" className="navButtonRegister">Rekisteröidy</Link>*/}
                     <Link to="/login" className="navButton">Kirjaudu sisään</Link>
                 </div>
             </div>
