@@ -23,7 +23,7 @@ const SearchItem = () => {
               <button>{hotel.rating}</button>
             </div>
             <div className="siDetailTexts">
-              <span className="siPrice">{hotel.cheapestPrice}</span>
+              <span className="siPrice">{hotel.cheapestPrice.toFixed(2)} €</span>
               <button className="siCheckButton">Katso saatavuus</button>
             </div>
           </div>
