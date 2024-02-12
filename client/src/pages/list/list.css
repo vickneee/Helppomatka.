@@ -44,6 +44,14 @@
     padding: 5px;
     border-radius: 10px;
   }
+
+  .lsItem>select{
+    height: 40px;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
   .lsItem>span{
     height: 30px;
     padding: 5px;

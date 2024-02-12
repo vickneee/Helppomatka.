@@ -55,7 +55,6 @@ const HotelSchema = new mongoose.Schema({
 
 export default mongoose.model("Hotel", HotelSchema)
 
-
 /*
 {
 	"name": "Les Jardins De La Koutoubia",
