@@ -102,10 +102,10 @@ in the variable 'destination' */
                   <option value="" disabled>
                     Mihin matkustat?
                   </option>
-                  <option value="Helsinki">Helsinki, Suomi</option>
-                  <option value="Marrakech">Marrakech, Marokko</option>
-                  <option value="Tallinna">Tallinna, Viro</option>
-                  <option value="Puerto Viejo">
+                  <option value="helsinki">Helsinki, Suomi</option>
+                  <option value="marrakech">Marrakech, Marokko</option>
+                  <option value="tallinna">Tallinna, Viro</option>
+                  <option value="puerto viejo">
                     Puerto Viejo, Costa Rica
                   </option>
                 </select>
