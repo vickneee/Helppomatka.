@@ -15,7 +15,7 @@ app.use(cors());
 const connect = async () => {
     try {
         await mongoose.connect(process.env.MONGO);
-        console.log('Connected to MongoDB!1111111');
+        console.log('Connected to MongoDB!');
     } catch (error) {
         throw error;
     }
@@ -23,11 +23,11 @@ const connect = async () => {
 
 // this event listener if IP address deleted from mongoDB then we will get disconnected
 mongoose.connection.on("disconnected", () => {
-    console.log("MongoDB disconnected!222222222");
+    console.log("MongoDB disconnected!");
 });
 
 mongoose.connection.on("Connected", () => {
-    console.log("MongoDB connected!3333333");
+    console.log("MongoDB connected!");
 });
 
 //middlewares
@@ -44,5 +44,5 @@ app.use("/api/rooms", roomsRoute);
 
 app.listen(8800, () => {    
     connect();// Calling the connect function to establish a connection to MongoDB when the server starts
-    console.log('Connected to Backend!44444444');
+    console.log('Connected to Backend!');
 });
