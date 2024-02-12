@@ -12,26 +12,24 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
-import fetchHotels from '../../services/fetchHotels';
-
+import fetchHotels from "../../services/fetchHotels";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
-  {/*To save  filtered hotels after user search for a specific destination*/}
+  /*To save  filtered hotels after user search for a specific destination*/
   const [hotels, setHotels] = useState([]); // Original data from the API
 
   useEffect(() => {
-    fetchHotels().then(hotels => setHotels(hotels));
+    fetchHotels().then((hotels) => setHotels(hotels));
   }, []);
 
-   // Filtered data to display
-   const [filteredHotels, setFilteredHotels] = useState([]);
+  // Filtered data to display
+  const [filteredHotels, setFilteredHotels] = useState([]);
 
   useEffect(() => {
     setFilteredHotels(hotels);
   }, [hotels]); // Dependency on `hotels` to react to changes
 
-  
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -58,8 +56,8 @@ const Header = ({ type }) => {
     });
   };
 
-{/* Check if the 'value' of the 'city' field includes the word stored
-in the variable 'destination' */}
+  /* Check if the 'value' of the 'city' field includes the word stored
+in the variable 'destination' */
   const handleSearch = () => {
     const newFilteredHotels = filteredHotels.filter((hotel) =>
       hotel.city.toLowerCase().includes(destination.toLowerCase())
@@ -70,7 +68,6 @@ in the variable 'destination' */}
     });
   };
 
-
   return (
     <div className="header">
       <div
@@ -78,26 +75,40 @@ in the variable 'destination' */}
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-    <Navbar />
+        <Navbar />
         {type !== "list" && (
           <>
             <div className="flex-center">
-            <h1 className="headerTitle">
-              Unelmoitko lomastasi?
-            </h1>
-            <p className="headerDesc">
-              Anna meidän auttaa sinua löytämään täydellinen kohde seuraavaa seikkailuasi varten!
-            </p>
+              <h1 className="headerTitle">Unelmoitko lomastasi?</h1>
+              <p className="headerDesc">
+                Anna meidän auttaa sinua löytämään täydellinen kohde seuraavaa
+                seikkailuasi varten!
+              </p>
             </div>
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon bedIcon" />
-                <input
+                {/* <input
                   type="text"
                   placeholder="Mihin matkustat?"
                   className="headerSearchInput"
                   onChange={(e) => setDestination(e.target.value)}
-                />
+                /> */}
+                <select
+                  className="headerSearchInput"
+                  onChange={(e) => setDestination(e.target.value)}
+                  defaultValue=""
+                >
+                  <option value="" disabled>
+                    Mihin matkustat?
+                  </option>
+                  <option value="Helsinki">Helsinki, Suomi</option>
+                  <option value="Marrakech">Marrakech, Marokko</option>
+                  <option value="Tallinna">Tallinna, Viro</option>
+                  <option value="Puerto Viejo">
+                    Puerto Viejo, Costa Rica
+                  </option>
+                </select>
               </div>
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />

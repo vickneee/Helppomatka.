@@ -1,8 +1,5 @@
 import Hotel from "../models/Hotel.js";
 
-
-
-
 // ===== Create hotel =====
 export const createHotel = async (req, res, next) => {
     const newHotel = new Hotel(req.body);
@@ -57,7 +54,7 @@ export const updateHotel = async (req, res, next) => {
      }
    });
   
-   console.log(req.query)
+   /* console.log(req.query)  I have commented this line because every time a search was performed in the frontend it caused some keys { } to be displayed in the server cmd*/
   
     const { min, max, ...others } = req.query;
     try {
