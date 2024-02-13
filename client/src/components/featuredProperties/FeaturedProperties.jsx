@@ -8,6 +8,7 @@ const FeaturedProperties = () => {
   );
 
   return (
+
     <div className="res container">
       <h1 className="homeTitle mb-4">Vieraiden rakastamia paikkoja</h1>
 
@@ -32,7 +33,8 @@ const FeaturedProperties = () => {
             ))}
           </>
         )}
-      </div>
+    </div>  
+    
     </div>
   );
 };
