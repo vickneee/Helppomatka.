@@ -1,53 +1,72 @@
+import { Link } from "react-router-dom";
+import Rating from "@mui/material/Rating";
 import "./searchItem.css";
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
 
-const SearchItem = () => {
-  const location = useLocation();
-  const [filteredHotels] = useState(location.state.filteredHotels);
+const SearchItem = ({ item }) => {
 
-  {
-    /* Function to convert the numerical value of the grade to text */
-  }
-  function getRatingText(rating) {
-    if (rating === 5) {
-      return "Erinomainen";
-    } else if (rating >= 4) {
-      return "Erittäin hyvä";
-    } else if (rating >= 3) {
-      return "Hyvä";
-    } else if (rating >= 2) {
-      return "Tyydyttävä";
-    } else {
-      return "Huono";
-    }
-  }
   return (
-    <div>
-      {filteredHotels.map((hotel, index) => (
-        <div key={index} className="searchItem">
-          <img src={hotel.photos[0]} alt="" className="siImg" />
-          <div className="siDesc">
-            <h1 className="siTitle">{hotel.name}</h1>
-            <span className="siDistance">{hotel.distance}</span>
-            <span className="siSubtitle">{hotel.title}</span>
-            <span className="siCancelOp">{hotel.desc}</span>
-            <span className="siCancelOpSubtitle">{hotel.city}</span>
-          </div>
-          <div className="siDetails">
-            <div className="siRating">
-              <span>{getRatingText(hotel.rating)}</span>
-              <button>{hotel.rating.toFixed(1)}</button>
+    <div className="col-md-12 col-sm-6">
+      <div
+        className="searchItem"
+      >
+        <img src={item.photos[0]} alt="" className="siImg" />
+
+        <div className="mobileDesc">
+          <h4 className="mt-3">{item.name}</h4>
+          {item.rating && (
+            <Rating
+              name="half-rating-read"
+              defaultValue={item.rating}
+              precision={0.5}
+              readOnly
+            />
+          )}
+
+          <div className="mobileDescFooter">
+            <div className="left">
+              <h5>${item.cheapestPrice}</h5>
+              <h6>Per yö</h6>
             </div>
-            <div className="siDetailTexts">
-              <span className="siPrice">
-                {hotel.cheapestPrice.toFixed(2)} €
-              </span>
-              <button className="siCheckButton">Katso saatavuus</button>
+            <div className="right">
+              <Link to={`/hotels/${item._id}`}>
+                <button>Varaa nyt</button>
+              </Link>
             </div>
           </div>
         </div>
-      ))}
+
+        <div className="siDesc">
+          <h1 className="siTitle">{item.name}</h1>
+          <span className="siDistance">{item.distance}m keskustasta</span>
+          <span className="siTaxiOp">Ilmainen lentokenttätaksi</span>
+          <span className="siSubtitle">
+            {item.desc}
+          </span>
+          <span className="siCancelOp">Ilmainen peruutus </span>
+          <span className="siCancelOpSubtitle">
+          Voit peruuttaa myöhemmin, joten lukitse tämä loistava hinta jo tänään!
+          </span>
+        </div>
+        <div className="siDetails">
+          {item.rating && (
+            <div className="rating-cont d-flex justify-content-end">
+              <Rating
+                name="half-rating-read"
+                defaultValue={item.rating}
+                precision={0.5}
+                readOnly
+              />
+            </div>
+          )}
+          <div className="siDetailTexts">
+            <span className="siPrice">{item.cheapestPrice}€</span>
+            <span className="siTaxOp">Sisältää verot ja maksut</span>
+            <Link to={`/hotels/${item._id}`}>
+              <button className="siCheckButton">Katso saatavuus</button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

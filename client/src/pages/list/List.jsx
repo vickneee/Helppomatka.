@@ -1,156 +1,298 @@
 import "./list.css";
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
-import fetchHotels from "../../services/fetchHotels";
+import useFetch from "../../services/useFetch";
+import Empty from "./Empty";
+
 
 const List = () => {
-  const [hotels, setHotels] = useState([]); // Original data from the API
-
-  useEffect(() => {
-    fetchHotels().then((hotels) => setHotels(hotels));
-  }, []);
-
+    
   const location = useLocation();
-  const [destination, setDestination] = useState(location.state.destination);
-  const [filteredHotels, setFilteredHotels] = useState(
-    location.state.filteredHotels
+  const [destination, setDestination] = useState(
+    location.state?.destination || ""
   );
-  const [date, setDate] = useState(location.state.date);
+  const [dates, setDates] = useState(
+    location.state?.dates || [
+      {
+        startDate: new Date(),
+        endDate: new Date(),
+        key: "selection",
+      },
+    ]
+  );
   const [openDate, setOpenDate] = useState(false);
-  const [options, setOptions] = useState(location.state.options);
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
-
+  const options = useState(
+    location.state?.options || {
+      adult: 1,
+      children: 0,
+      room: 1,
+    }
+  );
+  const [min, setMin] = useState(0);
+  const [max, setMax] = useState(999);
+  const [filter, setFilter] = useState(false);
+  let inner = window.innerWidth;
   useEffect(() => {
-    setFilteredHotels(hotels);
-  }, [hotels]); // Dependency on `hotels` to react to chan
-
-  const handleSearchInList = () => {
-    const newFilteredHotels = filteredHotels.filter((hotel) =>
-      hotel.city.toLowerCase().includes(destination.toLowerCase())
+    if (inner >= 992) {
+      setFilter(true);
+    } else {
+      setFilter(false);
+    }
+  }, [inner]);
+  const type = [
+    { value: " ", text: "All" },
+    { value: "hotelli", text: "Hotellit" },
+    { value: "asunto", text: "Asunnot" },
+    { value: "mökki", text: "Mökkit" },
+    { value: "huvila", text: "Huvilat" },
+    { value: "lomakohde", text: "lomakohteet" },
+  ];
+  const ratingdata = [1, 2, 3, 4, 5];
+  const [active, setActive] = useState(null);
+  const [selected, setSelected] = useState(
+    location.state?.type || type[0].value
+  );
+  const optionSelect = type.map((item) => {
+    return (
+      <option key={item.value} value={item.value}>
+        {item.text}
+      </option>
     );
-    setFilteredHotels(newFilteredHotels);
+  });
+
+  const { data, loading } = useFetch(
+    `http://localhost:8800/api/hotels?city=${destination}`
+  );
+
+  const handleChange = (event) => {
+    setSelected(event.target.value);
   };
 
-  function searchingCity(destination) {
-    const destinations = {
-      helsinki: "Helsinki, Suomi",
-      tallinna: "Tallinna, Viro",
-      marrakech: "Marrakech, Marokko",
-      "puerto viejo": "Puerto Viejo, Costa Rica",
-    };
-    const key = destination.toLowerCase();
-    return destinations[key] || destination;
-  }
+  const datas = data.filter((item) => {
+    if (destination === " ") {
+      return item;
+    }
+    return item.city.toLowerCase().includes(destination.toLowerCase());
+  });
+  const typeoption = datas.filter((item) => {
+    if (selected === " ") {
+      return item;
+    }
+    return item.type.toLowerCase().includes(selected.toLowerCase());
+  });
+
+  const rateoption = typeoption.filter((item) => {
+    if (active === null) {
+      return item;
+    }
+    return item.rating === active;
+  });
+
+  const minmax = rateoption.filter((item) => {
+    return item.cheapestPrice >= min && item.cheapestPrice <= max;
+  });
 
   return (
     <div>
       <Header type="list" />
-      <div className="listContainer">
-        <div className="listWrapper">
-          <div className="listSearch">
-            <h1 className="lsTitle">Etsi</h1>
-            <div className="lsItem">
-              <label>Mihin matkustat?</label>
-              {/* <input
-                type="text"
-                onChange={(e) => setDestination(e.target.value)}
-              /> */}
-              <select
-                onChange={(e) => setDestination(e.target.value)}
-                value={searchingCity(destination)}
+      <div className="listContainer container">
+        <h3 className="mb-2">Valitse laajasta varausvalikoimasta</h3>
+        <div className="mb-4 available">
+          <span className="first">Käytettävissä olevat kohteet:</span>
+          <span className="second"> Helsinki,Marrakech, Tallin, Puerto Viejo</span>
+        </div>
+        <div className="listWrapper row gy-5">
+          <div className="col-lg-3 col-md-12">
+            <div className="position-relative">
+              <button
+                onClick={() => {
+                  setDestination("");
+                  setSelected(type[0].value);
+                  setActive(null);
+                }}
+                className="clear btn btn-sm"
               >
-                <option value=""></option>
-                <option value="Helsinki, Suomi">Helsinki, Suomi</option>
-                <option value="Marrakech, Marokko">Marrakech, Marokko</option>
-                <option value="Tallinna, Viro">Tallinna, Viro</option>
-                <option value="Puerto Viejo, Costa Rica">Puerto Viejo, Costa Rica</option>
-              </select>
-            </div>
-            <div className="lsItem">
-              <label>Check-in Date</label>
-              <span onClick={() => setOpenDate(!openDate)}>{`${format(
-                date[0].startDate,
-                "dd.MM.yyyy"
-              )} to ${format(date[0].endDate, "dd.MM.yyyy")}`}</span>
-              {openDate && (
-                <DateRange
-                  onChange={(item) => setDate([item.selection])}
-                  minDate={new Date()}
-                  ranges={date}
-                />
-              )}
-            </div>
-            <div className="lsItem">
-              <label>Options</label>
-              <div className="lsOptions">
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">
-                    Min price <small>per night</small>
-                  </span>
+                Tyhjentää
+              </button>
+              <div className="listSearch">
+                <i
+                  className="bx bx-filter"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="Filter"
+                  onClick={() => {
+                    setFilter(!filter);
+                  }}
+                ></i>
+                <h1 className="lsTitle">Etsi</h1>
+                <div className="lsItem">
+                  <label>Kohde</label>
                   <input
-                    type="number"
-                    className="lsOptionInput"
-                    value={minPrice}
-                    onChange={(e) => setMinPrice(e.target.value)}
+                    placeholder="Kirjoita haluamasi kohde"
+                    value={destination}
+                    onChange={(e) => {
+                      setDestination(e.target.value);
+                    }}
+                    type="text"
                   />
                 </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">
-                    Max price <small>per night</small>
-                  </span>
-                  <input
-                    type="number"
-                    className="lsOptionInput"
-                    value={maxPrice}
-                    onChange={(e) => setMaxPrice(e.target.value)}
-                  />
+                <div className="lsItem">
+                  <label>Tyyppi</label>
+                  <select
+                    value={selected}
+                    onChange={handleChange}
+                    className="form-select"
+                    aria-label="Default select example"
+                  >
+                    {optionSelect}
+                  </select>
                 </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Adult</span>
-                  <input
-                    type="number"
-                    min={1}
-                    className="lsOptionInput"
-                    placeholder={options.adult}
-                  />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Children</span>
-                  <input
-                    type="number"
-                    min={0}
-                    className="lsOptionInput"
-                    placeholder={options.children}
-                  />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Room</span>
-                  <input
-                    type="number"
-                    min={1}
-                    className="lsOptionInput"
-                    placeholder={options.room}
-                  />
-                </div>
+                {filter && (
+                  <div className="lsItem">
+                    <label>Arviot</label>
+                    <div className="rating-cont">
+                      {ratingdata.map((item, i) => {
+                        return (
+                          <button
+                            key={i}
+                            onClick={() => {
+                              setActive(item);
+                            }}
+                            className={`btn btn-sm rating-btn me-2 ${
+                              active === item && "active"
+                            }`}
+                          >
+                            {item}
+                          </button>
+                        );
+                      })}
+                      <button
+                        className="btn btn-sm cancel-btn"
+                        onClick={() => {
+                          setActive(null);
+                        }}
+                      >
+                        X
+                      </button>
+                    </div>
+                  </div>
+                )}
+                {filter && (
+                  <div className="lsItem lsOpt">
+                    <label>Sisäänkirjautumispäivä</label>
+                    {!dates && (
+                      <span onClick={() => setOpenDate(!openDate)}>
+                        Valitse kesto
+                      </span>
+                    )}
+                    {dates && (
+                      <span onClick={() => setOpenDate(!openDate)}>
+                        {`${format(
+                          dates[0].startDate,
+                          "MM/dd/yyyy"
+                        )} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}
+                      </span>
+                    )}
+
+                    {openDate && (
+                      <DateRange
+                        editableDateInputs={true}
+                        onChange={(item) => setDates([item.selection])}
+                        moveRangeOnFirstSelection={false}
+                        ranges={dates}
+                        className="date-list"
+                        minDate={new Date()}
+                      />
+                    )}
+                  </div>
+                )}
+                {filter && (
+                  <div className="lsItem">
+                    <label>Vaihtoehdot</label>
+                    <div className="lsOptions">
+                      <div className="lsOptionItem">
+                        <span className="lsOptionText">
+                        Min hinta <small>per yö</small>
+                        </span>
+                        <input
+                          type="number"
+                          value={min}
+                          onChange={(e) => setMin(e.target.value)}
+                          className="lsOptionInput"
+                        />
+                      </div>
+                      <div className="lsOptionItem">
+                        <span className="lsOptionText">
+                          Max hinta <small>per yö</small>
+                        </span>
+                        <input
+                          type="number"
+                          value={max}
+                          onChange={(e) => setMax(e.target.value)}
+                          className="lsOptionInput"
+                        />
+                      </div>
+                      <div className="lsOptionItem">
+                        <span className="lsOptionText">Aikuinen</span>
+                        <input
+                          type="number"
+                          min={1}
+                          className="lsOptionInput"
+                          placeholder={options?.adult}
+                        />
+                      </div>
+                      <div className="lsOptionItem">
+                        <span className="lsOptionText">Lapsi</span>
+                        <input
+                          type="number"
+                          min={0}
+                          className="lsOptionInput"
+                          placeholder={options?.children}
+                        />
+                      </div>
+                      <div className="lsOptionItem">
+                        <span className="lsOptionText">Huone</span>
+                        <input
+                          type="number"
+                          min={1}
+                          className="lsOptionInput"
+                          placeholder={options?.room}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-            <button onClick={handleSearchInList}>Etsi</button>
           </div>
-          <div className="listResult">
-            <SearchItem
-              filteredHotels={filteredHotels}
-              setFilteredHotels={setFilteredHotels}
-            />
+          <div className="col-md-12 col-lg-8">
+            <div className="listResult">
+              {minmax.length === 0 && !loading && <Empty />}
+              {loading ? (
+                // "loading"
+                <div className="d-flex justify-content-center">
+                  <div class="lds-dual-ring"></div>
+                </div>
+              ) : (
+                <div className="row gy-4">
+                  {minmax?.map((item) => (
+                    <SearchItem date={dates} item={item} key={item._id} />
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
 
 export default List;
+

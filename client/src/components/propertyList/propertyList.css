@@ -1,30 +1,112 @@
-.pList{
-    width: 100%;
-    max-width: 1024px;
+.list {
+  margin-bottom: 5rem;
+}
+
+.pListItem {
+  padding: 0.7rem;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0px 0px 25px 0px rgba(232, 232, 232, 0.7);
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(232, 232, 232, 0.7);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(232, 232, 232, 0.7);
+}
+
+.pListItem:hover {
+  transition: all ease-in 0.5s;
+  box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.4);
+}
+
+.pListImg {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.pListTitles {
+  margin-top: 1rem;
+}
+
+.pListTitles > h1 {
+  font-size: 18px;
+  color: #444;
+}
+
+.pListTitles > h2 {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.homeTitle {
+  font-size: 25px;
+}
+
+.pListMobile {
+  display: none;
+}
+
+.pListMobile .pListItemMobile {
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+@media (max-width: 991.98px) {
+  .pList {
+    display: none;
+  }
+
+  .mobile {
+    position: relative;
+  }
+
+  .mobile .pListMobile {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    overflow-x: auto;
   }
-  
-  .pListItem{
-    flex:1;
-    border-radius: 10px;
-    overflow: hidden;
+
+  .mobile .pListMobile::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .mobile .pListMobile .flasher {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -120%);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    background: white;
   }
-  
-  .pListImg{
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+
+  .mobile .pListMobile .flasher i {
+    color: rgba(103, 71, 54, 1);
+    font-size: 1.8rem;
   }
-  
-  .pListTitles>h1{
-    font-size: 18px;
-    color: #444;
+
+  .mobile .pListMobile .right {
+    right: -0.5rem;
   }
-  
-  .pListTitles>h2{
-    font-size: 14px;
-    font-weight: 300;
+
+  .mobile .pListMobile .left {
+    left: 1.7rem;
   }
+
+  .mobile .pListMobile .pListItemMobile {
+    padding: 0.6rem;
+    min-width: 180px;
+    box-shadow: 0px 0px 28px 0px rgba(211, 211, 211, 0.5);
+    -webkit-box-shadow: 0px 0px 28px 0px rgba(211, 211, 211, 0.5);
+    -moz-box-shadow: 0px 0px 28px 0px rgba(211, 211, 211, 0.5);
+  }
+
+  .mobile .pListMobile .pListItemMobile:hover {
+    transition: all ease-in 0.5s;
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.4);
+  }
+}

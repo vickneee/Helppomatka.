@@ -1,184 +1,329 @@
 .header {
-    background: linear-gradient(rgba(41, 125, 100, 0.5), rgba(40, 120, 77, 0.5)),
-    url("./image/hotel2.jpg") bottom no-repeat;
-    background-size: cover;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  background: linear-gradient(rgba(9, 81, 67, 0.5), rgba( 15, 90, 50,1)), url("./image/hotel2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 70vh;
+  margin-bottom: 5rem;
+  position: relative;
 }
 
-.headerContainer {
-    width: 100%;
-    max-width: 1024px;
-    height: 70vh;
-    margin: 20px 0 0 0;
+.headerContainer .headerCont {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.headerTitle {
-    color: white;
-    font-size: 60px;
+.headerContainer .headerCont .button-cont .headerBtn {
+  width: 130px;
+  border-radius: 5px;
 }
 
-.headerDesc {
-    margin: 5px 0 20px 0;
-    color: white;
-    font-size: 20px;
+.headerContainer .headerCont .headerTitle {
+  color: white;
+  font-size: 50px;
 }
 
-.headerDesc span {
-    font-size: 20px;
+.headerContainer .headerCont .headerDesc {
+  margin: 20px 0px;
+  color: white;
 }
 
-.Btn {
-    background-color: #ffffff;
-    color: #4B966E;
-    font-weight: 600;
-    font-size: 15px;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 50px;
-    margin-top: 20px;
-    cursor: pointer;
+.headerContainer .headerCont .headerSearch {
+  box-shadow: 0px -1px -1px -1px rgba(185, 185, 185, 1);
+  -webkit-box-shadow: 0px -1px -1px -1px rgba(185, 185, 185, 1);
+  -moz-box-shadow: 0px -1px -1px -1px rgba(185, 185, 185, 1);
+  margin-top: 4rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 1rem;
+  border-radius: 3px;
+  position: absolute;
 }
 
-.headerContainer.listMode {
-    margin: 20px 0 0 0;
-    height: 30vh;
+.headerContainer .headerCont .headerSearch .headerSearchItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 0.7rem;
+  position: relative;
+}
+
+.headerContainer .headerCont .headerSearch .headerSearchItem:nth-child(2) {
+  min-width: 230px !important;
+  position: relative;
+}
+
+.headerContainer .headerCont .headerSearch .headerSearchItem:nth-child(2) .date {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  z-index: 300 !important;
+}
+
+.headerContainer .headerCont .headerSearch .headerSearchItem .headerSearchInput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.headerContainer .headerCont .headerSearch .headerSearchItem .headerIcon {
+  color: lightgray;
+  font-size: 20px;
+}
+
+.headerContainer .headerCont .headerSearch .headerSearchButton .headerBtn2 {
+  background-color: #4B966E;
+  color: white;
+  font-weight: 500;
+  border: none;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+.headerBtn2.active {
+  background-color: #408862 !important;
+}
+
+.header.listMode {
+  margin-bottom: 3rem;
+  height: 35vh;
+  background-position: top;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background: linear-gradient(rgba(0, 0, 0, 0.196), #4b966e89), url("./image/hotel1.jpg");
+}
+
+.header.listMode .headerContainer .headerCont .headerTitle {
+  color: white;
+  font-size: 42px;
 }
 
 .headerList {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 50px;
+  display: flex;
+  gap: 40px;
 }
 
 .headerListItem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: .6s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .headerListItem.active {
-    border: 1px solid white;
-    padding: 10px 15px;
-    border-radius: 50px;
-}
-
-.headerDesc {
-    margin: 20px 0;
-}
-
-.deals {
-    font-weight: 800;
-    font-size: 18px;
-}
-
-.headerSearch {
-    height: 30px;
-    background-color: white;
-    border: 3px solid #4B966E;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0 10px 0;
-    position: absolute;
-    bottom: -25px;
-    width: 100%;
-    max-width: 1024px;
-    border-radius: 50px;
-}
-
-.headerIcon {
-    color: lightgray;
-}
-
-.headerSearchItem {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    outline: none;
-}
-
-.headerSearchInput {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 16px;
-}
-
-.bedIcon {
-    margin-left: 25px;
-}
-
-.headerSearchText {
-    color: #999999;
-    cursor: pointer;
-}
-
-.date {
-    position: absolute;
-    top: 50px;
-    z-index: 2;
-}
-
-.options {
-    z-index: 2;
-    position: absolute;
-    top: 50px;
-    background-color: white;
-    color: gray;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.4);
-}
-
-.optionItem {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-}
-
-.optionCounter {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    color: black;
-}
-
-.optionCounterButton {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #78B494;
-    color: #78B494;
-    cursor: pointer;
-    background-color: white;
-}
-
-.optionCounterButton:disabled {
-    cursor: not-allowed;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .headerBtn {
-    width: 100%;
-    background-color: #4B966E;
-    color: white;
-    font-weight: 500;
-    border: none;
-    border-radius: 0 51px 51px 0;
-    padding: 18px 30px;
-    cursor: pointer;
+  background-color: white;
+  font-weight: 500;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.flex-center {
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
+.headerBtn:hover {
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
 }
+
+.headerSearchText {
+  color: lightgray;
+  cursor: pointer;
+  min-width: 50px;
+}
+
+.options {
+  z-index: 2;
+  position: absolute;
+  top: 3rem;
+  background-color: white;
+  color: gray;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.optionItem {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.optionCounter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: black;
+}
+
+.optionCounterButton {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #4B966E;
+  color: #4B966E;
+  background-color: white;
+  cursor: pointer;
+}
+
+.optionCounterButton:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 1199.98px) {
+  .header.listMode .headerContainer .headerCont .headerTitle {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 575.98px) and (max-width: 991.98px) {
+  .header.listMode .headerContainer .headerCont .headerTitle {
+    font-size: 35px;
+  }
+
+  .header {
+    margin-bottom: 8rem;
+  }
+
+  .headerSearch {
+    display: none !important;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    z-index: 200 !important;
+    top: 33rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    flex-direction: column;
+  }
+
+  .headerSearch .headerSearchItem {
+    width: 100%;
+    margin: 2px;
+  }
+
+  .headerSearch .headerSearchItem:nth-child(2) .date {
+    left: 50%;
+    transform: translate(-10%, 0%);
+  }
+
+  .headerSearch .headerSearchButton {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  .headerSearch .headerSearchButton .headerBtn2 {
+    width: 100%;
+    border-radius: 8px;
+  }
+}
+
+@media (min-width: 991.98px) {
+  .headerSearch {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header.listMode .headerContainer .headerCont .headerTitle {
+    font-size: 25px !important;
+  }
+
+  .header {
+    margin-bottom: 14rem;
+    height: 50vh;
+  }
+
+  .headerContainer .headerCont {
+    height: 50vh;
+  }
+
+  .headerContainer .headerCont .headerTitle {
+    font-size: 35px !important;
+    margin-bottom: 1rem;
+  }
+
+  .headerContainer .headerCont .headerWrapper {
+    justify-content: center;
+  }
+
+  .headerContainer .headerCont .button-cont {
+    text-align: center;
+  }
+
+  .headerContainer .headerCont .headerDesc {
+    display: none;
+  }
+
+  .headerContainer .headerCont .headerTitle {
+    text-align: center;
+    font-size: 45px;
+  }
+
+  .headerContainer .headerCont .headerSearch {
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    z-index: 200 !important;
+    top: 25rem;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 85%;
+    flex-direction: column;
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .headerContainer .headerCont .headerSearch .headerSearchItem {
+    width: 100%;
+    margin: 3px;
+  }
+
+  .headerContainer .headerCont .headerSearch .headerSearchItem:nth-child(2) .date {
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+
+  .headerContainer .headerCont .headerSearch .headerSearchButton {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  .headerContainer .headerCont .headerSearch .headerSearchButton .headerBtn2 {
+    width: 100%;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 370px) {
+  .header {
+    height: 55vh !important;
+    margin-bottom: 5rem !important;
+  }
+
+  .headerSearch {
+    display: none !important;
+  }
+
+  .header.listMode {
+    height: 35vh !important;
+  }
+
+  .headerContainer .headerCont {
+    height: 35vh !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .headerSearch {
+    top: 28rem;
+  }
+}
+
