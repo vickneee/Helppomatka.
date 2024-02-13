@@ -12,15 +12,16 @@ function Home() {
     <div>
         <Header />
         <div className="homeContainer">
-        <h1 className="homeTitle mb-3">Kiinteistöt kaupungeittain</h1>
+        {/*<h1 className="homeTitle mb-3">Kiinteistöt kaupungeittain</h1>*/}
           <Featured />
-          <h1 className="homeTitle">Selaa kiinteistötyypin mukaan</h1>
+          {/*<h1 className="homeTitle">Selaa kiinteistötyypin mukaan</h1>*/}
           <PropertyList />
-          <h1 className="homeTitle">Vieraiden rakastamia paikkoja</h1>
+          {/*<h1 className="homeTitle">Vieraiden rakastamia paikkoja</h1>*/}
           <FeaturedProperties />
           <MailList/>
-          <Footer/>
+          
         </div>
+        <Footer/>
     </div>
   )
 }

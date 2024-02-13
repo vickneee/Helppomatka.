@@ -1,69 +1,124 @@
+import useFetch from "../../services/useFetch";
 import "./propertyList.css";
-import MokkitImage from "./images/saad-chaudhry-v9qKtDuq9Lk-unsplash.jpg"
-import HuvilatImage from "./images/john-fornander-y3_AHHrxUBY-unsplash.jpg"
-import LomakeskusImage from "./images/gerson-repreza-CepDpEiALqM-unsplash.jpg"
-import AsuntoImage from "./images/deborah-cortelazzi-gREquCUXQLI-unsplash.jpg"
-import HotelliImage from "./images/markus-spiske-g5ZIXjzRGds-unsplash.jpg"
+import { useNavigate } from "react-router-dom";
 
 const PropertyList = () => {
+  const { data, loading } = useFetch(
+    "http://localhost:8800/api/hotels/countByType"
+  );
+  
+const navigate = useNavigate();
+
+  const images = [
+    "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/1977342/pexels-photo-1977342.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  ];
+
+  const right = () => {
+    var right = document.querySelector(".pListMobile");
+    right.scrollBy(100, 0);
+  };
+
+  const left = () => {
+    var right = document.querySelector(".pListMobile");
+    right.scrollBy(-100, 0);
+  };
+
   return (
-      <div className="pList">
-          <div className="pListItem">
-              <img
-                  src={AsuntoImage}
-                  alt=""
-                  className="pListImg"
-              />
-              <div className="pListTitles">
-                  <h1>Asunnot</h1>
-                  <h2>2809 asuntoa</h2>
-              </div>
+    <div className="list container" id="list">
+      <h1 className="homeTitle mb-3">Selaa kiinteistötyypin mukaan</h1>
+      <div className="pList row">
+        {loading || data.length === 0 ? (
+          <div className="lds-roller mx-auto">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-          <div className="pListItem">
-              <img
-                  src={MokkitImage}
-                  alt=""
-                  className="pListImg"
-              />
-              <div className="pListTitles">
-                  <h1>Mökit</h1>
-                  <h2>621 mökkiä</h2>
+        ) : (
+          <>
+            {images.map((img, i) => (
+              <div className="col">
+                <div
+                  className="pListItem"
+                  onClick={() => {
+                    navigate("/hotels", {
+                      state: { type: data[i]?.type },
+                    });
+                  }}
+                  key={i}
+                >
+                  <img src={img} alt="" className="pListImg" />
+                  <div className="pListTitles">
+                    <h1>{data[i]?.type}</h1>
+                    <h2>
+                      {data[i]?.count} {data[i]?.type}
+                    </h2>
+                  </div>
+                </div>
               </div>
-          </div>
-          <div className="pListItem">
-              <img
-                  src={HotelliImage}
-                  alt=""
-                  className="pListImg"
-              />
-              <div className="pListTitles">
-                  <h1>Hotellit</h1>
-                  <h2>230 hotellia</h2>
-              </div>
-          </div>
-          <div className="pListItem">
-              <img
-                  src={LomakeskusImage}
-                  alt=""
-                  className="pListImg"
-              />
-              <div className="pListTitles">
-                  <h1>Lomakeskukset</h1>
-                  <h2>38 lomakeskuksta</h2>
-              </div>
-          </div>
-          <div className="pListItem">
-              <img
-                  src={HuvilatImage}
-                  alt=""
-                  className="pListImg"
-              />
-              <div className="pListTitles">
-                  <h1>Huvilat</h1>
-                  <h2>14 huvilaa</h2>
-              </div>
-          </div>
+            ))}
+          </>
+        )}
       </div>
+      <div className="mobile">
+        <div className="pListMobile">
+          {data.length !== 0 && (
+            <div className="flasher right">
+              <i class="bx bx-chevrons-right bx-flashing" onClick={right}></i>
+            </div>
+          )}
+          {data.length !== 0 && (
+            <div className="flasher left">
+              <i class="bx bx-chevrons-left bx-flashing" onClick={left}></i>
+            </div>
+          )}
+          {loading || data.length === 0 ? (
+            <div className="lds-roller mx-auto">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          ) : (
+            <>
+              {data &&
+                images.map((img, i) => (
+                  <div
+                    className="pListItemMobile me-3"
+                    onClick={() => {
+                      navigate("/hotels", {
+                        state: { type: data[i]?.type },
+                      });
+                    }}
+                    key={i}
+                  >
+                    <img src={img} alt="" className="pListImg" />
+
+                    <div className="pListTitles">
+                      <h1>{data[i]?.type}</h1>
+                      <h2>
+                        {data[i]?.count} {data[i]?.type}
+                      </h2>
+                    </div>
+                  </div>
+                ))}
+            </>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 
