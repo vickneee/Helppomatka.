@@ -86,17 +86,14 @@
   cursor: pointer;
 }
 
-.headerSearchButton>button {
+.headerSearchButton > button {
   border-radius: 4px;
+  background-color: #0F5A32 !important;
 }
 
-.headerSearchButton>button:hover {
+.headerSearchButton > button:hover {
   background-color: #4B966E !important;
   translate: 0 0.5px;
-}
-
-.headerBtn2.active {
-  background-color: #408862 !important;
 }
 
 .header.listMode {
