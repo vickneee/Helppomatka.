@@ -92,7 +92,7 @@
   .hotelDetails .hotelDetailsPrice button {
     border: none;
     padding: 10px 20px;
-    background-color: #4B966E;
+    background-color: #0F5A32;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -100,7 +100,7 @@
   }
 
 .hotelDetails .hotelDetailsPrice button:hover {
-  background-color: #78B494;
+  background-color: #4B966E;
 }
 
 
