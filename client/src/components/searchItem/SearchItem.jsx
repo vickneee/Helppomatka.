@@ -24,7 +24,7 @@ const SearchItem = ({ item }) => {
 
           <div className="mobileDescFooter">
             <div className="left">
-              <h5>${item.cheapestPrice}</h5>
+              <h5>{item.cheapestPrice}€</h5>
               <h6>Per yö</h6>
             </div>
             <div className="right">
