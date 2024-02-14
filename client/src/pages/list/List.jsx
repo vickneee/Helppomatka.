@@ -45,12 +45,12 @@ const List = () => {
     }
   }, [inner]);
   const type = [
-    { value: " ", text: "All" },
+    { value: " ", text: "Kaikki" },
     { value: "hotelli", text: "Hotellit" },
     { value: "asunto", text: "Asunnot" },
     { value: "mökki", text: "Mökkit" },
     { value: "huvila", text: "Huvilat" },
-    { value: "lomakohde", text: "lomakohteet" },
+    { value: "lomakohde", text: "Lomakohteet" },
   ];
   const ratingdata = [1, 2, 3, 4, 5];
   const [active, setActive] = useState(null);
