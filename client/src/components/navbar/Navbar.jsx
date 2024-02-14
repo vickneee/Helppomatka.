@@ -57,7 +57,7 @@ const Navbar = () => {
               className="nav-item me-3"
               onClick={() => {
                 notify();
-                
+
 
                 setTimeout(() => {
                   window.location.reload();
@@ -66,17 +66,17 @@ const Navbar = () => {
               }}
             >
               <a
-                href="##"
-                className="nav-link btn px-2 btn-md d-flex align-items-center"
+                href="#"
+                className="nav-link btn px-3 btn-md d-flex align-items-center"
               >
-                <i class="bx bx-power-off me-1"></i> {user.username}
+                <i className="bx bx-power-off me-1"></i> {user.username}
               </a>
             </li>
           )}
           {!user && (
             <Link to="/login" className="nav-item me-3">
-              <Link className="nav-link btn px-2 btn-md login-btn" to="/login">
-                Login <i class="bx bx-log-in-circle"></i>
+              <Link className="nav-link btn px-3 btn-md login-btn" to="/login">
+                Kirjaudu sisään <i className="bx bx-log-in-circle"></i>
               </Link>
             </Link>
           )}
