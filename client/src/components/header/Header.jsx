@@ -89,7 +89,7 @@ const Header = ({ type }) => {
                     />
                   </div>
                   <div className="headerSearchItem">
-                    <i class="bx bxs-calendar-plus headerIcon"></i>
+                    <i className="bx bxs-calendar-plus headerIcon"></i>
                     <span
                       onClick={() => setOpenDate(!openDate)}
                       className="headerSearchText"
@@ -109,7 +109,7 @@ const Header = ({ type }) => {
                     )}
                   </div>
                   <div className="headerSearchItem">
-                    <i class="bx bxs-user headerIcon"></i>
+                    <i className="bx bxs-user headerIcon"></i>
                     <span
                       onClick={() => setOpenOptions(!openOptions)}
                       className="headerSearchText"
