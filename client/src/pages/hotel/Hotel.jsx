@@ -10,6 +10,7 @@ import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import Reserve from "../../components/reserve/Reserve";
 import ImageGallery from "react-image-gallery";
+import 'react-image-gallery/styles/scss/image-gallery.scss';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Rating from "@mui/material/Rating";
