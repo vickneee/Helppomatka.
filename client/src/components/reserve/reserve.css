@@ -101,7 +101,6 @@
   margin: 8px;
   box-sizing: border-box;
   border: 32px solid black;
-  border-color: black transparent black transparent;
   animation: lds-hourglass 1.2s infinite;
 }
 
@@ -125,12 +124,18 @@
   }
 
   button.explore {
-    background-color: black !important;
-    color: white !important;
+    background-color: white !important;
+    border: 2px solid #167341;
+    color: #167341 !important;
   }
 
   button.home {
-    background-color: rgba(103, 71, 54) !important;
+    background-color: #0F5A32 !important;
+    color: white !important;
+  }
+
+  button.home:hover {
+    background-color: #167341 !important;
     color: white !important;
   }
 

@@ -5,25 +5,15 @@
 }
 
 .navbar .navbar-brand {
-  color: white;
+  color: white !important;
   font-weight: bold;
   font-size: 1.6rem;
 }
 
-.navbar .navbar-brand:hover {
-  color: white !important;
-}
-
 .navbar ul li .btn {
-  color: black !important;
   background: white !important;
   cursor: pointer;
   border-radius: 3px !important;
-}
-
-.navbar ul li .btn:hover {
-  background-color: rgba(10, 10, 10, 0.3) !important;
-  color: white !important;
 }
 
 .navbar ul li .btn i {
@@ -45,9 +35,15 @@
 .login-btn:hover {
   background-color: rgba(10, 10, 10, 0.3) !important;
   color: white !important;
+  translate: 0 0.5px;
 }
 
 .login-btn i {
   margin-left: 0.3rem;
   font-size: 14px;
+}
+
+.navbar .navbar-brand:hover {
+  color: #ffffff !important;
+  translate: 0 0.5px;
 }

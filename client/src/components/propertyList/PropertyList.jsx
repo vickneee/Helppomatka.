@@ -6,7 +6,7 @@ const PropertyList = () => {
   const { data, loading } = useFetch(
     "http://localhost:8800/api/hotels/countByType"
   );
-  
+
 const navigate = useNavigate();
 
   const images = [
@@ -72,12 +72,12 @@ const navigate = useNavigate();
         <div className="pListMobile">
           {data.length !== 0 && (
             <div className="flasher right">
-              <i class="bx bx-chevrons-right bx-flashing" onClick={right}></i>
+              <i className="bx bx-chevrons-right bx-flashing" onClick={right}></i>
             </div>
           )}
           {data.length !== 0 && (
             <div className="flasher left">
-              <i class="bx bx-chevrons-left bx-flashing" onClick={left}></i>
+              <i className="bx bx-chevrons-left bx-flashing" onClick={left}></i>
             </div>
           )}
           {loading || data.length === 0 ? (

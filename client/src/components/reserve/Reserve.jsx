@@ -93,11 +93,11 @@ const Reserve = ({ setOpen, hotelId }) => {
         )}
         {modal === false && (
           <div>
-            <span>Select your rooms:</span>
+            <span>Varaa huoneesi:</span>
             <br />
             {loading ? (
               <div className="d-flex justify-content-center">
-                <div class="lds-hourglass"></div>
+                <div className="lds-hourglass"></div>
               </div>
             ) : (
               data.map((item) => (
@@ -106,7 +106,7 @@ const Reserve = ({ setOpen, hotelId }) => {
                     <div className="rTitle">{item.title}</div>
                     <div className="rDesc">{item.desc}</div>
                     <div className="rMax">
-                      Max people: <b>{item.maxPeople}</b>
+                      Max ihmisia: <b>{item.maxPeople}</b>
                     </div>
                     <div className="rPrice">{item.price}</div>
                   </div>
@@ -134,7 +134,7 @@ const Reserve = ({ setOpen, hotelId }) => {
               }
               disabled={selectedRooms.length === 0}
             >
-              Reserve Now!
+              Varaa nyt!
             </button>
           </div>
         )}
@@ -143,9 +143,9 @@ const Reserve = ({ setOpen, hotelId }) => {
             <div className="d-flex justify-content-center">
               <img src={success} width="57" height="57" alt="" />
             </div>
-            <p>Rerservation booked succesfully</p>
+            <p>Varaus tehty onnistuneesti</p>
             <p className="id">
-              <span className="book">Booking id</span>: <span>{random}</span>
+              <span className="book">Varaus id</span>: <span>{random}</span>
               <i
                 onClick={() => {
                   navigator.clipboard.writeText(random);
@@ -159,7 +159,7 @@ const Reserve = ({ setOpen, hotelId }) => {
                 {copy && <span className="tooltiptext">Copied</span>}
               </i>
             </p>
-            <div class="button-cont d-flex justify-content-center">
+            <div className="button-cont d-flex justify-content-center">
               <button
                 onClick={() => {
                   navigate("/hotels", {
@@ -174,19 +174,19 @@ const Reserve = ({ setOpen, hotelId }) => {
                     },
                   });
                 }}
-                class="btn explore btn-md me-2 btn-primary"
+                className="btn explore btn-md me-2 btn-primary"
                 type="button"
               >
-                Explore
+                Tutki
               </button>
               <button
                 onClick={() => {
                   navigate("/");
                 }}
-                class="btn home btn-md btn-primary"
+                className="btn home btn-md btn-primary"
                 type="button"
               >
-                Home page
+                Kotisivu
               </button>
             </div>
           </div>

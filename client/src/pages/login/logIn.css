@@ -14,6 +14,7 @@
 
 .lbtn:hover {
     background-color: #167341;
+    translate: 0 0.5px;
 }
 
 form label  {
