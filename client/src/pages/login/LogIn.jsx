@@ -6,7 +6,6 @@ import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./../../pages/login/logIn.css"
 import Navbar from "../../components/navbar/Navbar.jsx";
-import Footer from "../../components/footer/Footer.jsx";
 
 const Login = () => {
     const [credentials, setCredentials] = useState({
