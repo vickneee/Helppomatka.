@@ -11,7 +11,7 @@ import Empty from "./Empty";
 
 
 const List = () => {
-    
+
   const location = useLocation();
   const [destination, setDestination] = useState(
     location.state?.destination || ""
@@ -104,7 +104,7 @@ const List = () => {
         <h3 className="mb-2">Valitse laajasta varausvalikoimasta</h3>
         <div className="mb-4 available">
           <span className="first">Käytettävissä olevat kohteet:</span>
-          <span className="second"> Helsinki,Marrakech, Tallin, Puerto Viejo</span>
+          <span className="second"> Helsinki, Marrakech, Tallinna, Puerto Viejo</span>
         </div>
         <div className="listWrapper row gy-5">
           <div className="col-lg-3 col-md-12">
@@ -276,7 +276,7 @@ const List = () => {
               {loading ? (
                 // "loading"
                 <div className="d-flex justify-content-center">
-                  <div class="lds-dual-ring"></div>
+                  <div className="lds-dual-ring"></div>
                 </div>
               ) : (
                 <div className="row gy-4">
