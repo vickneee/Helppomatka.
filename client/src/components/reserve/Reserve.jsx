@@ -12,7 +12,7 @@ import success from "./success-svgrepo-com.svg";
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading } = useFetch(
-    `http://localhost:8800/api/hotels/room/{hotelId}€`
+    `http://localhost:8800/api/hotels/room/${hotelId}`
   );
   const { dates } = useContext(SearchContext);
   const [modal, setModal] = useState(false);
@@ -106,7 +106,7 @@ const Reserve = ({ setOpen, hotelId }) => {
                     <div className="rTitle">{item.title}</div>
                     <div className="rDesc">{item.desc}</div>
                     <div className="rMax">
-                      Max people: <b>{item.maxPeople}</b>
+                      Max ihmisia: <b>{item.maxPeople}</b>
                     </div>
                     <div className="rPrice">{item.price}</div>
                   </div>
