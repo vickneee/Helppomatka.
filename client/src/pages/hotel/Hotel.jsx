@@ -49,8 +49,7 @@ const Hotel = () => {
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
   function dayDifference(date1, date2) {
     const timeDiff = Math.abs(date2?.getTime() - date1?.getTime());
-    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
-    return diffDays;
+    return Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
   }
 
   const days = dayDifference(dates[0]?.endDate, dates[0]?.startDate);
@@ -80,7 +79,7 @@ const Hotel = () => {
       <div className="hotelContainer container">
         {loading || data.length === 0 ? (
           <div className="d-flex justify-content-center">
-            <div class="lds-spinner">
+            <div className="lds-spinner">
               <div></div>
               <div></div>
               <div></div>
@@ -181,7 +180,7 @@ const Hotel = () => {
       </div>
 
       {openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
-    <Footer />  
+    <Footer />
     </div>
   );
 };

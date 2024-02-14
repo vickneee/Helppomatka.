@@ -1,35 +1,34 @@
 import axios from "axios";
-import { useContext, useState,useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
-import { ToastContainer, toast } from "react-toastify";
+import {useContext, useState, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext";
+import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./../../pages/login/logIn.css"
 import Navbar from "../../components/navbar/Navbar.jsx";
 
 const Login = () => {
     const [credentials, setCredentials] = useState({
-        username:"",
-        password:"",
+        username: "",
+        password: "",
     });
-    const { user, loading, error, dispatch } = useContext(AuthContext);
+    const {user, loading, error, dispatch} = useContext(AuthContext);
 
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+        setCredentials((prev) => ({...prev, [e.target.id]: e.target.value}));
     };
     const notify = () => {
         toast.success("Logged in succesfully");
     };
 
 
-
-    useEffect(()=>{
+    useEffect(() => {
         if (error) {
             toast.error("Incorrect username or password");
         }
-    },[error])
+    }, [error])
 
 
     const delay = () => {
@@ -37,18 +36,18 @@ const Login = () => {
     };
     const handleClick = async (e) => {
         e.preventDefault();
-        dispatch({ type: "LOGIN_START" });
+        dispatch({type: "LOGIN_START"});
         try {
             const res = await axios.post(
                 "http://localhost:8800/api/auth/login",
                 credentials
             );
-            dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+            dispatch({type: "LOGIN_SUCCESS", payload: res.data.details});
             localStorage.setItem("user", res.data.details);
             notify();
             setTimeout(delay, 2000);
         } catch (err) {
-            dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+            dispatch({type: "LOGIN_FAILURE", payload: err.response.data});
         }
     };
 
@@ -57,9 +56,9 @@ const Login = () => {
     return (
         <section className="vh-100 login-mdb">
             <Navbar/>
-            <ToastContainer autoClose={2000} />
+            <ToastContainer autoClose={2000}/>
             <div className="container py-5 vh-100">
-                <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="row d-flex justify-content-center align-items-center vh-100">
                     <div className="col col-xl-10">
                         <div className="card card-mbd">
                             <div className="row g-0">
@@ -136,6 +135,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+
         </section>
     );
 };
