@@ -12,7 +12,7 @@ import success from "./success-svgrepo-com.svg";
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading } = useFetch(
-    `http://localhost:8800/api/hotels/room/${hotelId}`
+    `http://localhost:8800/api/hotels/room/{hotelId}€`
   );
   const { dates } = useContext(SearchContext);
   const [modal, setModal] = useState(false);
@@ -93,7 +93,7 @@ const Reserve = ({ setOpen, hotelId }) => {
         )}
         {modal === false && (
           <div>
-            <span>Select your rooms:</span>
+            <span>Varaa huoneesi:</span>
             <br />
             {loading ? (
               <div className="d-flex justify-content-center">
