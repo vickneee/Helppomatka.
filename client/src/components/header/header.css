@@ -92,6 +92,7 @@
 
 .headerSearchButton>button:hover {
   background-color: #4B966E !important;
+  translate: 0 0.5px;
 }
 
 .headerBtn2.active {
