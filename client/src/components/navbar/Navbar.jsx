@@ -69,7 +69,7 @@ const Navbar = () => {
                 href="#"
                 className="nav-link btn px-3 btn-md d-flex align-items-center"
               >
-                <i className="bx bx-power-off me-1"></i> {user.username}
+                <i className="userBtn bx bx-power-off me-1"></i> {user.username}
               </a>
             </li>
           )}

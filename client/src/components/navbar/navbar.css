@@ -11,15 +11,9 @@
 }
 
 .navbar ul li .btn {
-  /*color: black !important;*/
   background: white !important;
   cursor: pointer;
   border-radius: 3px !important;
-}
-
-.navbar ul li .btn:hover {
-  /*background-color: rgba(10, 10, 10, 0.3) !important;*/
-  color: white !important;
 }
 
 .navbar ul li .btn i {
