@@ -9,8 +9,8 @@ import Navbar from "../../components/navbar/Navbar.jsx";
 
 const Login = () => {
     const [credentials, setCredentials] = useState({
-        username: "",
-        password: "",
+        username: "Helppomatka",
+        password: "helppomatka",
     });
     const {user, loading, error, dispatch} = useContext(AuthContext);
 

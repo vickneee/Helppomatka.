@@ -5,6 +5,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { SearchContext } from "../../context/SearchContext";
+import video from "./image/hotel-video.mp4"
 
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
@@ -54,6 +55,10 @@ const Header = ({ type }) => {
 
   return (
     <div className={type === "list" ? "header listMode" : "header"}>
+      <video autoPlay loop muted>
+              <source src={video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
 
       <div className="headerContainer container">
         <Navbar />
