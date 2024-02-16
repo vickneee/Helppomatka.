@@ -162,7 +162,7 @@ const Hotel = () => {
                       saa erinomaisen sijaintipistemäärän {data.rating}
                     </span>
                     <h2>
-                      <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
+                      <b>{days * data.cheapestPrice * options.room}€</b> ({days}{" "}
                       yötä)
                     </h2>
                     <button onClick={handleClick}>Varaa nyt!</button>

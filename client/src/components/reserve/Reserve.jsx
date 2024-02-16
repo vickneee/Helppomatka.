@@ -61,7 +61,7 @@ const Reserve = ({ setOpen, hotelId }) => {
   const navigate = useNavigate();
 
   const handleClick = async () => {
-    // if (selectedRooms.length !== 0) {
+
       try {
         await Promise.all(
           selectedRooms.map((roomId) => {
@@ -72,12 +72,8 @@ const Reserve = ({ setOpen, hotelId }) => {
           })
         );
         setModal(true);
-        // setOpen(false);
-        // navigate("/");
       } catch (err) {}
-    // } else {
-    //   notify();
-    // }
+
   };
 
   return (
