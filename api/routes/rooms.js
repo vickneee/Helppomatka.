@@ -1,29 +1,33 @@
 import express from "express";
 import {
   createRoom,
-  deleteRoom,
   getRoom,
   getRooms,
   updateRoom,
+  deleteRoom,
   updateRoomAvailability,
 } from "../controllers/roomController.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 
 const router = express.Router();
-//CREATE
+
+// CREATE a Room
 router.post("/:hotelid", verifyAdmin, createRoom);
 
-//UPDATE
-router.put("/availability/:id", updateRoomAvailability);
-router.put("/:id", verifyAdmin, updateRoom);
-//DELETE
-router.delete("/:id/:hotelid", verifyAdmin, deleteRoom);
-//GET
-
+// GET a Room
 router.get("/:id", getRoom);
-//GET ALL
 
+// GET all Rooms
 router.get("/", getRooms);
+
+// UPDATE a Room
+router.put("/:id", verifyAdmin, updateRoom);
+
+// DELETE
+router.delete("/:id/:hotelid", verifyAdmin, deleteRoom);
+
+// UPDATE a Room Availability
+router.put("/availability/:id", updateRoomAvailability);
 
 export default router;
