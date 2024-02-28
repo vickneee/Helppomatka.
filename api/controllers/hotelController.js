@@ -1,5 +1,6 @@
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
+import {createError} from "../utils/error.js";
 
 // CREATE a Hotel
 export const createHotel = async (req, res, next) => {
@@ -17,6 +18,12 @@ export const createHotel = async (req, res, next) => {
 export const getHotel = async (req, res, next) => {
   try {
     const hotel = await Hotel.findById(req.params.id);
+
+    // Check if no hotel was found with the provided ID
+    if (!hotel) {
+      return next(createError(404, "Hotel not found"));
+    }
+
     res.status(200).json(hotel);
   } catch (err) {
     next(err);
@@ -53,6 +60,12 @@ export const updateHotel = async (req, res, next) => {
       { $set: req.body },
       { new: true }
     );
+
+    // Check if no hotel was found with the provided ID
+    if (!updatedHotel) {
+      return next(createError(404, "Hotel not found"));
+    }
+
     res.status(200).json(updatedHotel);
   } catch (err) {
     next(err);
