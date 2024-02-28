@@ -18,7 +18,7 @@ const AuthReducer = (state, action) => {
       };
     case "LOGIN_SUCCESS":
       return {
-        user: action.payload, //show users name 
+        user: action.payload, // Show user's name
         loading: false,
         error: null,
       };
@@ -28,7 +28,7 @@ const AuthReducer = (state, action) => {
         loading: false,
         error: action.payload,
       };
-    case "LOGOUT": // initial state
+    case "LOGOUT": // Initial state
       return {
         user: null,
         loading: false,
@@ -44,7 +44,7 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
-  }, [state.user]); // to not logs out if you refrech the page 
+  }, [state.user]); // To not log out if you refresh the page
 
   return (
     <AuthContext.Provider
