@@ -8,7 +8,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import success from "./success-svgrepo-com.svg";
+import success from "./image/success-svgrepo-com.svg";
+
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading } = useFetch(
@@ -34,7 +35,6 @@ const Reserve = ({ setOpen, hotelId }) => {
       dates.push(new Date(date).getTime());
       date.setDate(date.getDate() + 1);
     }
-
     return dates;
   };
 
@@ -44,7 +44,6 @@ const Reserve = ({ setOpen, hotelId }) => {
     const isFound = roomNumber.unavailableDates.some((date) =>
       alldates.includes(new Date(date).getTime())
     );
-
     return !isFound;
   };
 
