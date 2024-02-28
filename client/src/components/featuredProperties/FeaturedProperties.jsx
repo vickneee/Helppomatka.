@@ -15,14 +15,14 @@ const FeaturedProperties = () => {
       <div className="fp row gy-4">
         {loading || data.length === 0 ? (
           <div className="lds-roller mx-auto">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            {/*<div></div>*/}
+            {/*<div></div>*/}
+            {/*<div></div>*/}
+            {/*<div></div>*/}
+            {/*<div></div>*/}
+            {/*<div></div>*/}
+            {/*<div></div>*/}
+            {/*<div></div>*/}
           </div>
         ) : (
           <>
@@ -33,8 +33,8 @@ const FeaturedProperties = () => {
             ))}
           </>
         )}
-    </div>  
-    
+    </div>
+
     </div>
   );
 };
