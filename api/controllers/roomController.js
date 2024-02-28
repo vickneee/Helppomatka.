@@ -1,6 +1,5 @@
 import Room from "../models/Room.js";
 import Hotel from "../models/Hotel.js";
-import { createError } from "../utils/error.js";
 
 // CREATE a Room
 export const createRoom = async (req, res, next) => {
@@ -11,12 +10,12 @@ export const createRoom = async (req, res, next) => {
       const savedRoom = await newRoom.save();
       try {
         await Hotel.findByIdAndUpdate(hotelId, {
-          $push: { rooms: savedRoom._id }, // This is a mongoDB PUSH method
+          $push: { rooms: savedRoom._id }, // This is a mongoDB PUSH/POST method
         });
       } catch (err) {
         next(err);
       }
-      res.status(200).json(savedRoom);
+      res.status(200).json(savedRoom); // SAVE a Room
     } catch (err) {
       next(err);
     }
@@ -32,7 +31,7 @@ export const getRoom = async (req, res, next) => {
   }
 };
 
-// GRT all Rooms
+// GET all Rooms
 export const getRooms = async (req, res, next) => {
   try {
     const rooms = await Room.find();
