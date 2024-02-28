@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./pagenotfound.css";
 
-import "./pag.css";
 const PageNotFound = () => {
   const navigate = useNavigate();
 
@@ -12,16 +12,20 @@ const PageNotFound = () => {
           <h2 className="headers" data-text="404">
             404
           </h2>
-          <h4 data-text="Opps! Page not found">Opps! Page not found</h4>
+          <h4 data-text="Opps! Page not found">Oops! Page not found</h4>
           <p>
             Sorry, the page you're looking for doesn't exist. If you think
             something is broken, report a problem.
           </p>
-          <div class="btns">
+          <div className="btns">
             <button
               className="btn btn-lg btn-info"
               onClick={() => {
-                navigate(-1);
+                try {
+                  navigate("/");
+                } catch (error) { // SHOW an Error Message to the user
+                  console.error("Error navigating to the homepage:", error);
+                }
               }}
             >
               return
