@@ -16,10 +16,10 @@ const router = express.Router();
 // CREATE a Hotel
 router.post("/", verifyAdmin,  createHotel);
 
-//GET a Hotel
+// GET a Hotel
 router.get("/find/:id", getHotel);
 
-//GET ALL
+// GET ALL
 router.get("/", getHotels);
 
 // UPDATE
