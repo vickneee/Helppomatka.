@@ -9,7 +9,6 @@ import {
 } from "../controllers/roomController.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
-
 const router = express.Router();
 
 // CREATE a Room
