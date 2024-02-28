@@ -72,7 +72,7 @@
   z-index: 300 !important;
 }
 
-.headerContainer .headerCont .headerSearch .headerSearchItem .headerSearchInput {
+.headerContainer .headerCont .headerSearch .headerSearchItem .headerSearchSelect {
   border: none;
   outline: none;
   background-color: transparent;
