@@ -3,7 +3,7 @@ import { createContext, useReducer } from "react";
 // Specific date
 const date = new Date();
 
-// Add  days to specified date
+// Add days to specified date
 date.setDate(date.getDate() + 2);
 
 const INITIAL_STATE = {

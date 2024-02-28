@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import { Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 
-
 const FeaturedItem = (props) => {
 const navigate = useNavigate();
   const [value, setValue] = React.useState(props.item.rating);

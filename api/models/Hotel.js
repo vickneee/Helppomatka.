@@ -64,7 +64,7 @@ export default mongoose.model("Hotel", HotelSchema)
 	"distance": "900",
 	"title": " luxurious hotel in the city",
 	"desc": "hotel description",
-	"cheapestPrice": 225
-	
+	"cheapestPrice": 225,
+	"featured": false,
 }
 */

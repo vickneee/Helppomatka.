@@ -11,6 +11,7 @@ import cors from "cors";
 const app = express();
 dotenv.config();
 
+// CONNECTING To MongoDB
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
@@ -20,20 +21,23 @@ const connect = async () => {
   }
 };
 
+// MongoDB Disconnected Message
 mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
 
-//middlewares
+// Middlewares
 app.use(cors())
 app.use(cookieParser())
 app.use(express.json());
 
+// ROUTE Middlewares
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 
+// General ERROR Message
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
   const errorMessage = err.message || "Something went wrong!";
@@ -45,6 +49,7 @@ app.use((err, req, res, next) => {
   });
 });
 
+// PORT Listen on ....
 app.listen(8800, () => {
   connect();
   console.log("Connected to backend.");

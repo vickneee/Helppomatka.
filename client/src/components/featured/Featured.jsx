@@ -1,6 +1,5 @@
 import useFetch from "../../services/useFetch.js";
 import { useNavigate } from "react-router-dom";
-
 import "./featured.css";
 
 const Featured = () => {
@@ -28,11 +27,11 @@ const Featured = () => {
             <div className="col-md-6 col-lg-3 col-6">
               <div
                 className="featuredItem"
-    
+
                 onClick={() => {
                   navigate("/hotels", {
                     state: { destination: "Helsinki"  },
-                  }); 
+                  });
                 }}
               >
                 <img

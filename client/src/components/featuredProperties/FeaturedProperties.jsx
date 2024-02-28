@@ -33,8 +33,8 @@ const FeaturedProperties = () => {
             ))}
           </>
         )}
-    </div>  
-    
+    </div>
+
     </div>
   );
 };

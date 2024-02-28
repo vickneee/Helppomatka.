@@ -1,52 +1,44 @@
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
+import {createError} from "../utils/error.js";
 
+// CREATE a Hotel
 export const createHotel = async (req, res, next) => {
   const newHotel = new Hotel(req.body);
 
   try {
     const savedHotel = await newHotel.save();
-    res.status(200).json(savedHotel);
+    res.status(200).json(savedHotel); // SAVE a Hotel
   } catch (err) {
     next(err);
   }
 };
-export const updateHotel = async (req, res, next) => {
-  try {
-    const updatedHotel = await Hotel.findByIdAndUpdate(
-      req.params.id,
-      { $set: req.body },
-      { new: true }
-    );
-    res.status(200).json(updatedHotel);
-  } catch (err) {
-    next(err);
-  }
-};
-export const deleteHotel = async (req, res, next) => {
-  try {
-    await Hotel.findByIdAndDelete(req.params.id);
-    res.status(200).json("Hotel has been deleted.");
-  } catch (err) {
-    next(err);
-  }
-};
+
+// GET a Hotel
 export const getHotel = async (req, res, next) => {
   try {
     const hotel = await Hotel.findById(req.params.id);
+
+    // Check if no hotel was found with the provided ID
+    if (!hotel) {
+      return next(createError(404, "Hotel not found"));
+    }
+
     res.status(200).json(hotel);
   } catch (err) {
     next(err);
   }
 };
-export const getHotels = async (req, res, next) => {
- Object.keys(req.query).forEach((key) => {
-   if (req.query[key] === "") {
-     delete req.query[key];
-   }
- });
 
- console.log(req.query)
+// GET all Hotels
+export const getHotels = async (req, res, next) => {
+  Object.keys(req.query).forEach((key) => {
+    if (req.query[key] === "") {
+      delete req.query[key];
+    }
+  });
+
+  console.log(req.query)
 
   const { min, max, ...others } = req.query;
   try {
@@ -59,6 +51,44 @@ export const getHotels = async (req, res, next) => {
     next(err);
   }
 };
+
+// UPDATE a Hotel
+export const updateHotel = async (req, res, next) => {
+  try {
+    const updatedHotel = await Hotel.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+
+    // Check if no hotel was found with the provided ID
+    if (!updatedHotel) {
+      return next(createError(404, "Hotel not found"));
+    }
+
+    res.status(200).json(updatedHotel);
+  } catch (err) {
+    next(err);
+  }
+};
+
+// DELETE a Hotel
+export const deleteHotel = async (req, res, next) => {
+  try {
+    const deletedHotel = await Hotel.findByIdAndDelete(req.params.id);
+
+    // Check if no hotel was found with the provided ID
+    if (!deletedHotel) {
+      return next(createError(404, "Hotel not found"));
+    }
+
+    res.status(200).json("Hotel has been deleted.");
+  } catch (err) {
+    next(err);
+  }
+};
+
+// COUNT by City
 export const countByCity = async (req, res, next) => {
   const cities = req.query.cities.split(",");
   try {
@@ -72,6 +102,8 @@ export const countByCity = async (req, res, next) => {
     next(err);
   }
 };
+
+// COUNT by Type
 export const countByType = async (req, res, next) => {
   try {
     const hotelliCount = await Hotel.countDocuments({ type: "hotelli" });
@@ -92,6 +124,7 @@ export const countByType = async (req, res, next) => {
   }
 };
 
+// GET Hotel Rooms
 export const getHotelRooms = async (req, res, next) => {
   try {
     const hotel = await Hotel.findById(req.params.id);

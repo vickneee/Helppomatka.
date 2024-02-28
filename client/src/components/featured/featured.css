@@ -11,9 +11,9 @@
   height: 250px;
   flex: 1;
   cursor: pointer;
-  box-shadow: 0px 0px 28px 0px rgb(211, 211, 211, 0.5);
-  -webkit-box-shadow: 0px 0px 28px 0px rgb(211, 211, 211, 0.5);
-  -moz-box-shadow: 0px 0px 28px 0px rgb(211, 211, 211, 0.5);
+  box-shadow: 0 0 28px 0 rgb(211, 211, 211, 0.5);
+  -webkit-box-shadow: 0 0 28px 0 rgb(211, 211, 211, 0.5);
+  -moz-box-shadow: 0 0 28px 0 rgb(211, 211, 211, 0.5);
 }
 
 .featuredItem:hover {
@@ -60,13 +60,13 @@
   }
 }
 
-
 .lds-ring {
   display: inline-block;
   position: relative;
   width: 64px;
   height: 64px;
 }
+
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -77,17 +77,20 @@
   border: 6px solid rgb(17, 86, 57);
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: rgb(17, 86, 57) transparent transparent transparent;
 }
+
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
 }
+
 .lds-ring div:nth-child(2) {
   animation-delay: -0.3s;
 }
+
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
@@ -97,9 +100,8 @@
   }
 }
 
-
 .lds-spinner {
-  color: official;
+  color: rgb(17, 86, 57);
   display: inline-block;
   position: relative;
   width: 80px;
@@ -187,7 +189,7 @@
   0% {
     opacity: 1;
   }
-  
+
   100% {
     opacity: 0;
   }
