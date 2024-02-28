@@ -18,12 +18,12 @@ const navigate = useNavigate();
   ];
 
   const right = () => {
-    var right = document.querySelector(".pListMobile");
+    const right = document.querySelector(".pListMobile");
     right.scrollBy(100, 0);
   };
 
   const left = () => {
-    var right = document.querySelector(".pListMobile");
+    const right = document.querySelector(".pListMobile");
     right.scrollBy(-100, 0);
   };
 
