@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify";
+// import {AuthContext} from "../../context/AuthContext";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import "./../../pages/register/register.css"
@@ -13,6 +14,8 @@ const Register = () => {
         password: "",
         confirmPassword: "",
     });
+    // const {user, loading, error, dispatch} = useContext(AuthContext);
+
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -33,7 +36,7 @@ const Register = () => {
         }
 
         try {
-            const response = await axios.post("http://localhost:8800/api/users/register", {
+            const response = await axios.post("http://localhost:8800/api/auth/register", {
                 username,
                 email,
                 password,
