@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+
 const Navbar = () => {
   const { user } = useContext(AuthContext);
   const [navbar, setNavbar] = useState(false);
