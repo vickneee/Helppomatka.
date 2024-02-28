@@ -20,7 +20,7 @@ const Login = () => {
         setCredentials((prev) => ({...prev, [e.target.id]: e.target.value}));
     };
     const notify = () => {
-        toast.success("Logged in succesfully");
+        toast.success("Logged in successfully");
     };
 
 
