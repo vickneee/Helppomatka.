@@ -75,7 +75,13 @@ export const updateHotel = async (req, res, next) => {
 // DELETE a Hotel
 export const deleteHotel = async (req, res, next) => {
   try {
-    await Hotel.findByIdAndDelete(req.params.id);
+    const deletedHotel = await Hotel.findByIdAndDelete(req.params.id);
+
+    // Check if no hotel was found with the provided ID
+    if (!deletedHotel) {
+      return next(createError(404, "Hotel not found"));
+    }
+
     res.status(200).json("Hotel has been deleted.");
   } catch (err) {
     next(err);

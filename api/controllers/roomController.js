@@ -1,5 +1,6 @@
 import Room from "../models/Room.js";
 import Hotel from "../models/Hotel.js";
+import {createError} from "../utils/error.js";
 
 // CREATE a Room
 export const createRoom = async (req, res, next) => {
@@ -59,11 +60,18 @@ export const getRooms = async (req, res, next) => {
 export const deleteRoom = async (req, res, next) => {
   const hotelId = req.params.hotelid;
   try {
-    await Room.findByIdAndDelete(req.params.id);
+    const deletedRoom = await Room.findByIdAndDelete(req.params.id);
     try {
       await Hotel.findByIdAndUpdate(hotelId, {
         $pull: { rooms: req.params.id },
       });
+
+
+      // Check if no room was found with the provided ID
+      if (!deletedRoom) {
+        return next(createError(404, "Room not found"));
+      }
+
     } catch (err) {
       next(err);
     }
