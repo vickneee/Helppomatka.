@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./../../pages/login/logIn.css"
+import "./../../pages/register/register.css"
 import Navbar from "../../components/navbar/Navbar.jsx";
 
 const Register = () => {
@@ -15,9 +15,9 @@ const Register = () => {
     return (
         <div>
             <div className="custom-header-main">
-            <div className="custom-header">
-                <Navbar/>
-            </div>
+                <div className="custom-header">
+                    <Navbar/>
+                </div>
             </div>
             <div className="auth-form-container">
                 <h2 className="logInTitle">Rekisteröidy</h2>
