@@ -101,7 +101,7 @@ const Featured = () => {
                   className="featuredImg img-fluid"
                 />
                 <div className="featuredTitles">
-                  <h1>Costa rica</h1>
+                  <h1>Costa Rica</h1>
                   <h2>{data[3]} ominaisuuksia</h2>
                 </div>
               </div>

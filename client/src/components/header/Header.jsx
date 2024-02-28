@@ -5,7 +5,7 @@ import "react-date-range/dist/styles.css"; // Main css file
 import "react-date-range/dist/theme/default.css"; // Theme css file
 import { format } from "date-fns";
 import { SearchContext } from "../../context/SearchContext";
-import video from "./image/hotel-video.mp4"
+import video from "./image/hotel-video.mp4";
 
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
@@ -46,20 +46,20 @@ const Header = ({ type }) => {
     // if (destination === "") {
     //   notify();
     // } else {
-      dispatch({
-        type: "NEW_SEARCH",
-        payload: { destination, dates, options },
-      });
-      navigate("/hotels", { state: { destination, dates, options } });
+    dispatch({
+      type: "NEW_SEARCH",
+      payload: { destination, dates, options },
+    });
+    navigate("/hotels", { state: { destination, dates, options } });
     // }
   };
 
   return (
     <div className={type === "list" ? "header listMode" : "header"}>
       <video autoPlay loop muted>
-              <source src={video} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
       <div className="headerContainer container">
         <Navbar />
@@ -67,9 +67,7 @@ const Header = ({ type }) => {
         <div className="headerCont">
           <div>
             {type === "list" && (
-              <h2 className="headerTitle text-center">
-                Unelmoitko lomastasi?
-              </h2>
+              <h2 className="headerTitle text-center">Unelmoitko lomastasi?</h2>
             )}
             {type !== "list" && (
               <>
@@ -77,22 +75,28 @@ const Header = ({ type }) => {
                   <div className="col-md-10 col-10">
                     <h1 className="headerTitle">Unelmoitko lomastasi?</h1>
                     <p className="headerDesc">
-                    Anna meidän auttaa sinua löytämään täydellinen kohde seuraavaa seikkailuasi varten!
+                      Anna meidän auttaa sinua löytämään täydellinen kohde
+                      seuraavaa seikkailuasi varten!
                     </p>
-                    <div className="col-md-12 button-cont">
-
-                    </div>
+                    <div className="col-md-12 button-cont"></div>
                   </div>
                 </div>
                 <div className="headerSearch">
                   <div className="headerSearchItem">
                     <i className="bx bx-location-plus headerIcon"></i>
-                    <input
-                      type="text"
-                      placeholder="Mihin matkustat?"
-                      className="headerSearchInput"
+                    <select
+                      className="headerSearchSelect"
                       onChange={(e) => setDestination(e.target.value)}
-                    />
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        Mihin matkustat?
+                      </option>
+                      <option value="Helsinki">Helsinki, Suomi</option>
+                      <option value="Tallinna">Tallinna, Viro</option>
+                      <option value="Marrakech">Marrakech, Morokko</option>
+                      <option value="Puerto Viejo">Puerto Viejo, Costa Rica</option>
+                    </select>
                   </div>
                   <div className="headerSearchItem">
                     <i className="bx bxs-calendar-plus headerIcon"></i>
