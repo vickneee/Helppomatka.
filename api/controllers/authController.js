@@ -39,7 +39,7 @@ export const register = async (req, res, next) => {
       if (!isPasswordCorrect)
         return next(createError(400, "password or username not correct!"));
 
-      // Processing JWT SECRET KEY
+      // Processing TOKEN with JWT SECRET KEY
       const token = jwt.sign(
         { id: user._id, isAdmin: user.isAdmin },
         process.env.JWT
