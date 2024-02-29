@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import "./../../pages/register/register.css"
 
+// User Registration
 const Register = () => {
     const [formData, setFormData] = useState({
         username: "",
@@ -15,10 +16,13 @@ const Register = () => {
         confirmPassword: "",
     });
 
+    // AuthContext Authentication
     const {user, loading, error, dispatch} = useContext(AuthContext);
 
+    // Navigation
     const navigate = useNavigate();
 
+    // Handling changes
     const handleChange = (e) => {
         const {id, value} = e.target;
         setFormData((prevData) => ({
@@ -27,23 +31,25 @@ const Register = () => {
         }));
     };
 
+    // Notifying if registration was Successful
     const notify = () => {
-        toast.success("Registration Successful!");
+        toast.success("Registration was Successful!");
     };
 
+    // Delay time & Navigation
     const delay = () => {
         navigate("/login");
     };
 
+    // User Submit for Regisration
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {username, email, password, confirmPassword} = formData;
 
         if (password !== confirmPassword) {
-            toast.error("Passwords do not match");
+            toast.error("Passwords do not match!");
             return;
         }
-
         try {
             const response = await axios.post("http://localhost:8800/api/auth/register", {
                 username,
@@ -53,9 +59,8 @@ const Register = () => {
             dispatch({type: "LOGIN_SUCCESS", payload: response.data.details});
             notify();
             setTimeout(delay, 2000);
-
         } catch (error) {
-            toast.error("Registration Unsuccssesful!!!!");
+            toast.error("Registration Unsuccssesful! User already have account.");
         }
     };
 
