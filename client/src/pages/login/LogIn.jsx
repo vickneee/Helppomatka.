@@ -12,6 +12,7 @@ const Login = () => {
         username: "",
         password: "",
     });
+
     const {user, loading, error, dispatch} = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Login = () => {
     const handleChange = (e) => {
         setCredentials((prev) => ({...prev, [e.target.id]: e.target.value}));
     };
+
     const notify = () => {
         toast.success("Logged in successfully");
     };
