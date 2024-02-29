@@ -54,7 +54,7 @@ const Register = () => {
             <ToastContainer autoClose={2000}/>
             <div className="container p-1 py-5">
                 <div className="row d-flex justify-content-center align-items-center vh-100">
-                    <div className="card card-mbd p-5">
+                    <div className="card card-2 card-mbd p-5">
                             <span className="registerTitle h1 fw-bold mb-4">Rekisteröidy</span>
                             <form className="register-form" onSubmit={handleSubmit}>
                                 <label className="mb-2" htmlFor="username">Käyttäjänimi</label>

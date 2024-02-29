@@ -11,3 +11,8 @@
 .logInBtn {
     width: 100%;
 }
+
+.card-2 {
+    max-width: 600px;
+    min-width: 300px;
+}
