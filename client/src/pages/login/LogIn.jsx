@@ -134,8 +134,8 @@ const Login = () => {
                                                     Kirjaudu sisään
                                                 </button>
                                                 <br/>
-                                                <p className="">Tai rekisteröidy tästä <span><a href="/register"
-                                                                                                target="_blank">linkista</a></span>
+                                                <p className="">Tai rekisteröidy <span><a href="/register"
+                                                                                                target="_blank"> tästä linkista</a></span>
                                                 </p>
                                             </div>
                                         </form>
