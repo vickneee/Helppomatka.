@@ -9,8 +9,8 @@ import Navbar from "../../components/navbar/Navbar.jsx";
 
 const Login = () => {
     const [credentials, setCredentials] = useState({
-        username: "Helppomatka",
-        password: "helppomatka",
+        username: "",
+        password: "",
     });
     const {user, loading, error, dispatch} = useContext(AuthContext);
 
@@ -34,6 +34,7 @@ const Login = () => {
     const delay = () => {
         navigate("/");
     };
+
     const handleClick = async (e) => {
         e.preventDefault();
         dispatch({type: "LOGIN_START"});
