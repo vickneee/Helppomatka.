@@ -33,7 +33,7 @@ const Register = () => {
 
     // Notifying if registration was Successful
     const notify = () => {
-        toast.success("Registration was Successful!");
+        toast.success("Registration successful!");
     };
 
     // Delay time & Navigation
@@ -60,7 +60,7 @@ const Register = () => {
             notify();
             setTimeout(delay, 2000);
         } catch (error) {
-            toast.error("Registration was Unsuccssesful!");
+            toast.error("Registration unsuccssesful!");
         }
     };
 
