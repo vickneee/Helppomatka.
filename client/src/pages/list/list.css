@@ -51,6 +51,10 @@
   color: white;
 }
 
+.MuiRating-decimal {
+  color: #0F5A32 !important;
+}
+
 .listSearch .lsItem .rating-cont .rating-btn {
   background-color: white;
   border: none;
