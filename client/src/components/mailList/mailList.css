@@ -3,7 +3,7 @@
     background-color: #0F5A32;
     color: white;
     margin-top: 65px;
-    padding: 60px 0;
+    padding: 70px 0;
     display: flex;
     justify-content: center;
 }
@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
 .form-group,
@@ -35,6 +35,7 @@
 
 .btn:hover {
     background-color: #78B494 !important;
+    color: white;
     translate: 0 0.5px;
 }
 
@@ -42,9 +43,6 @@
     .form-group,
     .link-group {
         width: 70%;
-    }
-    .mail {
-        margin-left: 30px;
     }
 }
 
@@ -54,18 +52,12 @@
         width: 70%;
     }
 
-    .mail {
-        margin-left: 30px;
-    }
 }
 
 @media (max-width: 776px) {
     .form-group,
     .link-group {
         width: 70%;
-    }
-    .mail {
-        margin-left: 30px;
     }
 }
 
@@ -74,10 +66,6 @@
     .form-group,
     .link-group {
         width: 80%;
-    }
-
-    .mail {
-        margin-left: 20px;
     }
 }
 
