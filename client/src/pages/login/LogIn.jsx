@@ -7,33 +7,42 @@ import "react-toastify/dist/ReactToastify.css";
 import "./../../pages/login/logIn.css"
 import Navbar from "../../components/navbar/Navbar.jsx";
 
+// User or Admin LogIn
 const Login = () => {
     const [credentials, setCredentials] = useState({
-        username: "Helppomatka",
-        password: "helppomatka",
+        username: "",
+        password: "",
     });
-    const {user, loading, error, dispatch} = useContext(AuthContext);
 
+    // AuthContext Authentication
+    const {loading, error, dispatch} = useContext(AuthContext);
+
+    // Navigate
     const navigate = useNavigate();
 
+    // Handling changes
     const handleChange = (e) => {
         setCredentials((prev) => ({...prev, [e.target.id]: e.target.value}));
     };
+
+    // Notifying if login was Successful
     const notify = () => {
-        toast.success("Logged in successfully");
+        toast.success("Logged successfully!");
     };
 
-
+    // Checking username and password
     useEffect(() => {
         if (error) {
-            toast.error("Incorrect username or password");
+            toast.error("Login unsuccessful!");
         }
     }, [error])
 
-
+    // Delay time & Navigation
     const delay = () => {
         navigate("/");
     };
+
+    // User Submit for Login
     const handleClick = async (e) => {
         e.preventDefault();
         dispatch({type: "LOGIN_START"});
@@ -50,8 +59,6 @@ const Login = () => {
             dispatch({type: "LOGIN_FAILURE", payload: err.response.data});
         }
     };
-
-    console.log(user)
 
     return (
         <section className="vh-100 login-mdb">
@@ -116,19 +123,21 @@ const Login = () => {
                                                     onClick={handleClick}
                                                     type="button"
                                                 >
-                                                    {/*{loading && (*/}
-                                                    {/*    <div*/}
-                                                    {/*        className="spinner-grow me-2 spinner-grow-sm text-light"*/}
-                                                    {/*        role="status"*/}
-                                                    {/*    >*/}
-                                                    {/*        <span className="visually-hidden">Ladataan...</span>*/}
-                                                    {/*    </div>*/}
-                                                    {/*)}*/}
+                                                    {loading && (
+                                                        <div
+                                                            className="spinner-grow me-2 spinner-grow-sm text-light"
+                                                            role="status"
+                                                        >
+                                                            <span className="visually-hidden">Ladataan...</span>
+                                                        </div>
+                                                    )}
                                                     Kirjaudu sisään
                                                 </button>
                                                 <br/>
-                                                <p className="">Tai rekisteröidy tästä <span><a href="http://localhost:5173/register"
-                                                                                                target="_blank">linkista</a></span>
+
+                                                <p className="">Tai rekisteröidy <span><a className="span-link" href="/register"
+                                                                                                target="_blank"> tästä</a></span>
+
                                                 </p>
                                             </div>
                                         </form>

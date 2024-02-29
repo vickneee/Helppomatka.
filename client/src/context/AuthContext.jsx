@@ -1,13 +1,16 @@
 import { createContext, useEffect, useReducer } from "react";
 
+// Initial State
 const INITIAL_STATE = {
   user: JSON.parse(localStorage.getItem("user")) || null,
   loading: false,
   error: null,
 };
 
+// CreateContext from Initial State variables
 export const AuthContext = createContext(INITIAL_STATE);
 
+// AuthReducer for LogIn
 const AuthReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN_START":
@@ -39,12 +42,14 @@ const AuthReducer = (state, action) => {
   }
 };
 
+// Exporting AuthContextProvider
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
+  // Local Storage
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
-  }, [state.user]); // To not log out if you refresh the page
+  }, [state.user]); // Not logging out if you refresh the page
 
   return (
     <AuthContext.Provider

@@ -20,3 +20,13 @@
 form label {
     color: #0F5A32 !important;
 }
+
+.span-link {
+    color: #0F5A32;
+    font-weight: 600;
+}
+
+.span-link:hover {
+    color: #18683c;
+    text-decoration: underline;
+}

@@ -51,6 +51,10 @@
   color: white;
 }
 
+.MuiRating-icon {
+  color: goldenrod !important;
+}
+
 .listSearch .lsItem .rating-cont .rating-btn {
   background-color: white;
   border: none;

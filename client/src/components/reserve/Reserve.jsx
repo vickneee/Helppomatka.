@@ -151,7 +151,7 @@ const Reserve = ({ setOpen, hotelId }) => {
                 }}
                 className="bx ms-2 bx-copy tooltips"
               >
-                {copy && <span className="tooltiptext">Copied</span>}
+                {copy && <span className="tooltip-text">Copied</span>}
               </i>
             </p>
             <div className="button-cont d-flex justify-content-center">
