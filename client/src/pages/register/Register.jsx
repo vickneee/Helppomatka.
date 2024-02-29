@@ -1,8 +1,8 @@
 import React, {useContext, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext";
 import {ToastContainer, toast} from "react-toastify";
-// import {AuthContext} from "../../context/AuthContext";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import "./../../pages/register/register.css"
@@ -14,7 +14,8 @@ const Register = () => {
         password: "",
         confirmPassword: "",
     });
-    // const {user, loading, error, dispatch} = useContext(AuthContext);
+
+    const {user, loading, error, dispatch} = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -24,6 +25,14 @@ const Register = () => {
             ...prevData,
             [id]: value,
         }));
+    };
+
+    const notify = () => {
+        toast.success("Registration Successful!");
+    };
+
+    const delay = () => {
+        navigate("/login");
     };
 
     const handleSubmit = async (e) => {
@@ -41,10 +50,12 @@ const Register = () => {
                 email,
                 password,
             });
-            toast.success(response.data.message);
-            navigate("/login");
+            dispatch({type: "LOGIN_SUCCESS", payload: response.data.details});
+            notify();
+            setTimeout(delay, 2000);
+
         } catch (error) {
-            toast.error(error.response.data.message);
+            toast.error("Registration Unsuccssesful!!!!");
         }
     };
 
