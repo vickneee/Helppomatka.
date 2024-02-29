@@ -127,7 +127,7 @@ const Login = () => {
                                                     Kirjaudu sisään
                                                 </button>
                                                 <br/>
-                                                <p className="">Tai rekisteröidy tästä <span><a href="/register"
+                                                <p className="">Tai rekisteröidy tästä <span><a href="http://localhost:5173/register"
                                                                                                 target="_blank">linkista</a></span>
                                                 </p>
                                             </div>
