@@ -35,7 +35,6 @@
 
 .btn:hover {
     background-color: #78B494 !important;
-    color: white;
     translate: 0 0.5px;
 }
 
@@ -44,6 +43,9 @@
     .link-group {
         width: 70%;
     }
+    .mail {
+        margin: 0 30px;
+    }
 }
 
 @media (max-width: 976px) {
@@ -51,13 +53,18 @@
     .link-group {
         width: 70%;
     }
-
+    .mail {
+        margin: 0 30px;
+    }
 }
 
 @media (max-width: 776px) {
     .form-group,
     .link-group {
         width: 70%;
+    }
+    .mail {
+        margin: 0 30px;
     }
 }
 
@@ -66,6 +73,9 @@
     .form-group,
     .link-group {
         width: 80%;
+    }
+    .mail {
+        margin: 0 30px;
     }
 }
 
