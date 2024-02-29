@@ -27,7 +27,7 @@ const Login = () => {
 
     // Notifying if login was Successful
     const notify = () => {
-        toast.success("Logged In Successfully!");
+        toast.success("Logged successfully!");
     };
 
     // Checking username and password
