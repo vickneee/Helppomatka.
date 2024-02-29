@@ -51,8 +51,8 @@
   color: white;
 }
 
-.MuiRating-decimal {
-  color: #0F5A32 !important;
+.MuiRating-icon {
+  color: goldenrod !important;
 }
 
 .listSearch .lsItem .rating-cont .rating-btn {
