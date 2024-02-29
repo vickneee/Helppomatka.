@@ -60,7 +60,7 @@ const Register = () => {
             notify();
             setTimeout(delay, 2000);
         } catch (error) {
-            toast.error("Registration Unsuccssesful! User already have account.");
+            toast.error("Registration was Unsuccssesful!");
         }
     };
 
@@ -118,6 +118,9 @@ const Register = () => {
                                         Rekisteröidy
                                     </button>
                                 </div>
+                                <p className="">Tai kirjaudu sisään <span><a href="/login"
+                                                                                target="_blank">tästä linkistä</a></span>
+                                </p>
                             </form>
                     </div>
                 </div>
