@@ -16,3 +16,13 @@
     max-width: 600px;
     min-width: 300px;
 }
+
+.span-link {
+    color: #0F5A32;
+    font-weight: 600;
+}
+
+.span-link:hover {
+    color: #18683c;
+    text-decoration: underline;
+}

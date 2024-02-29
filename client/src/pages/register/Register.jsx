@@ -118,8 +118,8 @@ const Register = () => {
                                         Rekisteröidy
                                     </button>
                                 </div>
-                                <p className="">Tai kirjaudu sisään <span><a href="/login"
-                                                                                target="_blank">tästä linkistä</a></span>
+                                <p className="">Tai kirjaudu sisään <span><a className="span-link" href="/login"
+                                                                                target="_blank">tästä</a></span>
                                 </p>
                             </form>
                     </div>
