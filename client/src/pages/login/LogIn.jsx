@@ -33,7 +33,7 @@ const Login = () => {
     // Checking username and password
     useEffect(() => {
         if (error) {
-            toast.error("Incorrect username or password!");
+            toast.error("Log in unsuccessful!");
         }
     }, [error])
 
