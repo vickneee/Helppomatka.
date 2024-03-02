@@ -103,13 +103,14 @@ const Reserve = ({ setOpen, hotelId }) => {
                     <div className="rMax">
                       Max ihmisia: <b>{item.maxPeople}</b>
                     </div>
-                    <div className="rPrice">{item.price}</div>
+                    
                   </div>
                   <div className="rSelectRooms">
                     {item.roomNumbers.map((roomNumber) => (
                       <div className="room">
-                        <label>{roomNumber.number}</label>
+                        
                         <input
+                        className="checkbox"
                           type="checkbox"
                           value={roomNumber._id}
                           onChange={handleSelect}
