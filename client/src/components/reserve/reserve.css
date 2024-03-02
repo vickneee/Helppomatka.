@@ -64,6 +64,14 @@
   color: gray;
 }
 
+.checkbox{
+  width: 40px;
+  height: 40px;
+
+
+  
+}
+
 .room {
   display: flex;
   flex-direction: column;
@@ -72,7 +80,7 @@
 .rButton {
   border: none;
   padding: 10px 20px;
-  background: linear-gradient(rgba(0, 0, 0), #4B966E);
+  background-color:  #4B966E;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -82,7 +90,7 @@
 }
 
 .rButton.active {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), #4B966E);
+  background: linear-gradient(rgba(32, 113, 80, 0.4), rgba(32, 113, 80, 0.4));
 }
 
 .lds-hourglass {
