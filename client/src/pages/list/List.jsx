@@ -194,8 +194,8 @@ const List = () => {
                                             <span onClick={() => setOpenDate(!openDate)}>
                         {`${format(
                             dates[0].startDate,
-                            "MM/dd/yyyy"
-                        )} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}
+                            "dd.MM.yyyy"
+                        )} to ${format(dates[0].endDate, "dd.MM.yyyy")}`}
                       </span>
                                         )}
 

@@ -57,14 +57,13 @@ export default mongoose.model("Hotel", HotelSchema)
 
 /*
 {
-	"name": "Les Jardins De La Koutoubia",
-	"type": "Hotel",
-	"city": "Marakesh",
-	"address": "Medina Marrakech ",
-	"distance": "900",
-	"title": " luxurious hotel in the city",
-	"desc": "hotel description",
-	"cheapestPrice": 225,
-	"featured": false,
+	"name": "",
+	"type": "asunto",
+	"city": "Puerto Viejo",
+	"address": "",
+	"distance": "",
+	"title": "",
+	"desc": "",
+	"cheapestPrice": 100,
 }
 */

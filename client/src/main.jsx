@@ -10,7 +10,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <AuthContextProvider>
             <SearchContextProvider>
                 <App/>
-
             </SearchContextProvider>
         </AuthContextProvider>
     </React.StrictMode>
