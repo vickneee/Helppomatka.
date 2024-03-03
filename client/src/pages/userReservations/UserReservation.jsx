@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { SearchContext } from "../../context/SearchContext"
+import { SearchContext } from "../../context/SearchContext";
 import "./user_reservations.css";
-
+import video from "../../components/header/image/hotel-video.mp4";
 
 const UserReservations = () => {
   const [reservations, setReservations] = useState([]);
@@ -51,22 +51,27 @@ const UserReservations = () => {
   if (!loading) {
     return (
       <div className="no-reservations">
-        <p>Ei varauksia vielä. Tee uusi varaus nyt!</p>
-        <button
-          onClick={() => {
-            dispatch({
-              type: "NEW_SEARCH",
-              payload: { destination, dates, options },
-            });
-            navigate("/hotels", { state: { destination, dates, options } });
-          }}
-        >
-          Tee varaus
-        </button>
+        <video autoPlay loop muted>
+          <source src={video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="content-overlay">
+          <p>Ei varauksia vielä. Tee uusi varaus nyt!</p>
+          <button
+            onClick={() => {
+              dispatch({
+                type: "NEW_SEARCH",
+                payload: { destination, dates, options },
+              });
+              navigate("/hotels", { state: { destination, dates, options } });
+            }}
+          >
+            Tee varaus
+          </button>
+        </div>
       </div>
     );
   }
-
 
   return <div>{/* Renderiza las reservas aquí */}</div>;
 };

@@ -1,12 +1,25 @@
 .no-reservations {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.418);
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 1000 !important;
+    align-items: center;
   }
+  
+  .no-reservations video {
+    width: 100%; /* Asegura que el video cubra todo el contenedor */
+    height: 100vh; /* O ajusta según la altura deseada */
+    object-fit: cover; /* Asegura que el video cubra el contenedor sin perder sus proporciones */
+  }
+  
+  .content-overlay {
+    position: absolute;
+    background-color: white; /* Fondo blanco para el texto y botón */
+    padding: 20px; /* Espaciado alrededor del contenido */
+    border-radius: 10px; /* Bordes redondeados para la caja de contenido */
+    text-align: center; /* Centra el texto dentro de la caja */
+  }
+  
+  .content-overlay p, .content-overlay button {
+    margin: 10px 0; /* Añade un poco de margen entre el párrafo y el botón */
+  }
+  
