@@ -4,7 +4,7 @@ import FeaturedItem from "./FeaturedItem";
 
 const FeaturedProperties = () => {
   const { data, loading } = useFetch(
-    "http://localhost:8800/api/hotels?featured=true&limit=4"
+    "http://localhost:8800/api/hotels?featured=true"
   );
 
   return (
