@@ -35,6 +35,7 @@ const Reserve = ({ setOpen, hotelId }) => {
       dates.push(new Date(date).getTime());
       date.setDate(date.getDate() + 1);
     }
+    
     return dates;
   };
 

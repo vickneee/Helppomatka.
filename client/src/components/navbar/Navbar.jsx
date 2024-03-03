@@ -54,12 +54,16 @@ const Navbar = () => {
         ></div>
         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           {user && (
+            <>
+            <Link to="/reservations/myreservations" className="nav-item me-3">
+              <Link className="nav-link btn px-3 btn-md login-btn" to="/reservations/myreservations">
+              Omat varaukset 
+              </Link>
+            </Link>
             <li
               className="nav-item me-3"
               onClick={() => {
                 notify();
-
-
                 setTimeout(() => {
                   window.location.reload();
                 }, 800);
@@ -73,6 +77,7 @@ const Navbar = () => {
                 <i className="userBtn bx bx-power-off me-1"></i> {user.username}
               </a>
             </li>
+          </>
           )}
           {!user && (
             <Link to="/login" className="nav-item me-3">
