@@ -17,7 +17,7 @@ const router = express.Router();
 router.post("/", createHotel);//verifyAdmin
 
 // GET a Hotel
-router.get("/find/:id", getHotel);
+router.get("/:id", getHotel);
 
 // GET ALL
 router.get("/", getHotels);
