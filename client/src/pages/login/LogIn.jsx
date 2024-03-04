@@ -135,8 +135,7 @@ const Login = () => {
                                                 </button>
                                                 <br/>
 
-                                                <p className="">Tai rekisteröidy <span><Link className="span-link" to="/register"
-                                                                                                target="_blank"> tästä</Link></span>
+                                                <p className="">Tai rekisteröidy <span><Link className="span-link" to="/register"> tästä</Link></span>
 
                                                 </p>
                                             </div>
