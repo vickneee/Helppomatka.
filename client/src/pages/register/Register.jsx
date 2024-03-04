@@ -51,7 +51,7 @@ const Register = () => {
             return;
         }
         try {
-            const response = await axios.post("http://localhost:8800/api/auth/register", {
+            const response = await axios.post("https://helppomatka.onrender.com/api/auth/register", {
                 username,
                 email,
                 password,
