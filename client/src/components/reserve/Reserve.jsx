@@ -13,7 +13,7 @@ import success from "./image/success-svgrepo-com.svg";
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading } = useFetch(
-    `http://localhost:8800/api/hotels/room/${hotelId}`
+    `https://helppomatka.onrender.com/api/hotels/room/${hotelId}`
   );
   const { dates } = useContext(SearchContext);
   const [modal, setModal] = useState(false);
