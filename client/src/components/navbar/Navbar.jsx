@@ -70,12 +70,12 @@ const Navbar = () => {
                 localStorage.setItem("user", null);
               }}
             >
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="nav-link btn px-3 btn-md d-flex align-items-center"
               >
                 <i className="userBtn bx bx-power-off me-1"></i> {user.username}
-              </a>
+              </Link>
             </li>
           </>
           )}
