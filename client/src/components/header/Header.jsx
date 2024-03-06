@@ -85,7 +85,7 @@ const Header = ({ type }) => {
 
         {type === "reservations" && (
           <div className="headerCont">
-            <h2 className="headerTitle text-center">
+            <h2 className="headerTitle headerTitle-r text-center">
               Tervetuloa, tässä ovat varauksesi
             </h2>
           </div>
