@@ -1,7 +1,13 @@
 import mongoose from "mongoose";
 
 const ReservationSchema = new mongoose.Schema({
-  // The reservation ID is automatically generated in MongoDB as _id
+  
+  reservationNumber: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users', // The value of 'ref' must match the name of the users collection
