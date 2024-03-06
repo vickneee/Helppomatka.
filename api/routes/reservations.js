@@ -13,18 +13,18 @@ const router = express.Router();
 
 // Create a reservation
 // Here we assume that both registered users and administrators can create reservations
-router.post("/", verifyUser, createReservation);
+router.post("/", createReservation);
 
 // Get a specific reservation
 // User or admin verification to ensure that they can only access their own reservations or have broad permissions
-router.get("/find/:id", verifyUser, getReservation);
+router.get("/find/:id", getReservation);
 
 // Get all reservations
 // This would generally be restricted to administrators only
-router.get("/", verifyAdmin, getReservations);
+router.get("/", getReservations);
 
 // Get reservations by logged-in user
-router.get("/myreservations", verifyUser, getReservationsByUser);
+router.get("/myreservations", getReservationsByUser);
 
 // Update a reservation
 // Users should be able to update their own reservations, admins can update any reservation

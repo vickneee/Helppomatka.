@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { SearchContext } from "../../context/SearchContext"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faLocationDot} from "@fortawesome/free-solid-svg-icons";
+import ImageGallery from "react-image-gallery";
+import 'react-image-gallery/styles/scss/image-gallery.scss';
+import { SearchContext } from "../../context/SearchContext";
+import axios from "axios";
 import "./user_reservations.css";
-
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 
 const UserReservations = () => {
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { dispatch } = useContext(SearchContext);
   const [destination, setDestination] = useState("");
   const [dates, setDates] = useState([
     {
@@ -23,52 +30,130 @@ const UserReservations = () => {
     room: 1,
   });
 
-  const { dispatch } = useContext(SearchContext);
+
   useEffect(() => {
     const fetchReservations = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("/api/reservations/myreservations", {
-          /* Configuración del token de autenticación si es necesario */
-        });
-        setReservations(response.data);
+        const resReservations = await axios.get("http://localhost:8800/api/reservations/");
+        const reservationsWithHotelDetails = await Promise.all(
+          resReservations.data.map(async (reservation) => {
+            const resHotel = await axios.get(`http://localhost:8800/api/hotels/find/${reservation.hotelId}`);
+            // Asumiendo que resHotel.data.photos contiene las URLs de las imágenes
+            const images = resHotel.data.photos.map(photoUrl => ({
+              original: photoUrl,
+             
+            }));
+            return {
+              ...reservation,
+              hotelDetails: resHotel.data,
+              images, // Agrega las imágenes transformadas aquí
+            };
+          })
+        );
+        setReservations(reservationsWithHotelDetails);
       } catch (error) {
         console.error("Error fetching reservations:", error);
-        setLoading(false);
       } finally {
-        setLoading(false);
         setLoading(false);
       }
     };
-
+  
     fetchReservations();
   }, []);
+  
 
   if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!loading) {
     return (
-      <div className="no-reservations">
-        <p>Ei varauksia vielä. Tee uusi varaus nyt!</p>
-        <button
-          onClick={() => {
-            dispatch({
-              type: "NEW_SEARCH",
-              payload: { destination, dates, options },
-            });
-            navigate("/hotels", { state: { destination, dates, options } });
-          }}
-        >
-          Tee varaus
-        </button>
+      <div>
+        <Header type="reservations" />
+        <div className="d-flex justify-content-center">
+          <div className="lds-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
       </div>
     );
   }
+  if (reservations.length === 0) {
+    return (
+      <div>
+        <Header type="no-reservations" />
+      </div>
+    );
+  }
+  return (
+<div>
+    <Header type="reservations" />
+    {reservations.map((reservation) => (
+      <div key={reservation._id} className="reservationWrapper">
+        <div className="d-md-flex d-block justify-content-md-between">
+          <div>
+            <h1 className="hotelTitle">{reservation.hotelDetails.name}</h1>
+            <div className="hotelAddress">
+              <FontAwesomeIcon icon={faLocationDot} />
+              <span>{reservation.hotelDetails.address}</span>
+            </div>
+            <div className="hotelDistance">
+              Erinomainen sijainti – {reservation.hotelDetails.distance}m keskustasta
+            </div>
+            <div className="hotelPriceHighlight">
+            Varauksesi kokonaishinta {reservation.totalPrice}€
+            </div>
+          </div>
+          <div className="row mt-5 gy-5">
+          <div className="col-lg-8">
+            <ImageGallery items={reservation.images} />
+          </div>
 
+          <div className="col-lg-4">
+            <div className="hotelDetailsTexts">
+              <h1 className="hotelTitle">{reservation.hotelDetails.title}</h1>
+              <p className="hotelDesc">{reservation.hotelDetails.desc}</p>
+            </div>
 
-  return <div>{/* Renderiza las reservas aquí */}</div>;
+            <div className="hotelDetails mt-5">
+              <div className="hotelDetailsPrice">
+                {/* <h1>Sopii täydellisesti {days}-yön oleskeluun!</h1>
+                <span>
+                  Sijaitsee todellisessa sydämessä {data.city}, tämä kiinteistö
+                  saa erinomaisen sijaintipistemäärän {data.rating}
+                </span> */}
+                <h2>
+                  {/* <b>{days * data.cheapestPrice * options.room}€</b> ({days}{" "}
+                  yötä) */}
+                </h2>
+                {/* <button onClick={handleClick}>Varaa nyt!</button> */}
+              </div>
+            </div>
+            <p className="hotelInfo">
+            This is your reservation number {reservation.reservationNumber}
+            </p>
+            <p className="hotelInfo">
+            Check in: {reservation.checkInDate}
+            </p>
+            <p className="hotelInfo">
+            Check out: {reservation.checkOutDate}
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+    ))}
+    <Footer/>
+  </div>
+);
 };
-
 export default UserReservations;
+      
