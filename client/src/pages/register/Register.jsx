@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -118,8 +118,7 @@ const Register = () => {
                                         Rekisteröidy
                                     </button>
                                 </div>
-                                <p className="">Tai kirjaudu sisään <span><a className="span-link" href="/login"
-                                                                                target="_blank">tästä</a></span>
+                                <p className="">Tai kirjaudu sisään <span><Link className="span-link" to="/login">tästä</Link></span>
                                 </p>
                             </form>
                     </div>

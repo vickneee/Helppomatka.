@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useContext, useState, useEffect} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -135,8 +135,7 @@ const Login = () => {
                                                 </button>
                                                 <br/>
 
-                                                <p className="">Tai rekisteröidy <span><a className="span-link" href="/register"
-                                                                                                target="_blank"> tästä</a></span>
+                                                <p className="">Tai rekisteröidy <span><Link className="span-link" to="/register"> tästä</Link></span>
 
                                                 </p>
                                             </div>
