@@ -39,26 +39,27 @@ const Navbar = () => {
                         Helppomatka
                     </Link>
                     <button
-                      className="navbar-toggler d-none"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#navbarTogglerDemo01"
-                      aria-controls="navbarTogglerDemo01"
-                      aria-expanded="false"
-                      aria-label="Toggle navigation"
+                        className="navbar-toggler d-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarTogglerDemo01"
+                        aria-controls="navbarTogglerDemo01"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
                     >
-                      <span className="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
                     <div
-                      className="collapse navbar-collapse"
-                      id="navbarTogglerDemo01"
+                        className="collapse navbar-collapse"
+                        id="navbarTogglerDemo01"
                     ></div>
-
+                    <div className="navbar-container">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             {user && (
                                 <>
-                                    <li  className="nav-item me-3">
-                                        <Link to="/reservations/myreservations" className="nav-link btn px-3 btn-md login-btn mb-2">
+                                    <li className="nav-item me-3">
+                                        <Link to="/reservations/myreservations"
+                                              className="nav-link btn px-3 btn-md login-btn mb-2">
                                             Omat varaukset
                                         </Link>
                                     </li>
@@ -89,7 +90,7 @@ const Navbar = () => {
                                 </Link>
                             )}
                         </ul>
-
+                    </div>
                 </div>
             </nav>
         </>
