@@ -2,24 +2,223 @@
     position: relative;
     display: flex;
     justify-content: center;
+    z-index: 1000 !important;
+  }
+
+
+
+  .hotelContainer {
+    min-height: 50vh;
+    height: auto;
+  }
+
+  .reservationWrapper .hotelTitle {
+    font-size: 26px;
+  }
+
+  .reservationWrapper .hotelAddress {
+    font-size: 13px;
+    display: flex;
     align-items: center;
+    gap: 10px;
   }
-  
-  .no-reservations video {
-    width: 100%; /* Asegura que el video cubra todo el contenedor */
-    height: 100vh; /* O ajusta según la altura deseada */
-    object-fit: cover; /* Asegura que el video cubra el contenedor sin perder sus proporciones */
+
+  .reservationWrapper .hotelDistance {
+    color: #4B966E;
+    font-weight: 500;
+    line-height: 25px;
   }
-  
-  .content-overlay {
+
+  .reservationWrapper .hotelPriceHighlight {
+    color: gray;
+    font-weight: 500;
+    line-height: 25px;
+  }
+
+  @media (max-width: 768px) {
+    .reservationWrapper .hotelPriceHighlight {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .reservationWrapper .hotelImages .hotelImg {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .bookNow {
+    border: none;
+    padding: 10px 20px;
+    background-color: #4B966E;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .hotelDetailsTexts .hotelTitle {
+    font-size: 29px;
+  }
+
+  .hotelDetailsTexts .hotelDesc {
+    font-size: 15px;
+    margin-top: 20px;
+    color: gray !important;
+  }
+
+  .hotelDetails {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .hotelDetails .hotelDetailsPrice {
+    flex: 1;
+    background-color: rgba(115, 187, 148, 0.16);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+  }
+
+  .hotelDetails .hotelDetailsPrice h1 {
+    font-size: 18px;
+    color: #555;
+  }
+
+  .hotelDetails .hotelDetailsPrice span {
+    font-size: 14px;
+  }
+
+  .hotelDetails .hotelDetailsPrice h2 {
+    font-weight: 300;
+  }
+
+  .hotelDetails .hotelDetailsPrice button {
+    border: none;
+    padding: 10px 20px;
+    background-color: #0F5A32;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+.hotelDetails .hotelDetailsPrice button:hover {
+  background-color: #4B966E;
+}
+
+  .close {
     position: absolute;
-    background-color: white; /* Fondo blanco para el texto y botón */
-    padding: 20px; /* Espaciado alrededor del contenido */
-    border-radius: 10px; /* Bordes redondeados para la caja de contenido */
-    text-align: center; /* Centra el texto dentro de la caja */
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: lightgray;
+    cursor: pointer;
   }
-  
-  .content-overlay p, .content-overlay button {
-    margin: 10px 0; /* Añade un poco de margen entre el párrafo y el botón */
+
+ 
+
+  .lds-spinner {
+    color: #4B966E;
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto !important;
   }
-  
+
+  .lds-spinner div {
+    transform-origin: 40px 40px;
+    animation: lds-spinner 1.2s linear infinite;
+  }
+
+  .lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 37px;
+    width: 6px;
+    height: 18px;
+    border-radius: 20%;
+    background: black;
+  }
+
+  .lds-spinner div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+  }
+
+  .lds-spinner div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+  }
+
+  .lds-spinner div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+  }
+
+  .lds-spinner div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+  }
+
+  .lds-spinner div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+  }
+
+  .lds-spinner div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+  }
+
+  .lds-spinner div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+  }
+
+  .lds-spinner div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+  }
+
+  .lds-spinner div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+  }
+
+  .lds-spinner div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+  }
+
+  .lds-spinner div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+  }
+
+  .lds-spinner div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+  }
+
+  @keyframes lds-spinner {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .hotelInfo {
+    color: gray !important;
+    margin-top: 1rem;
+    font-style: italic;
+  }

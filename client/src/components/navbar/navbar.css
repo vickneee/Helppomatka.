@@ -5,9 +5,6 @@
 }
 
 .container .navbar-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .navbar .navbar-brand {
@@ -22,8 +19,14 @@
   border-radius: 3px !important;
 }
 
+.navbar ul li .btn:hover {
+  background: #78B494 !important;
+  cursor: pointer;
+  border-radius: 3px !important;
+}
+
 .navbar ul li .btn i {
-  font-size: 17px;
+  font-size: 15px;
   color: red;
 }
 
@@ -55,25 +58,20 @@
 }
 
 @media (min-width: 992px) {
-  .navbar-nav {
+  .navbar-nav > ul {
     display: flex;
-    flex-direction: revert;
+    flex-direction: row-reverse;
   }
 }
 
 @media (max-width: 450px) {
   .navbar .navbar-brand {
     font-size: 22px;
-    margin-left: 15px;
+    margin-left: 25px;
   }
 
   .login-btn {
     font-size: 10px !important;
-  }
-
-  .userBtn .bx .bx-power-off .me-1 {
-    font-size: 1px;
-    color: #0F5A32 !important;
   }
 }
 
