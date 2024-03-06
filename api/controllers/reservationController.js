@@ -40,15 +40,30 @@ export const getReservations = async (req, res, next) => {
   }
 };
 
+// GET Reservations by user
 export const getReservationsByUser = async (req, res, next) => {
-    try {
-      const userId = req.user.id;
-      const reservations = await Reservation.find({ userId: userId });
-      res.status(200).json(reservations);
-    } catch (err) {
-      next(err);
-    }
-  };
+  try {
+    const userId = req.userId.id;
+    const reservations = await Reservation.aggregate([
+
+      { $match: { userId: mongoose.Types.ObjectId(userId) } },
+
+      {
+        $lookup: {
+          from: "hotels",
+          localField: "hotelId",
+          foreignField: "_id",
+          as: "hotelDetails"
+        }
+      },
+      // additional operations here if is necessary
+    ]);
+
+    res.status(200).json(reservations);
+  } catch (err) {
+    next(err);
+  }
+};
 
 
 // UPDATE a Reservation

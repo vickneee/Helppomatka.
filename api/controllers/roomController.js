@@ -83,17 +83,23 @@ export const deleteRoom = async (req, res, next) => {
 
   // UPDATE Room Availability
   export const updateRoomAvailability = async (req, res, next) => {
-    try {
-      await Room.updateOne(
-        { "roomNumbers._id": req.params.id },
-        {
-          $push: {
-            "roomNumbers.$.unavailableDates": req.body.dates
-          },
-        }
-      );
-      res.status(200).json("Room status has been updated.");
-    } catch (err) {
-      next(err);
+    if (!req.body.unavailableDates) {
+      return res.status(400).json({ message: "Missing 'unavailableDates' field." })
     }
+      else{
+        try {
+          await Room.updateOne(
+            { "roomNumbers._id": req.params.id },
+            {
+              $push: {
+                "roomNumbers.$.unavailableDates": req.body.unavailableDates
+              },
+            }
+          );
+          res.status(200).json("Room status has been updated.");
+        } catch (err) {
+          next(err);
+        }
+      }
+    
   };

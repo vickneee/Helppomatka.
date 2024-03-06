@@ -4,13 +4,29 @@ import "./reserve.css";
 import useFetch from "../../services/useFetch";
 import { useContext, useState, useEffect } from "react";
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import success from "./image/success-svgrepo-com.svg";
+import { format } from 'date-fns';
+
+
+
+const updateRoomAvailability = async (roomId, unavailableDates) => {
+  try {
+    const response = await axios.put(`http://localhost:8800/api/rooms/availability/${roomId}`, {
+      unavailableDates,
+    });
+    console.log("Room status has been updated.", response.data);
+  } catch (error) {
+    console.error("Error updating room availability:", error);
+  }
+};
 
 const Reserve = ({ setOpen, hotelId }) => {
+  const { user } = useContext(AuthContext);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading } = useFetch(
     `https://helppomatka.onrender.com/api/hotels/room/${hotelId}`
@@ -19,9 +35,14 @@ const Reserve = ({ setOpen, hotelId }) => {
   const [modal, setModal] = useState(false);
   const [random, setRandom] = useState();
   const [copy, setCopy] = useState(false);
+  
+  
+  //This is to add to the random reservation number, random can be repeated
+  //so we add the check in date to the begining of random.
   useEffect(() => {
-    setRandom(Math.random().toString(36).substring(2, 12));
-  }, [modal]);
+    const startDateStr = format(dates[0].startDate, "yyyyMMdd");
+    setRandom(`${startDateStr}-${Math.random().toString(36).substring(2, 12)}`);
+  }, [modal, dates]);
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -32,19 +53,28 @@ const Reserve = ({ setOpen, hotelId }) => {
     const dates = [];
 
     while (date <= end) {
-      dates.push(new Date(date).getTime());
+      dates.push(new Date(date).toISOString());
       date.setDate(date.getDate() + 1);
     }
-    
+//I don´t know why, but dates was taking the day before the check in date,
+//so I delete the first index before  return it.
+    dates.shift();
     return dates;
   };
 
   const alldates = getDatesInRange(dates[0].startDate, dates[0].endDate);
 
   const isAvailable = (roomNumber) => {
-    const isFound = roomNumber.unavailableDates.some((date) =>
-      alldates.includes(new Date(date).getTime())
+    // Converting alldates to a format YYYY-MM-DD to compare.
+    const formattedSelectedDates = alldates.map(date =>
+      new Date(date).toISOString().split('T')[0]
     );
+  
+    const isFound = roomNumber.unavailableDates.some(date => {
+      const formattedUnavailableDate = new Date(date).toISOString().split('T')[0];
+      return formattedSelectedDates.includes(formattedUnavailableDate);
+    });
+  
     return !isFound;
   };
 
@@ -60,22 +90,38 @@ const Reserve = ({ setOpen, hotelId }) => {
 
   const navigate = useNavigate();
 
+
   const handleClick = async () => {
+    const reservationData = {
+      userId: user._id,
+      hotelId: hotelId,
+      roomId: selectedRooms,
+      checkInDate: dates[0].startDate,
+      checkOutDate: dates[0].endDate,
+      guestCount: 2,
+      totalPrice: 450,
+      status: "confirmed",
+      reservationNumber: random,
+    };
 
-      try {
-        await Promise.all(
-          selectedRooms.map((roomId) => {
-            const res = axios.put(`/rooms/availability/${roomId}`, {
-              dates: alldates,
-            });
-            return res.data;
-          })
-        );
-        setModal(true);
-      } catch (err) {}
-
+    try {
+      //Trying to create the reservation here.
+      const reservationResponse = await axios.post('http://localhost:8800/api/reservations/', reservationData);
+      console.log('Success making reservation:', reservationResponse.data);
+  
+   // Updating availability of  rooms in database with unavailability date.
+   await Promise.all(selectedRooms.map(roomId => 
+    updateRoomAvailability(roomId, alldates)
+  ));
+  
+      console.log("Room availability updated!.");
+      setModal(true);
+    } catch (error) {
+      console.error("Error during operation:", error);
+    }
   };
-
+  
+  
   return (
     <div className="reserve">
       <ToastContainer autoClose={500} />
@@ -109,7 +155,6 @@ const Reserve = ({ setOpen, hotelId }) => {
                   <div className="rSelectRooms">
                     {item.roomNumbers.map((roomNumber) => (
                       <div className="room">
-                        
                         <input
                         className="checkbox"
                           type="checkbox"
