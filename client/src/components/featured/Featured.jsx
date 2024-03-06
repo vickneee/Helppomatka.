@@ -4,7 +4,7 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading } = useFetch(
-    "http://localhost:8800/api/hotels/countByCity?cities=Helsinki,Marrakech,Tallinna,Puerto Viejo"
+    "https://helppomatka.onrender.com/api/hotels/countByCity?cities=Helsinki,Marrakech,Tallinna,Puerto Viejo"
   );
   const navigate = useNavigate();
   return (
