@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faLocationDot} from "@fortawesome/free-solid-svg-icons";
-import ImageGallery from "react-image-gallery";
-import 'react-image-gallery/styles/scss/image-gallery.scss';
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import "./user_reservations.css";
@@ -97,48 +93,22 @@ const UserReservations = () => {
 <div>
     <Header type="reservations" />
     {reservations.map((reservation) => (
-      <div key={reservation._id} className="reservationWrapper">
-        <div className="d-md-flex d-block justify-content-md-between">
-          <div>
-            <h1 className="hotelTitle">{reservation.hotelDetails.name}</h1>
-            <div className="hotelAddress">
-              <FontAwesomeIcon icon={faLocationDot} />
-              <span>{reservation.hotelDetails.address}</span>
+      <div key={reservation._id} className="RItem">
+          <div className="box">
+            <div>
+                <h1 className="hotelTitle">{reservation.hotelDetails.name}</h1>
+                <div className="hotelAddress">
+                  <span>{reservation.hotelDetails.address}</span>
+                </div>
+                <div className="hotelPriceHighlight">
+                Varauksesi kokonaishinta: {reservation.totalPrice}€
+                </div>
             </div>
-            <div className="hotelDistance">
-              Erinomainen sijainti – {reservation.hotelDetails.distance}m keskustasta
-            </div>
-            <div className="hotelPriceHighlight">
-            Varauksesi kokonaishinta {reservation.totalPrice}€
-            </div>
-          </div>
-          <div className="row mt-5 gy-5">
-          <div className="col-lg-8">
-            <ImageGallery items={reservation.images} />
-          </div>
+            
 
-          <div className="col-lg-4">
-            <div className="hotelDetailsTexts">
-              <h1 className="hotelTitle">{reservation.hotelDetails.title}</h1>
-              <p className="hotelDesc">{reservation.hotelDetails.desc}</p>
-            </div>
-
-            <div className="hotelDetails mt-5">
-              <div className="hotelDetailsPrice">
-                {/* <h1>Sopii täydellisesti {days}-yön oleskeluun!</h1>
-                <span>
-                  Sijaitsee todellisessa sydämessä {data.city}, tämä kiinteistö
-                  saa erinomaisen sijaintipistemäärän {data.rating}
-                </span> */}
-                <h2>
-                  {/* <b>{days * data.cheapestPrice * options.room}€</b> ({days}{" "}
-                  yötä) */}
-                </h2>
-                {/* <button onClick={handleClick}>Varaa nyt!</button> */}
-              </div>
-            </div>
+            <div>
             <p className="hotelInfo">
-            This is your reservation number {reservation.reservationNumber}
+            Reservation number: {reservation.reservationNumber}
             </p>
             <p className="hotelInfo">
             Check in: {reservation.checkInDate}
@@ -146,9 +116,8 @@ const UserReservations = () => {
             <p className="hotelInfo">
             Check out: {reservation.checkOutDate}
             </p>
-          </div>
-        </div>
-        </div>
+            </div>
+          </div>  
       </div>
     ))}
     <Footer/>
