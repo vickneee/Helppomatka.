@@ -33,7 +33,7 @@ const Navbar = () => {
     >
       <ToastContainer autoClose={800} />
 
-      <div className="container">
+      <div className="container navbar-container">
         <Link className="navbar-brand" to="/">
           Helppomatka
         </Link>
@@ -56,8 +56,8 @@ const Navbar = () => {
           {user && (
             <>
             <Link to="/reservations/myreservations" className="nav-item me-3">
-              <Link className="nav-link btn px-3 btn-md login-btn" to="/reservations/myreservations">
-              Omat varaukset 
+              <Link className="nav-link btn px-3 btn-md login-btn mb-2" to="/reservations/myreservations">
+              Omat varaukset
               </Link>
             </Link>
             <li
@@ -72,7 +72,7 @@ const Navbar = () => {
             >
               <Link
                 to="/"
-                className="nav-link btn px-3 btn-md d-flex align-items-center"
+                className="nav-link login-btn btn px-3 align-items-center"
               >
                 <i className="userBtn bx bx-power-off me-1"></i> {user.username}
               </Link>
