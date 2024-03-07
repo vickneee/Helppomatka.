@@ -307,6 +307,8 @@ project/
 
 ## [MongoDB and Mongoose Schema Example](https://mongoosejs.com/)
 
+### Code Example for Using Mongoose Schema:
+
 ```javascript
 import mongoose from "mongoose";
 const HotelSchema = new mongoose.Schema({
