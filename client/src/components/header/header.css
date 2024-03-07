@@ -322,7 +322,13 @@
 
 @media (max-width: 390px) {
     .header {
-        height: 75vh !important;
+        height: 70vh !important;
+    }
+
+    .headerContainer .headerCont .headerSearch {
+        font-size: 0.8rem;
+        position: absolute;
+        top: 80%;
     }
 
     .headerContainer .headerCont .headerTitle {
@@ -333,11 +339,7 @@
         margin-top: 10rem;
     }
 
-    .headerContainer .headerCont .headerSearch {
-        font-size: 0.8rem;
-        position: absolute;
-        top: 85%;
-    }
+
 
 }
 
