@@ -190,7 +190,7 @@ or
 
     git push -u origin yourBranchName
 
-### Pulling Changes from Main Branch:
+### Pulling Changes from the Main Branch:
 
 If you need to sync your branch with the main branch:
 
@@ -200,7 +200,7 @@ If you need to sync your branch with the main branch:
 
 Resolve any conflicts, if present.
 
-### Merging Your Branch to Main:
+### Merging Your Branch to the Main Branch:
 
 Merge your branch changes into the main branch:
 
@@ -237,6 +237,7 @@ By following these steps, you can effectively manage changes and collaboration o
 - [Express](https://expressjs.com/) - Server Framework
 - [React](https://react.org/) - Web Framework
 - [NodeJs](https://nodejs.org/en/) - Server Environment
+- [CSS](https://www.w3schools.com/Css/) - Stylesheets for Styling
 - [React Bootstrap](https://react-bootstrap.github.io/) - Styling Framework
 - [Postman](https://www.postman.com/) - APIs Testing Tool
 - [JSON Web Token](https://jwt.io/) - Securing APIs
@@ -496,7 +497,6 @@ This document outlines the API endpoints available in the Helppomatka API collec
 
 ```javascript
 import bcrypt from "bcryptjs";
-import { createError } from "../utils/error.js";
 
 // REGISTER a User
 export const register = async (req, res, next) => {
