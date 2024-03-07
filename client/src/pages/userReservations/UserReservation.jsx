@@ -31,7 +31,7 @@ const UserReservations = () => {
     const fetchReservations = async () => {
       setLoading(true);
       try {
-        const resReservations = await axios.get("http://localhost:8800/api/reservations/");
+        const resReservations = await axios.get("https://helppomatka.onrender.com/api/reservations/");
         const reservationsWithHotelDetails = await Promise.all(
           resReservations.data.map(async (reservation) => {
             const resHotel = await axios.get(`http://localhost:8800/api/hotels/find/${reservation.hotelId}`);
@@ -95,21 +95,19 @@ const UserReservations = () => {
     {reservations.map((reservation) => (
       <div key={reservation._id} className="RItem">
           <div className="box">
-            <div>
+            <div className="reservationContent">
                 <h1 className="hotelTitle">{reservation.hotelDetails.name}</h1>
                 <div className="hotelAddress">
                   <span>{reservation.hotelDetails.address}</span>
                 </div>
                 <div className="hotelPriceHighlight">
-                Varauksesi kokonaishinta: {reservation.totalPrice}€
+                Reservation number: {reservation.reservationNumber}
                 </div>
             </div>
             
 
             <div>
-            <p className="hotelInfo">
-            Reservation number: {reservation.reservationNumber}
-            </p>
+
             <p className="hotelInfo">
             Check in: {reservation.checkInDate}
             </p>
