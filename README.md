@@ -369,12 +369,17 @@ export default mongoose.model("Hotel", HotelSchema)
 {
 	"name": "",
 	"type": "asunto",
+	"reserve": "seen",
 	"city": "Puerto Viejo",
 	"address": "",
 	"distance": "",
+	"photos": [String],
 	"title": "",
 	"desc": "",
+	"rating": 3,
+	"rooms": [String],
 	"cheapestPrice": 100,
+	"featured": false
 }
 */
 
