@@ -1,199 +1,198 @@
 .searchItem {
-  border: 1px solid lightgray;
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  background-color: white;
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: white;
 }
 
 .searchItem .siImg {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .searchItem .siDesc {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 2;
 }
 
 .searchItem .mobileDesc {
-  display: none;
+    display: none;
 }
 
 .siTitle {
-  font-size: 20px;
-  color: #021f0f;
+    font-size: 20px;
+    color: #021f0f;
 }
 
 .siDistance {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .siTaxiOp {
-  font-size: 12px;
-  background-color: #4B966E;
-  color: white;
-  width: max-content;
-  padding: 3px;
-  border-radius: 5px;
+    font-size: 12px;
+    background-color: #4B966E;
+    color: white;
+    width: max-content;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 .siSubtitle {
-  font-size: 12px;
-  font-weight: 500;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .siFeatures {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .siCancelOp {
-  font-size: 12px;
-  color: #0F5A32;
-  font-weight: bold;
+    font-size: 12px;
+    color: #0F5A32;
+    font-weight: bold;
 }
 
 .siCancelOpSubtitle {
-  font-size: 12px;
-  color: #0F5A32;
+    font-size: 12px;
+    color: #0F5A32;
 }
 
 .siDetails {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .siRating {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
 .siRating > span {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 .siRating > button {
-  background-color: black;
-  color: white;
-  padding: 2px 5px;
-  font-weight: bold;
-  margin-right: 5px;
-  border: none;
-}
-
-.siDetailTexts {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.siPrice {
-  font-size: 24px;
-}
-
-.siTaxiOp {
-  font-size: 12px;
-  border-radius: 3px;
-}
-
-.hotelDetailsPrice button:hover {
-  background-color: #4B966E;
-  translate: 0 0.5px;
-}
-
-.siCheckButton {
-  /*background-color: #4B966E;*/
-  background-color: #0F5A32;
-  color: white;
-  padding: 10px;
-  font-size: 12px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.siCheckButton:hover {
-  background-color: #4B966E;
-  color: white;
-  padding: 10px;
-  translate: 0 0.5px;
-}
-
-@media (max-width: 768px) {
-  .searchItem {
-    display: block;
-  }
-
-  .searchItem .siDetails,
-  .searchItem .siDesc {
-    display: none;
-  }
-
-  .searchItem .siImg {
-    width: 100%;
-  }
-
-  .searchItem .mobileDesc {
-    display: block;
-  }
-
-  .searchItem .mobileDesc .mobileDecRating .ratingBtn {
-    background-color: #4B966E;
+    background-color: black;
     color: white;
     padding: 2px 5px;
     font-weight: bold;
-    margin-left: 5px;
+    margin-right: 5px;
     border: none;
-  }
+}
 
-  .searchItem .mobileDesc .mobileDecRating .ratingText {
-    font-weight: 500;
-  }
-
-  .searchItem .mobileDesc .mobileDescFooter {
+.siDetailTexts {
+    text-align: right;
     display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    align-items: center;
-  }
+    flex-direction: column;
+    gap: 5px;
+}
 
-  .searchItem .mobileDesc .mobileDescFooter h5 {
-    font-size: 20px;
-    margin-bottom: 0.15rem;
-  }
+.siPrice {
+    font-size: 24px;
+}
 
-  .searchItem .mobileDesc .mobileDescFooter h6 {
-    font-size: 15px;
-    color: gray;
-  }
+.siTaxiOp {
+    font-size: 12px;
+    border-radius: 3px;
+}
 
-  .searchItem .mobileDesc .mobileDescFooter button {
+.hotelDetailsPrice button:hover {
+    background-color: #4B966E;
+    translate: 0 0.5px;
+}
+
+.siCheckButton {
+    background-color: #0F5A32;
+    color: white;
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.siCheckButton:hover {
     background-color: #4B966E;
     color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: 500;
-    padding: 0.4rem 0.7rem;
-  }
+    padding: 10px;
+    translate: 0 0.5px;
+}
+
+@media (max-width: 768px) {
+    .searchItem {
+        display: block;
+    }
+
+    .searchItem .siDetails,
+    .searchItem .siDesc {
+        display: none;
+    }
+
+    .searchItem .siImg {
+        width: 100%;
+    }
+
+    .searchItem .mobileDesc {
+        display: block;
+    }
+
+    .searchItem .mobileDesc .mobileDecRating .ratingBtn {
+        background-color: #4B966E;
+        color: white;
+        padding: 2px 5px;
+        font-weight: bold;
+        margin-left: 5px;
+        border: none;
+    }
+
+    .searchItem .mobileDesc .mobileDecRating .ratingText {
+        font-weight: 500;
+    }
+
+    .searchItem .mobileDesc .mobileDescFooter {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    .searchItem .mobileDesc .mobileDescFooter h5 {
+        font-size: 20px;
+        margin-bottom: 0.15rem;
+    }
+
+    .searchItem .mobileDesc .mobileDescFooter h6 {
+        font-size: 15px;
+        color: gray;
+    }
+
+    .searchItem .mobileDesc .mobileDescFooter button {
+        background-color: #4B966E;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 500;
+        padding: 0.4rem 0.7rem;
+    }
+}
+
+.siCheckButton {
+    font-size: 14px;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-  .siCancelOpSubtitle {
-    display: none;
-  }
-
-  .siCheckButton {
-    font-size: 14px;
-  }
+    .siCancelOpSubtitle {
+        display: none;
+    }
 
 }
