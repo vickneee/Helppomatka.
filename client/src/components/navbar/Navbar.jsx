@@ -88,7 +88,7 @@ const Navbar = () => {
 
                                 {!user && (
                                     <Link to="/login" className="nav-item me-3">
-                                        <Link className="nav-link btn px-3 btn-md login-btn" to="/login">
+                                        <Link className="nav-link btn btn-0 px-3 btn-md login-btn" to="/login">
                                             Kirjaudu sisään <i className="bx bx-log-in-circle"></i>
                                         </Link>
                                     </Link>
