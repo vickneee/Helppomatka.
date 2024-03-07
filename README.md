@@ -29,6 +29,7 @@
         - [Creating a New Branch](#creating-a-new-branch)
 - [Technology Stack](#technology-stack)
 - [MERN Full Stack Project Structure](#mern-full-stack-project-structure)
+- [MongoDB & Mongoose Schema Example](#mongodb-&-mongoose-schema-example)
 - [API Endpoints Collection](#api-endpoints-collection)
 - [Bcryptjs](#bcryptjs)
 - [Deployment](#deployment-on-render)
@@ -302,6 +303,81 @@ project/
 │
 ├── README.md                               # Project documentation
 └── ...                                     # Other project files and directories
+```
+
+## [MongoDB & Mongoose Schema Example](https://mongoosejs.com/)
+
+```javascript
+import mongoose from "mongoose";
+const HotelSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  reserve: {
+    type: String,
+    default: "seen",
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
+  distance: {
+    type: String,
+    required: true,
+  },
+  photos: {
+    type: [String],
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  desc: {
+    type: String,
+    required: true,
+  },
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5,
+  },
+  rooms: {
+    type: [String],
+  },
+  cheapestPrice: {
+    type: Number,
+    required: true,
+  },
+  featured: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+export default mongoose.model("Hotel", HotelSchema)
+
+/*
+{
+	"name": "",
+	"type": "asunto",
+	"city": "Puerto Viejo",
+	"address": "",
+	"distance": "",
+	"title": "",
+	"desc": "",
+	"cheapestPrice": 100,
+}
+*/
+
 ```
 
 ## [API Endpoints Collection](https://helpomatka.postman.co/workspace/25c13593-ea16-4bfa-8059-a565aaa9b970/collection/32339657-ff902470-4d21-47ec-a319-10c5c56bad18?action=share&source=collection_link&creator=32339841)
