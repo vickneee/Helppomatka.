@@ -200,7 +200,7 @@
     }
 
     .headerContainer .headerCont .headerTitle {
-        margin-top: -12rem;
+        margin-top: -6rem;
     }
 
     .headerContainer .headerCont .headerTitle-r {
@@ -231,7 +231,7 @@
         padding: 1.5rem 1.5rem;
         border-radius: 10px;
         position: absolute;
-        top: 75%;
+        top: 85%;
         transform: translateY(-50%);
     }
 
@@ -267,11 +267,11 @@
 
     .headerContainer .headerCont .headerTitle {
         font-size: 3.6rem !important;
-        margin-bottom: 14rem;
+        margin-bottom: 8rem;
     }
 
     .headerContainer .headerCont .headerTitle-r {
-        margin-top: 10rem;
+        margin-top: 6rem;
     }
 
     .headerContainer .headerCont .headerTitle-e {
@@ -295,7 +295,7 @@
         flex-direction: column;
         box-shadow: 0 0 28px 0 rgba(0, 0, 0, 0.2);
         position: absolute;
-        top: 75%;
+        top: 85%;
         transform: translateY(-50%);
     }
 
@@ -322,13 +322,11 @@
 
 @media (max-width: 390px) {
     .header {
-        height: 70vh !important;
-        margin-bottom: 4rem;
+        height: 75vh !important;
     }
 
     .headerContainer .headerCont .headerTitle {
         font-size: 2.6rem !important;
-        margin-top: -4rem;
     }
 
     .headerContainer .headerCont .headerTitle-r {
@@ -338,25 +336,7 @@
     .headerContainer .headerCont .headerSearch {
         font-size: 0.8rem;
         position: absolute;
-        top: 70%;
-    }
-
-}
-
-/* Media query for landscape orientation with a maximum width of 1000 pixels */
-@media (max-width: 1020px) and (orientation: landscape) {
-
-    .header {
-        height: 90vh !important;
-        margin-bottom: 4rem;
-    }
-
-    .headerSearch {
-        display: none !important; /* Hide elements with the .headerSearch class */
-    }
-
-    .headerContainer .headerCont .headerTitle {
-        display: none !important; /* Hide elements with the .headerTitle class */
+        top: 85%;
     }
 
 }
