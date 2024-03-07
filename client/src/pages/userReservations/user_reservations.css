@@ -21,7 +21,17 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+
 }
+
+.hotelTitle{
+  font-size: 25px;
+  font-weight: 800;
+  color:rgb(27, 118, 69) ;
+ 
+}
+
+
 
 @media only screen and (max-width: 768px) {
   .RItem {
