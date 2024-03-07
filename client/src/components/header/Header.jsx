@@ -65,7 +65,7 @@ const Header = ({ type }) => {
 
         {type === "no-reservations" && (
           <div className="headerCont">
-            <h2 className="headerTitle text-center">
+            <h2 className="headerTitle-e text-center">
             Ei varauksia vielä. Tee uusi varaus nyt!
             </h2>
             <button
@@ -85,7 +85,7 @@ const Header = ({ type }) => {
 
         {type === "reservations" && (
           <div className="headerCont">
-            <h2 className="headerTitle text-center">
+            <h2 className="headerTitle headerTitle-r text-center">
               Tervetuloa, tässä ovat varauksesi
             </h2>
           </div>

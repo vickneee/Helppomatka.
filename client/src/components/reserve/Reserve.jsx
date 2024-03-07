@@ -12,8 +12,6 @@ import "react-toastify/dist/ReactToastify.css";
 import success from "./image/success-svgrepo-com.svg";
 import { format } from 'date-fns';
 
-
-
 const updateRoomAvailability = async (roomId, unavailableDates) => {
   try {
     const response = await axios.put(`http://localhost:8800/api/rooms/availability/${roomId}`, {
@@ -35,10 +33,10 @@ const Reserve = ({ setOpen, hotelId }) => {
   const [modal, setModal] = useState(false);
   const [random, setRandom] = useState();
   const [copy, setCopy] = useState(false);
-  
-  
-  //This is to add to the random reservation number, random can be repeated
-  //so we add the check in date to the begining of random.
+
+
+  // This is to add to the random reservation number, random can be repeated,
+  // so we add the check in date to the being of random.
   useEffect(() => {
     const startDateStr = format(dates[0].startDate, "yyyyMMdd");
     setRandom(`${startDateStr}-${Math.random().toString(36).substring(2, 12)}`);
@@ -56,8 +54,8 @@ const Reserve = ({ setOpen, hotelId }) => {
       dates.push(new Date(date).toISOString());
       date.setDate(date.getDate() + 1);
     }
-//I don´t know why, but dates was taking the day before the check in date,
-//so I delete the first index before  return it.
+// I don't know why, but dates were taking the day before the check in date,
+// so I delete the first index before return it.
     dates.shift();
     return dates;
   };
@@ -65,16 +63,16 @@ const Reserve = ({ setOpen, hotelId }) => {
   const alldates = getDatesInRange(dates[0].startDate, dates[0].endDate);
 
   const isAvailable = (roomNumber) => {
-    // Converting alldates to a format YYYY-MM-DD to compare.
+    // Converting all dates to a format YYYY-MM-DD to compare.
     const formattedSelectedDates = alldates.map(date =>
       new Date(date).toISOString().split('T')[0]
     );
-  
+
     const isFound = roomNumber.unavailableDates.some(date => {
       const formattedUnavailableDate = new Date(date).toISOString().split('T')[0];
       return formattedSelectedDates.includes(formattedUnavailableDate);
     });
-  
+
     return !isFound;
   };
 
@@ -105,23 +103,23 @@ const Reserve = ({ setOpen, hotelId }) => {
     };
 
     try {
-      //Trying to create the reservation here.
+      // Trying to create the reservation here.
       const reservationResponse = await axios.post('http://localhost:8800/api/reservations/', reservationData);
       console.log('Success making reservation:', reservationResponse.data);
-  
+
    // Updating availability of  rooms in database with unavailability date.
-   await Promise.all(selectedRooms.map(roomId => 
+   await Promise.all(selectedRooms.map(roomId =>
     updateRoomAvailability(roomId, alldates)
   ));
-  
+
       console.log("Room availability updated!.");
       setModal(true);
     } catch (error) {
       console.error("Error during operation:", error);
     }
   };
-  
-  
+
+
   return (
     <div className="reserve">
       <ToastContainer autoClose={500} />
@@ -150,7 +148,7 @@ const Reserve = ({ setOpen, hotelId }) => {
                     <div className="rMax">
                       Max ihmisia: <b>{item.maxPeople}</b>
                     </div>
-                    
+
                   </div>
                   <div className="rSelectRooms">
                     {item.roomNumbers.map((roomNumber) => (

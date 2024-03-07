@@ -1,49 +1,114 @@
 .navbar {
-  background-color: rgba(0, 0, 0, 0.1) !important;
-  overflow: hidden;
-  z-index: 500 !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden;
+    z-index: 500 !important;
 }
 
 .navbar .navbar-brand {
-  color: white !important;
-  font-weight: bold;
-  font-size: 1.6rem;
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.6rem;
 }
 
 .navbar ul li .btn {
-  background: white !important;
-  cursor: pointer;
-  border-radius: 3px !important;
+    background: white !important;
+    cursor: pointer;
+    border-radius: 3px !important;
+}
+
+.navbar ul li .btn:hover {
+    background: #78B494 !important;
+    cursor: pointer;
+    border-radius: 3px !important;
 }
 
 .navbar ul li .btn i {
-  font-size: 17px;
-  color: red;
+    font-size: 15px;
+    color: red;
 }
 
 .navbar.active {
-  background-color: rgba( 15, 90, 50, 1) !important;
+    background-color: rgba(15, 90, 50, 1) !important;
 }
 
 .login-btn {
-  display: flex;
-  align-items: center;
-  background-color: white !important;
-  color: black !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white !important;
+    color: black !important;
 }
 
 .login-btn:hover {
-  background-color: rgba(10, 10, 10, 0.3) !important;
-  color: white !important;
-  translate: 0 0.5px;
+    background-color: rgba(10, 10, 10, 0.3) !important;
+    color: white !important;
+    translate: 0 0.5px;
 }
 
 .login-btn i {
-  margin-left: 0.3rem;
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .navbar .navbar-brand:hover {
-  color: #ffffff !important;
-  translate: 0 0.5px;
+    color: #ffffff !important;
+    translate: 0 0.5px;
+}
+
+.navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.navbar-container-2 {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+
+@media (max-width: 650px) {
+    .navbar-container-2 {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .navbar .navbar-brand {
+        margin-left: 1.5rem;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .navbar .navbar-brand {
+        font-size: 22px;
+        margin-left: 25px;
+    }
+
+    .login-btn {
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 370px) {
+    .navbar .navbar-brand {
+        font-size: 18px;
+        margin-left: 15px;
+    }
+
+    .login-btn {
+        font-size: 8px;
+    }
 }
