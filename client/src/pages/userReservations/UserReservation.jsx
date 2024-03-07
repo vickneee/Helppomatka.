@@ -34,8 +34,8 @@ const UserReservations = () => {
         const resReservations = await axios.get("https://helppomatka.onrender.com/api/reservations/");
         const reservationsWithHotelDetails = await Promise.all(
           resReservations.data.map(async (reservation) => {
-            const resHotel = await axios.get(`https://helppomatka.onrender.com/api/hotels/find/${reservation.hotelId}`);
-            // Asumiendo que resHotel.data.photos contiene las URLs de las imágenes
+            const resHotel = await axios.get(`http://localhost:8800/api/hotels/find/${reservation.hotelId}`);
+            
             const images = resHotel.data.photos.map(photoUrl => ({
               original: photoUrl,
              
@@ -43,7 +43,7 @@ const UserReservations = () => {
             return {
               ...reservation,
               hotelDetails: resHotel.data,
-              images, // Agrega las imágenes transformadas aquí
+              images, 
             };
           })
         );

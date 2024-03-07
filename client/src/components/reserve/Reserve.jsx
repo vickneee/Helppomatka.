@@ -10,13 +10,16 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import success from "./image/success-svgrepo-com.svg";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
 const updateRoomAvailability = async (roomId, unavailableDates) => {
   try {
-    const response = await axios.put(`https://helppomatka.onrender.com/api/rooms/availability/${roomId}`, {
-      unavailableDates,
-    });
+    const response = await axios.put(
+      `https://helppomatka.onrender.com/api/rooms/availability/${roomId}`,
+      {
+        unavailableDates,
+      }
+    );
     console.log("Room status has been updated.", response.data);
   } catch (error) {
     console.error("Error updating room availability:", error);
@@ -31,16 +34,10 @@ const Reserve = ({ setOpen, hotelId }) => {
   );
   const { dates } = useContext(SearchContext);
   const [modal, setModal] = useState(false);
-  const [random, setRandom] = useState();
   const [copy, setCopy] = useState(false);
-
-
-  // This is to add to the random reservation number, random can be repeated,
-  // so we add the check in date to the being of random.
-  useEffect(() => {
-    const startDateStr = format(dates[0].startDate, "yyyyMMdd");
-    setRandom(`${startDateStr}-${Math.random().toString(36).substring(2, 12)}`);
-  }, [modal, dates]);
+  const [reservationNumberForUI, setReservationNumberForUI] = useState("");
+  
+  
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -54,8 +51,8 @@ const Reserve = ({ setOpen, hotelId }) => {
       dates.push(new Date(date).toISOString());
       date.setDate(date.getDate() + 1);
     }
-// I don't know why, but dates were taking the day before the check in date,
-// so I delete the first index before return it.
+    // I don't know why, but dates were taking the day before the check in date,
+    // so I delete the first index before return it.
     dates.shift();
     return dates;
   };
@@ -64,12 +61,14 @@ const Reserve = ({ setOpen, hotelId }) => {
 
   const isAvailable = (roomNumber) => {
     // Converting all dates to a format YYYY-MM-DD to compare.
-    const formattedSelectedDates = alldates.map(date =>
-      new Date(date).toISOString().split('T')[0]
+    const formattedSelectedDates = alldates.map(
+      (date) => new Date(date).toISOString().split("T")[0]
     );
 
-    const isFound = roomNumber.unavailableDates.some(date => {
-      const formattedUnavailableDate = new Date(date).toISOString().split('T')[0];
+    const isFound = roomNumber.unavailableDates.some((date) => {
+      const formattedUnavailableDate = new Date(date)
+        .toISOString()
+        .split("T")[0];
       return formattedSelectedDates.includes(formattedUnavailableDate);
     });
 
@@ -88,8 +87,16 @@ const Reserve = ({ setOpen, hotelId }) => {
 
   const navigate = useNavigate();
 
-
   const handleClick = async () => {
+    // This is to add to the random reservation number, random can be repeated,
+  // so we add the check in date to the being of random.
+    const startDateStr = format(dates[0].startDate, "yyyyMMdd");
+    const reservationNumber = `${startDateStr}-${Math.random()
+      .toString(36)
+      .substring(2, 12)}`;
+
+      setReservationNumberForUI(reservationNumber);
+
     const reservationData = {
       userId: user._id,
       hotelId: hotelId,
@@ -99,18 +106,21 @@ const Reserve = ({ setOpen, hotelId }) => {
       guestCount: 2,
       totalPrice: 450,
       status: "confirmed",
-      reservationNumber: random,
+      reservationNumber: reservationNumber,
     };
 
     try {
       // Trying to create the reservation here.
-      const reservationResponse = await axios.post('https://helppomatka.onrender.com/api/reservations/', reservationData);
-      console.log('Success making reservation:', reservationResponse.data);
+      const reservationResponse = await axios.post(
+        "https://helppomatka.onrender.com/api/reservations/",
+        reservationData
+      );
+      console.log("Success making reservation:", reservationResponse.data);
 
-   // Updating availability of  rooms in database with unavailability date.
-   await Promise.all(selectedRooms.map(roomId =>
-    updateRoomAvailability(roomId, alldates)
-  ));
+      // Updating availability of  rooms in database with unavailability date.
+      await Promise.all(
+        selectedRooms.map((roomId) => updateRoomAvailability(roomId, alldates))
+      );
 
       console.log("Room availability updated!.");
       setModal(true);
@@ -118,7 +128,6 @@ const Reserve = ({ setOpen, hotelId }) => {
       console.error("Error during operation:", error);
     }
   };
-
 
   return (
     <div className="reserve">
@@ -148,13 +157,12 @@ const Reserve = ({ setOpen, hotelId }) => {
                     <div className="rMax">
                       Max ihmisia: <b>{item.maxPeople}</b>
                     </div>
-
                   </div>
                   <div className="rSelectRooms">
                     {item.roomNumbers.map((roomNumber) => (
                       <div className="room">
                         <input
-                        className="checkbox"
+                          className="checkbox"
                           type="checkbox"
                           value={roomNumber._id}
                           onChange={handleSelect}
@@ -185,7 +193,7 @@ const Reserve = ({ setOpen, hotelId }) => {
             </div>
             <p>Varaus tehty onnistuneesti</p>
             <p className="id">
-              <span className="book">Varaus id</span>: <span>{random}</span>
+              <span className="book">Varaus id</span>: <span>{reservationNumberForUI}</span>
               <i
                 onClick={() => {
                   navigator.clipboard.writeText(random);
@@ -193,7 +201,7 @@ const Reserve = ({ setOpen, hotelId }) => {
                   setTimeout(() => {
                     setCopy(false);
                   }, 1000);
-                }}
+                }}s
                 className="bx ms-2 bx-copy tooltips"
               >
                 {copy && <span className="tooltip-text">Copied</span>}
