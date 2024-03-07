@@ -9,7 +9,7 @@ const Featured = () => {
   const navigate = useNavigate();
   return (
     <div className="container">
-      <h1 className="homeTitle mb-3">Kiinteistöt kaupungeittain</h1>
+      <h1 className="homeTitle homeTitle-top mb-3">Kiinteistöt kaupungeittain</h1>
       <div className="featured row gy-3 gx-md-3 gx-3 justify-content-center">
         {loading || data.length === 0 ? (
           <div className="lds-ring">

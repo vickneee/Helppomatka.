@@ -13,3 +13,19 @@
     font-size: 20px;
     align-items: center;
 }
+
+@media (max-width: 390px) {
+    .container {
+        margin: 0;
+
+    }
+
+    .homeTitle {
+        margin-top: -50px;
+    }
+
+    .homeTitle-Top {
+        padding-top: 50px !important;
+    }
+
+}
