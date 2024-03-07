@@ -53,49 +53,53 @@ const Navbar = () => {
                         className="collapse navbar-collapse"
                         id="navbarTogglerDemo01"
                     ></div>
-                    <div className="navbar-container">
+
+                    <div className="navbar-container-2">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            {user && (
-                                <>
-                                    <li className="nav-item me-3">
-                                        <Link to="/reservations/myreservations"
-                                              className="nav-link btn px-3 btn-md login-btn mb-2">
-                                            Omat varaukset
-                                        </Link>
-                                    </li>
-                                    <li
-                                        className="nav-item me-3"
-                                        onClick={() => {
-                                            notify();
-                                            setTimeout(() => {
-                                                window.location.reload();
-                                            }, 800);
-                                            localStorage.setItem("user", null);
-                                        }}
-                                    >
-                                        <Link
-                                            to="/"
-                                            className="nav-link login-btn btn px-3 align-items-center"
+                            <div className="navbar-container-2">
+                                {user && (
+                                    <>
+                                        <li className="nav-item me-3">
+                                            <Link to="/reservations/myreservations"
+                                                  className="nav-link btn px-3 btn-md login-btn mb-2">
+                                                Omat varaukset
+                                            </Link>
+                                        </li>
+                                        <li
+                                            className="nav-item me-3"
+                                            onClick={() => {
+                                                notify();
+                                                setTimeout(() => {
+                                                    window.location.reload();
+                                                }, 800);
+                                                localStorage.setItem("user", null);
+                                            }}
                                         >
-                                            <i className="userBtn bx bx-power-off me-1"></i> {user.username}
+                                            <Link
+                                                to="/"
+                                                className="nav-link login-btn btn px-3 align-items-center"
+                                            >
+                                                <i className="userBtn bx bx-power-off me-1"></i> {user.username}
+                                            </Link>
+                                        </li>
+
+                                    </>
+                                )}
+
+                                {!user && (
+                                    <Link to="/login" className="nav-item me-3">
+                                        <Link className="nav-link btn px-3 btn-md login-btn" to="/login">
+                                            Kirjaudu sisään <i className="bx bx-log-in-circle"></i>
                                         </Link>
-                                    </li>
-                                </>
-                            )}
-                            {!user && (
-                                <Link to="/login" className="nav-item me-3">
-                                    <Link className="nav-link btn px-3 btn-md login-btn" to="/login">
-                                        Kirjaudu sisään <i className="bx bx-log-in-circle"></i>
                                     </Link>
-                                </Link>
-                            )}
+                                )}
+                            </div>
                         </ul>
                     </div>
                 </div>
             </nav>
         </>
-    )
-        ;
+);
 };
 
 export default Navbar;
