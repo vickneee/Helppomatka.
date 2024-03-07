@@ -295,7 +295,7 @@
         flex-direction: column;
         box-shadow: 0 0 28px 0 rgba(0, 0, 0, 0.2);
         position: absolute;
-        top: 85%;
+        top: 83%;
         transform: translateY(-50%);
     }
 
@@ -328,7 +328,7 @@
     .headerContainer .headerCont .headerSearch {
         font-size: 0.8rem;
         position: absolute;
-        top: 85%;
+        top: 82%;
     }
 
     .headerContainer .headerCont .headerTitle {
@@ -338,8 +338,6 @@
     .headerContainer .headerCont .headerTitle-r {
         margin-top: 10rem;
     }
-
-
 
 }
 
