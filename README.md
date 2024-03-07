@@ -29,7 +29,7 @@
         - [Creating a New Branch](#creating-a-new-branch)
 - [Technology Stack](#technology-stack)
 - [MERN Full Stack Project Structure](#mern-full-stack-project-structure)
-- [MongoDB & Mongoose Schema Example](#mongodb-&-mongoose-schema-example)
+- [MongoDB and Mongoose Schema Example](#mongodb-and-mongoose-schema-example)
 - [API Endpoints Collection](#api-endpoints-collection)
 - [Bcryptjs](#bcryptjs)
 - [Deployment](#deployment-on-render)
@@ -305,7 +305,7 @@ project/
 └── ...                                     # Other project files and directories
 ```
 
-## [MongoDB & Mongoose Schema Example](https://mongoosejs.com/)
+## [MongoDB and Mongoose Schema Example](https://mongoosejs.com/)
 
 ```javascript
 import mongoose from "mongoose";
