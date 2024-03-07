@@ -10,7 +10,7 @@ const FeaturedProperties = () => {
   return (
 
     <div className="res container">
-      <h1 className="homeTitle mb-4">Vieraiden rakastamia paikkoja</h1>
+      <h1 className="homeTitle homeTitle-1 mb-4">Vieraiden rakastamia paikkoja</h1>
 
       <div className="fp row gy-4">
         {loading || data.length === 0 ? (

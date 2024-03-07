@@ -26,3 +26,11 @@
     color: #18683c;
     text-decoration: underline;
 }
+
+
+@media (max-width: 390px) {
+    .registerTitle {
+        font-size: 2rem !important;
+    }
+
+}
