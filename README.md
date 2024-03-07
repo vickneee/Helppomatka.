@@ -12,6 +12,7 @@
 ---
 ## Table of Contents
 - [The project demands](#the-project-demands)
+- [Main Feature](#main-feature)
 - [Participants](#participants)
     - [Instructions](#instructions-for-github-collaborations)
     - [Pre Requirements](#pre-requirements)
@@ -38,6 +39,10 @@
   <p> Creating a fictional travel agency website with a booking system using the <a href="https://www.mongodb.com/mern-stack"> MERN Stack</a> (MongoDB, Express.js, React.js, and Node.js).
       <br> 
 </p>
+
+## Main Feature
+
+The booking app enables users to effortlessly reserve accommodations in different cities and countries, offering a seamless way to find and book rooms tailored to their travel needs.
 
 ## Participants
 | Main Role                        | Name                       |
