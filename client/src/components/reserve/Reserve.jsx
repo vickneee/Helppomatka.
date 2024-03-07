@@ -14,7 +14,7 @@ import { format } from 'date-fns';
 
 const updateRoomAvailability = async (roomId, unavailableDates) => {
   try {
-    const response = await axios.put(`http://localhost:8800/api/rooms/availability/${roomId}`, {
+    const response = await axios.put(`https://helppomatka.onrender.com/api/rooms/availability/${roomId}`, {
       unavailableDates,
     });
     console.log("Room status has been updated.", response.data);
@@ -104,7 +104,7 @@ const Reserve = ({ setOpen, hotelId }) => {
 
     try {
       // Trying to create the reservation here.
-      const reservationResponse = await axios.post('http://localhost:8800/api/reservations/', reservationData);
+      const reservationResponse = await axios.post('https://helppomatka.onrender.com/api/reservations/', reservationData);
       console.log('Success making reservation:', reservationResponse.data);
 
    // Updating availability of  rooms in database with unavailability date.
