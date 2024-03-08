@@ -26,7 +26,7 @@ const updateRoomAvailability = async (roomId, unavailableDates) => {
   }
 };
 
-const Reserve = ({ setOpen, hotelId, totalPrice }) => {
+const Reserve = ({ setOpen, hotelId, totalPrice, guestCount }) => {
   const { user } = useContext(AuthContext);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading } = useFetch(
@@ -102,7 +102,7 @@ const Reserve = ({ setOpen, hotelId, totalPrice }) => {
       roomId: selectedRooms,
       checkInDate: startDateStr,
       checkOutDate: endDateStr,
-      guestCount: 2,
+      guestCount: guestCount,
       totalPrice: totalPrice,
       status: "confirmed",
       reservationNumber: reservationNumber,

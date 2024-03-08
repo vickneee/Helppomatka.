@@ -26,13 +26,14 @@ const List = () => {
     ]
   );
   const [openDate, setOpenDate] = useState(false);
-  const options = useState(
+  const [options, setOptions] = useState(
     location.state?.options || {
       adult: 1,
       children: 0,
       room: 1,
     }
   );
+
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(999);
   const [filter, setFilter] = useState(false);
@@ -64,6 +65,27 @@ const List = () => {
       </option>
     );
   });
+
+  const handleAdultChange = (e) => {
+    setOptions((prevOptions) => ({
+      ...prevOptions,
+      adult: parseInt(e.target.value, 10) || 0,
+    }));
+  };
+
+  const handleRoomChange = (e) => {
+    setOptions((prevOptions) => ({
+      ...prevOptions,
+      room: parseInt(e.target.value, 10) || 0,
+    }));
+  };
+
+  useEffect(() => {
+    dispatch({
+      type: "UPDATE_OPTIONS",
+      payload: options,
+    });
+  }, [options, dispatch]);
 
   const { data, loading } = useFetch(
     `https://helppomatka.onrender.com/api/hotels?city=${destination}`
@@ -210,13 +232,12 @@ const List = () => {
                     )}
 
                     {openDate && (
-                      
                       <DateRange
                         editableDateInputs={true}
                         onChange={(item) => {
                           const newDates = [item.selection];
-                          setDates(newDates); 
-                          dispatch({ type: "UPDATE_DATES", payload: newDates }); 
+                          setDates(newDates);
+                          dispatch({ type: "UPDATE_DATES", payload: newDates });
                         }}
                         moveRangeOnFirstSelection={false}
                         ranges={dates}
@@ -224,7 +245,6 @@ const List = () => {
                         minDate={new Date()}
                       />
                     )}
-                    
                   </div>
                 )}
                 {filter && (
@@ -258,8 +278,9 @@ const List = () => {
                         <input
                           type="number"
                           min={1}
+                          value={options.adult}
+                          onChange={handleAdultChange}
                           className="lsOptionInput"
-                          placeholder={options?.adult}
                         />
                       </div>
                       <div className="lsOptionItem">
@@ -276,8 +297,9 @@ const List = () => {
                         <input
                           type="number"
                           min={1}
+                          value={options.room}
+                          onChange={handleRoomChange}
                           className="lsOptionInput"
-                          placeholder={options?.room}
                         />
                       </div>
                     </div>
