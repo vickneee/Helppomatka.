@@ -467,8 +467,11 @@ This document outlines the API endpoints available in the Helppomatka API collec
     "city": "Tallinna",
     "address": "Lai 19",
     "distance": "1590",
+    "photos": "1.jpeg",
     "title": "Luxurious hotel in the city",
     "desc": "Luxury hotel",
+    "rating": 4,
+    "rooms": "Sviit",
     "cheapestPrice": 150,
     "featured": true
   }
