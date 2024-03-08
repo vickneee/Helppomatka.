@@ -58,6 +58,7 @@ const SearchItem = ({ item }) => {
               />
             </div>
           )}
+         
           <div className="siDetailTexts">
             <span className="siPrice">{item.cheapestPrice}€</span>
             <span className="siTaxOp">Sisältää verot ja maksut</span>

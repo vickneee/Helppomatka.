@@ -22,18 +22,22 @@ const INITIAL_STATE = {
   },
 };
 
+//INCLUDED ON 8.3.2024
 export const SearchContext = createContext(INITIAL_STATE);
 
 const SearchReducer = (state, action) => {
   switch (action.type) {
     case "NEW_SEARCH":
       return action.payload;
+    case "UPDATE_DATES":
+      return { ...state, dates: action.payload };
     case "RESET_SEARCH":
       return INITIAL_STATE;
     default:
       return state;
   }
 };
+
 
 export const SearchContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(SearchReducer, INITIAL_STATE);

@@ -36,29 +36,23 @@ const Reserve = ({ setOpen, hotelId }) => {
   const [modal, setModal] = useState(false);
   const [copy, setCopy] = useState(false);
   const [reservationNumberForUI, setReservationNumberForUI] = useState("");
-  
-  
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
 
-    const date = new Date(start.getTime());
+    /* const date = new Date(start.getTime()); */
 
     const dates = [];
-
+    const date = new Date(start);
     while (date <= end) {
-      dates.push(new Date(date).toISOString());
+      const adjustedDate = new Date(date.getTime() + 3 * 60 * 60 * 1000);
+      dates.push(adjustedDate.toISOString().split("T")[0]);
       date.setDate(date.getDate() + 1);
     }
-    // I don't know why, but dates were taking the day before the check in date,
-    // so I delete the first index before return it.
-    dates.shift();
     return dates;
   };
-
   const alldates = getDatesInRange(dates[0].startDate, dates[0].endDate);
-
   const isAvailable = (roomNumber) => {
     // Converting all dates to a format YYYY-MM-DD to compare.
     const formattedSelectedDates = alldates.map(
@@ -88,27 +82,31 @@ const Reserve = ({ setOpen, hotelId }) => {
   const navigate = useNavigate();
 
   const handleClick = async () => {
+    const startDateStr = format(new Date(alldates[0]), "yyyy-MM-dd");
+    const endDateStr = format(
+      new Date(alldates[alldates.length - 1]),
+      "yyyy-MM-dd"
+    );
     // This is to add to the random reservation number, random can be repeated,
-  // so we add the check in date to the being of random.
-    const startDateStr = format(dates[0].startDate, "yyyyMMdd");
-    const reservationNumber = `${startDateStr}-${Math.random()
-      .toString(36)
-      .substring(2, 12)}`;
+    // so we add the check in date to the being of random.
+    const reservationNumber = `${format(
+      dates[0].startDate,
+      "yyyyMMdd"
+    )}-${Math.random().toString(36).substring(2, 12)}`;
 
-      setReservationNumberForUI(reservationNumber);
+    setReservationNumberForUI(reservationNumber);
 
     const reservationData = {
       userId: user._id,
       hotelId: hotelId,
       roomId: selectedRooms,
-      checkInDate: dates[0].startDate,
-      checkOutDate: dates[0].endDate,
+      checkInDate: startDateStr,
+      checkOutDate: endDateStr,
       guestCount: 2,
       totalPrice: 450,
       status: "confirmed",
       reservationNumber: reservationNumber,
     };
-
     try {
       // Trying to create the reservation here.
       const reservationResponse = await axios.post(
@@ -119,7 +117,11 @@ const Reserve = ({ setOpen, hotelId }) => {
 
       // Updating availability of  rooms in database with unavailability date.
       await Promise.all(
-        selectedRooms.map((roomId) => updateRoomAvailability(roomId, alldates))
+        selectedRooms.map((roomId) => {
+          // CheckOutDate is an available date. We delete it from alldates.
+          const updatedUnavailableDates = alldates.slice(0, alldates.length - 1);
+          return updateRoomAvailability(roomId, updatedUnavailableDates);
+        })
       );
 
       console.log("Room availability updated!.");
@@ -193,7 +195,8 @@ const Reserve = ({ setOpen, hotelId }) => {
             </div>
             <p>Varaus tehty onnistuneesti</p>
             <p className="id">
-              <span className="book">Varaus id</span>: <span>{reservationNumberForUI}</span>
+              <span className="book">Varaus id</span>:{" "}
+              <span>{reservationNumberForUI}</span>
               <i
                 onClick={() => {
                   navigator.clipboard.writeText(random);
@@ -201,7 +204,8 @@ const Reserve = ({ setOpen, hotelId }) => {
                   setTimeout(() => {
                     setCopy(false);
                   }, 1000);
-                }}s
+                }}
+                s
                 className="bx ms-2 bx-copy tooltips"
               >
                 {copy && <span className="tooltip-text">Copied</span>}
