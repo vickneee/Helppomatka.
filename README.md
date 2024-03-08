@@ -54,7 +54,9 @@ The booking app enables users to effortlessly reserve accommodations in differen
 
 All participants were actively engaged in the development of both the front-end and back-end components.
 
-## [Instructions for GitHub Collaborations](https://github.com/Bee4rt/helppomatka)
+## Instructions for GitHub Collaborations
+
+- **GitHub Link**: [View GitHub](https://github.com/Bee4rt/helppomatka)
 
 These instructions will get you a copy of the project running on your local machine for development and testing purposes.
 
@@ -305,7 +307,7 @@ project/
 └── ...                                     # Other project files and directories
 ```
 
-## [MongoDB and Mongoose Schema Example](https://mongoosejs.com/)
+## MongoDB and Mongoose Schema Example
 
 ### Code Example for Using Mongoose Schema:
 
@@ -387,7 +389,7 @@ export default mongoose.model("Hotel", HotelSchema)
 
 ```
 
-## [API Endpoints Collection](https://helpomatka.postman.co/workspace/25c13593-ea16-4bfa-8059-a565aaa9b970/collection/32339657-ff902470-4d21-47ec-a319-10c5c56bad18?action=share&source=collection_link&creator=32339841)
+## API Endpoints Collection
 
 This document outlines the API endpoints available in the Helppomatka API collection.
 
@@ -604,9 +606,11 @@ export const register = async (req, res, next) => {
 
 ```
 
-## [Deployment on Render](https://helppomatka-1.onrender.com/)
+## Deployment on Render
 
 [![Status](https://img.shields.io/badge/render-published-darkgreen.svg)]()
+
+- **Website Link**: [View Website](https://helppomatka-1.onrender.com/)
 
 Deploying a full-stack project on Render involves several steps, both for the backend and frontend components. Render provides a seamless platform for hosting both parts of your application, offering automatic deploys, SSL certificates, and more. Here's a brief overview of how to deploy a full-stack project on Render:
 
