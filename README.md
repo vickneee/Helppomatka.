@@ -14,7 +14,7 @@
 - [The project demands](#the-project-demands)
 - [Main Feature](#main-feature)
 - [Participants](#participants)
-    - [Instructions for GitHub Collaborations](#instructions-for-github-collaborations)
+- [Instructions for GitHub Collaborations](#instructions-for-github-collaborations)
     - [Pre Requirements](#pre-requirements)
         - [Cloning the project from GitHub](#cloning-the-project-from-github)
         - [Server Setup](#server-setup)
