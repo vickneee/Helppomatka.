@@ -30,6 +30,8 @@ const SearchReducer = (state, action) => {
       return action.payload;
     case "UPDATE_DATES":
       return { ...state, dates: action.payload };
+    case "UPDATE_OPTIONS":
+      return { ...state, options: action.payload };
     case "RESET_SEARCH":
       return INITIAL_STATE;
     default:

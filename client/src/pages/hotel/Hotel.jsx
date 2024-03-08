@@ -27,7 +27,7 @@ const Hotel = () => {
         5: "Erinomainen+",
     };
 
-    const [reserveData, setReserveData] = useState({ hotelId: null, totalPrice: 0 });
+    const [reserveData, setReserveData] = useState({ hotelId: null, totalPrice: 0 , guestCount: 0});
 
     function getLabelText(value) {
         return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
@@ -68,8 +68,13 @@ const Hotel = () => {
 
     const handleClick = () => {
         if (user) {
+            console.log("DAYS",days);
+            console.log("CheapestPrice:",data.cheapestPrice);
+            console.log("Rooms:",options.room);
+            console.log("Adults:",options.adult);
             const totalPrice = days * data.cheapestPrice * options.room;
-            setReserveData({hotelId: id, totalPrice});
+            const guestCount = options.adult;
+            setReserveData({hotelId: id, totalPrice, guestCount});
             setOpenModal(true);
         } else {
             notify();
@@ -182,7 +187,7 @@ const Hotel = () => {
                     </div>
                 )}
             </div>
-            {openModal && <Reserve setOpen={setOpenModal} hotelId={id} totalPrice={reserveData.totalPrice} />}
+            {openModal && <Reserve setOpen={setOpenModal} hotelId={id} totalPrice={reserveData.totalPrice} guestCount={reserveData.guestCount}/>}
             {/* {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>} */}
             <Footer/>
         </div>
