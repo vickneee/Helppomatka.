@@ -370,21 +370,20 @@ const HotelSchema = new mongoose.Schema({
 export default mongoose.model("Hotel", HotelSchema)
 
 /*
-{
-	"name": "",
-	"type": "asunto",
-	"reserve": "seen",
-	"city": "Puerto Viejo",
-	"address": "",
-	"distance": "",
-	"photos": [String],
-	"title": "",
-	"desc": "",
-	"rating": 3,
-	"rooms": [String],
-	"cheapestPrice": 100,
-	"featured": false
-}
+  {
+    "name": "Madame Marimelle",
+    "type": "Hotel",
+    "city": "Tallinna",
+    "address": "Lai 19",
+    "distance": "1590",
+    "photos": ["1.jpeg", "2.jpeg"],
+    "title": "Luxurious hotel in the city",
+    "desc": "Luxury hotel",
+    "rating": 4,
+    "rooms": ["Sviit", "Regular"],
+    "cheapestPrice": 150,
+    "featured": true
+  }
 */
 
 ```
