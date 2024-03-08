@@ -105,6 +105,15 @@
     translate: 0 0.5px;
 }
 
+.header.otherPages {
+  margin-bottom: 3rem;
+  height: 75vh;
+  background-position: top;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgb(18, 50, 43)), url("https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+}
+
 .headerList {
     display: flex;
     gap: 40px;
