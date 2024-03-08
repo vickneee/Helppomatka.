@@ -561,7 +561,7 @@ This document outlines the API endpoints available in the Helppomatka API collec
 
 - **Method**: POST
 - **URL**: localhost:8800/api/reservations/
-- **Body**:
+- **Body**: 
 ```json
 {
     "reservationNumber": "reservationNumber",
@@ -575,21 +575,35 @@ This document outlines the API endpoints available in the Helppomatka API collec
     "status": "confirmed"
 }
 ```
+#### GET a Reservation+
 
+- **Method**: GET
+- **URL**: localhost:8800/api/reservations/find/65e9c00c4b4c7c8ead711cfb
+- 
 #### GET all Reservations+
 
 - **Method**: GET
 - **URL**: localhost:8800/api/reservations/
 
-#### GET a Reservation by ID+
-
-- **Method**: GET
-- **URL**: localhost:8800/api/reservations/find/65e9c00c4b4c7c8ead711cfb
-
 #### GET Reservations by User
 
 - **Method**: GET
 - **URL**: localhost:8800/api/reservations/myreservations
+
+#### UPDATE a Reservation+
+
+- **Method**: PUT
+- **URL**: localhost:8800/api/reservations/65eaee110c7e9a8a5ca6daa2
+- **Body**:
+  ```json
+  {
+    "guestCount": 5
+  }
+  ```
+#### DELETE a Reservation+
+
+- **Method**: DELETE
+- **URL**: localhost:8800/api/rooms/65eaee110c7e9a8a5ca6daa2
 
 ## Bcryptjs
 
