@@ -38,19 +38,15 @@ const Header = ({ type }) => {
   };
 
   const { dispatch } = useContext(SearchContext);
-  // const notify = () => {
-  //   toast.error("Destination is empty");
-  // };
+  
   const handleSearch = () => {
-    // if (destination === "") {
-    //   notify();
-    // } else {
+    
     dispatch({
       type: "NEW_SEARCH",
       payload: { destination, dates, options },
     });
     navigate("/hotels", { state: { destination, dates, options } });
-    // }
+    
   };
 
   return (
@@ -134,9 +130,9 @@ const Header = ({ type }) => {
                   <span
                     onClick={() => setOpenDate(!openDate)}
                     className="headerSearchText"
-                  >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                  >{`${format(dates[0].startDate, "dd.MM.yyyy")} to ${format(
                     dates[0].endDate,
-                    "MM/dd/yyyy"
+                    "dd.MM.yyyy"
                   )}`}</span>
                   {openDate && (
                     <DateRange
