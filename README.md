@@ -603,7 +603,7 @@ This document outlines the API endpoints available in the Helppomatka API collec
 #### DELETE a Reservation+
 
 - **Method**: DELETE
-- **URL**: localhost:8800/api/rooms/65eaee110c7e9a8a5ca6daa2
+- **URL**: localhost:8800/api/reservations/65eaee110c7e9a8a5ca6daa2
 
 ## Bcryptjs
 
