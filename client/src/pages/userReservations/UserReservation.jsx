@@ -26,7 +26,6 @@ const UserReservations = () => {
     room: 1,
   });
 
-
   useEffect(() => {
     const fetchReservations = async () => {
       setLoading(true);
@@ -34,7 +33,7 @@ const UserReservations = () => {
         const resReservations = await axios.get("https://helppomatka.onrender.com/api/reservations/");
         const reservationsWithHotelDetails = await Promise.all(
           resReservations.data.map(async (reservation) => {
-            const resHotel = await axios.get(`http://localhost:8800/api/hotels/find/${reservation.hotelId}`);
+            const resHotel = await axios.get(`https://helppomatka.onrender.com/api/hotels/find/${reservation.hotelId}`);
             
             const images = resHotel.data.photos.map(photoUrl => ({
               original: photoUrl,

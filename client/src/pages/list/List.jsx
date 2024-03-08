@@ -8,10 +8,10 @@ import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../services/useFetch";
 import Empty from "./Empty";
-import { SearchContext } from "../../context/SearchContext"; //NEW INCLUSION
+import { SearchContext } from "../../context/SearchContext";
 
 const List = () => {
-  const { dispatch } = useContext(SearchContext); //NEW
+  const { dispatch } = useContext(SearchContext);
   const location = useLocation();
   const [destination, setDestination] = useState(
     location.state?.destination || ""
@@ -150,15 +150,6 @@ const List = () => {
                       Puerto Viejo, Costa Rica
                     </option>
                   </select>
-
-                  {/*  <input
-                    placeholder="Kirjoita haluamasi kohde"
-                    value={destination}
-                    onChange={(e) => {
-                      setDestination(e.target.value);
-                    }}
-                    type="text"
-                  /> */}
                 </div>
                 <div className="lsItem">
                   <label>Tyyppi</label>
@@ -219,13 +210,13 @@ const List = () => {
                     )}
 
                     {openDate && (
-                      //NEW
+                      
                       <DateRange
                         editableDateInputs={true}
                         onChange={(item) => {
                           const newDates = [item.selection];
-                          setDates(newDates); // Actualiza el estado local con las nuevas fechas
-                          dispatch({ type: "UPDATE_DATES", payload: newDates }); // Actualiza las fechas en el contexto
+                          setDates(newDates); 
+                          dispatch({ type: "UPDATE_DATES", payload: newDates }); 
                         }}
                         moveRangeOnFirstSelection={false}
                         ranges={dates}
@@ -233,17 +224,7 @@ const List = () => {
                         minDate={new Date()}
                       />
                     )}
-                    {/* {openDate && (
-                      
-                      <DateRange
-                        editableDateInputs={true}
-                        onChange={(item) => setDates([item.selection])}
-                        moveRangeOnFirstSelection={false}
-                        ranges={dates}
-                        className="date-list"
-                        minDate={new Date()}
-                      />
-                    )} */}
+                    
                   </div>
                 )}
                 {filter && (
