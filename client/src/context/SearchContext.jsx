@@ -22,7 +22,6 @@ const INITIAL_STATE = {
   },
 };
 
-//INCLUDED ON 8.3.2024
 export const SearchContext = createContext(INITIAL_STATE);
 
 const SearchReducer = (state, action) => {
