@@ -561,7 +561,20 @@ This document outlines the API endpoints available in the Helppomatka API collec
 
 - **Method**: POST
 - **URL**: localhost:8800/api/reservations/
-- **Body**: (Custom schema for reservation details)
+- **Body**:
+```json
+{
+    "reservationNumber": "reservationNumber",
+    "userId": "60d3b41c8534a223d8f68889",
+    "hotelId": "60d3b41c8534a223d8f68890",
+    "roomId": "60d3b41c8534a223d8f68891",
+    "checkInDate": "2022-07-01T00:00:00.000Z",
+    "checkOutDate": "2022-07-10T00:00:00.000Z",
+    "guestCount": 2,
+    "totalPrice": 200,
+    "status": "confirmed"
+}
+```
 
 #### GET all Reservations+
 
