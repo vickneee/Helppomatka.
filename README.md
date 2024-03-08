@@ -561,24 +561,53 @@ This document outlines the API endpoints available in the Helppomatka API collec
 
 - **Method**: POST
 - **URL**: localhost:8800/api/reservations/
-- **Body**: (Custom schema for reservation details)
+- **Body**: 
+```json
+{
+    "reservationNumber": "reservationNumber",
+    "userId": "60d3b41c8534a223d8f68889",
+    "hotelId": "60d3b41c8534a223d8f68890",
+    "roomId": "60d3b41c8534a223d8f68891",
+    "checkInDate": "2022-07-01T00:00:00.000Z",
+    "checkOutDate": "2022-07-10T00:00:00.000Z",
+    "guestCount": 2,
+    "totalPrice": 200,
+    "status": "confirmed"
+}
+```
+#### GET a Reservation+
 
+- **Method**: GET
+- **URL**: localhost:8800/api/reservations/find/65e9c00c4b4c7c8ead711cfb
+- 
 #### GET all Reservations+
 
 - **Method**: GET
 - **URL**: localhost:8800/api/reservations/
-
-#### GET a Reservation by ID+
-
-- **Method**: GET
-- **URL**: localhost:8800/api/reservations/find/65e9c00c4b4c7c8ead711cfb
 
 #### GET Reservations by User
 
 - **Method**: GET
 - **URL**: localhost:8800/api/reservations/myreservations
 
-## [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+#### UPDATE a Reservation+
+
+- **Method**: PUT
+- **URL**: localhost:8800/api/reservations/65eaee110c7e9a8a5ca6daa2
+- **Body**:
+  ```json
+  {
+    "guestCount": 5
+  }
+  ```
+#### DELETE a Reservation+
+
+- **Method**: DELETE
+- **URL**: localhost:8800/api/reservations/65eaee110c7e9a8a5ca6daa2
+
+## Bcryptjs
+
+- **Read More About Bcryptjs**: [View here](https://www.npmjs.com/package/bcryptjs)
 
 ### Code Example for Using Bcrypt:
 

@@ -1,7 +1,7 @@
 .navbar {
     background-color: rgba(0, 0, 0, 0.1) !important;
     overflow: hidden;
-    z-index: 500 !important;
+    z-index: 1001 !important;
 }
 
 .navbar .navbar-brand {
