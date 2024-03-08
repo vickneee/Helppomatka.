@@ -578,7 +578,9 @@ This document outlines the API endpoints available in the Helppomatka API collec
 - **Method**: GET
 - **URL**: localhost:8800/api/reservations/myreservations
 
-## [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+## Bcryptjs
+
+- **Read More About Bcryptjs**: [View here](https://www.npmjs.com/package/bcryptjs)
 
 ### Code Example for Using Bcrypt:
 
