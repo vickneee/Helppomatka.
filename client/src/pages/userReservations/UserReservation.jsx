@@ -6,6 +6,7 @@ import axios from "axios";
 import "./user_reservations.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import { format } from "date-fns";
 
 const UserReservations = () => {
   const [reservations, setReservations] = useState([]);
@@ -30,19 +31,22 @@ const UserReservations = () => {
     const fetchReservations = async () => {
       setLoading(true);
       try {
-        const resReservations = await axios.get("https://helppomatka.onrender.com/api/reservations/");
+        const resReservations = await axios.get(
+          "https://helppomatka.onrender.com/api/reservations/"
+        );
         const reservationsWithHotelDetails = await Promise.all(
           resReservations.data.map(async (reservation) => {
-            const resHotel = await axios.get(`https://helppomatka.onrender.com/api/hotels/find/${reservation.hotelId}`);
-            
-            const images = resHotel.data.photos.map(photoUrl => ({
+            const resHotel = await axios.get(
+              `https://helppomatka.onrender.com/api/hotels/find/${reservation.hotelId}`
+            );
+
+            const images = resHotel.data.photos.map((photoUrl) => ({
               original: photoUrl,
-             
             }));
             return {
               ...reservation,
               hotelDetails: resHotel.data,
-              images, 
+              images,
             };
           })
         );
@@ -53,10 +57,9 @@ const UserReservations = () => {
         setLoading(false);
       }
     };
-  
+
     fetchReservations();
   }, []);
-  
 
   if (loading) {
     return (
@@ -89,37 +92,43 @@ const UserReservations = () => {
     );
   }
   return (
-<div>
-    <Header type="reservations" />
-    {reservations.map((reservation) => (
-      <div key={reservation._id} className="RItem">
-          <div className="box">
-            <div className="reservationContent">
+    <div>
+      <Header type="reservations" />
+      {reservations.map((reservation) => {
+        // Convertir y formatear las fechas aquí
+        const checkInDate = format(
+          new Date(reservation.checkInDate),
+          "dd.MM.yyyy"
+        );
+        const checkOutDate = format(
+          new Date(reservation.checkOutDate),
+          "dd.MM.yyyy"
+        );
+        const checkInFormatted = `${checkInDate} 15.00 hrs`;
+        const checkOutFormatted = `${checkOutDate} 12.00 hrs`;
+
+        return (
+          <div key={reservation._id} className="RItem">
+            <div className="box">
+              <div className="reservationContent">
                 <h1 className="hotelTitle">{reservation.hotelDetails.name}</h1>
                 <div className="hotelAddress">
                   <span>{reservation.hotelDetails.address}</span>
                 </div>
                 <div className="hotelPriceHighlight">
-                Reservation number: {reservation.reservationNumber}
+                Varausnumero: {reservation.reservationNumber}
                 </div>
+              </div>
+              <div>
+                <p className="hotelInfo">Check in: {checkInFormatted}</p>
+                <p className="hotelInfo">Check out: {checkOutFormatted}</p>
+              </div>
             </div>
-            
-
-            <div>
-
-            <p className="hotelInfo">
-            Check in: {reservation.checkInDate}
-            </p>
-            <p className="hotelInfo">
-            Check out: {reservation.checkOutDate}
-            </p>
-            </div>
-          </div>  
-      </div>
-    ))}
-    <Footer/>
-  </div>
-);
+          </div>
+        );
+      })}
+      <Footer />
+    </div>
+  );
 };
 export default UserReservations;
-      
