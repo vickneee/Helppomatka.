@@ -403,6 +403,9 @@ This document outlines the API endpoints available in the Helppomatka API collec
 
 #### REGISTER a User+
 
+**Authentication:**
+- This route creates authentication.
+
 - **Method**: POST
 - **URL**: localhost:8800/api/auth/register
 - **Body**:
@@ -415,6 +418,9 @@ This document outlines the API endpoints available in the Helppomatka API collec
   ```
 
 #### LOGIN a User+
+
+**Authentication:**
+- This route requires authentication.
 
 - **Method**: POST
 - **URL**: localhost:8800/api/auth/login
