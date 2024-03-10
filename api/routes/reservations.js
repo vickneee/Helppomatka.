@@ -7,14 +7,9 @@ import {
   deleteReservation,
   getReservationsByUser
 } from "../controllers/reservationController.js";
-import { verifyUser } from "../utils/verifyToken.js";
-import {authenticateUser} from "../controllers/authController.js";
+import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 
 const router = express.Router();
-
-// Middleware to verify that the user is an admin
-// All routes are prefixed with /api/reservations
-// app.use("/api/reservations", reservationsRoute);
 
 // Create a reservation
 // Here we assume that both registered users and administrators can create reservations
@@ -28,10 +23,8 @@ router.get("/find/:id", getReservation);
 // This would generally be restricted to administrators only
 router.get("/", getReservations);
 
-// app.use("/api/reservations/myreservations");
-
 // Get reservations by logged-in user
-router.get("/myreservations", authenticateUser, getReservationsByUser);
+router.get("/myreservations", getReservationsByUser);
 
 // Update a reservation
 // Users should be able to update their own reservations, admins can update any reservation

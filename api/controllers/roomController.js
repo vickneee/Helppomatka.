@@ -1,5 +1,5 @@
-import Room from "../models/roomModel.js";
-import Hotel from "../models/hotelModel.js";
+import Room from "../models/Room.js";
+import Hotel from "../models/Hotel.js";
 import {createError} from "../utils/error.js";
 
 // CREATE a Room
@@ -101,5 +101,5 @@ export const deleteRoom = async (req, res, next) => {
           next(err);
         }
       }
-
+    
   };

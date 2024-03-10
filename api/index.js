@@ -1,11 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import authRoute from "./routes/authRoute.js";
-import usersRoute from "./routes/usersRoute.js";
-import hotelsRoute from "./routes/hotelsRoute.js";
-import roomsRoute from "./routes/roomsRoute.js";
-import reservationsRoute from "./routes/reservationsRoute.js";
+import authRoute from "./routes/auth.js";
+import usersRoute from "./routes/users.js";
+import hotelsRoute from "./routes/hotels.js";
+import roomsRoute from "./routes/rooms.js";
+import reservationsRoute from "./routes/reservations.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -38,7 +38,6 @@ app.use(cors())
 app.use(cookieParser())
 app.use(express.json());
 
-
 // ROUTE Middlewares
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
@@ -59,7 +58,7 @@ app.use((err, req, res, next) => {
 });
 
 // PORT Listen on ....
-app.listen(process.env.PORT, () => {
+app.listen(8800, () => {
   connect();
-  console.log(`Connected to backend on port ${process.env.PORT}!`);
+  console.log("Connected to backend!");
 });
