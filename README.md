@@ -23,8 +23,8 @@
         - [Commit Changes](#commit-changes)
         - [Push Changes to Your Branch](#push-changes-to-your-branch)
         - [Setting Up Remote Repository](#setting-up-remote-repository)
-        - [Pulling Changes from the Main Branch](#pulling-changes-from-main-branch)
-        - [Merging Your Branch to Main](#merging-your-branch-to-main)
+        - [Pulling Changes from the Main Branch](#pulling-changes-from-the-main-branch)
+        - [Merging Your Branch to Main](#merging-your-branch-to-the-main-branch)
         - [Deleting Unnecessary Branches](#deleting-unnecessary-branches)
         - [Creating a New Branch](#creating-a-new-branch)
 - [Technology Stack](#technology-stack)
@@ -257,7 +257,7 @@ project/
 │   │   ├── userController.js               # Example: Controller for user-related routes
 │   │   └── ...                             # Other controllers
 │   ├── models/                             # Database models (Mongoose schemas)
-│   │   ├── User.js                         # Example: Mongoose schema for User model
+│   │   ├── userModel.js                         # Example: Mongoose schema for User model
 │   │   └── ...                             # Other model schemas
 │   ├── node_modules/                       # Node.js dependencies (generated)
 │   ├── routes/                             # Express.js route definitions

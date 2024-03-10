@@ -1,6 +1,6 @@
 .RItem {
   cursor: pointer;
-  box-shadow: -1px 0px 3px -1px rgba(103, 71, 54, 0.4);
+  box-shadow: -1px 0 3px -1px rgba(103, 71, 54, 0.4);
   -webkit-box-shadow: -1px 0 3px -1px rgba(103, 71, 54, 0.4);
   -moz-box-shadow: -1px 0 3px -1px rgba(103, 71, 54, 0.4);
   gap: 20px;
@@ -28,7 +28,7 @@
   font-size: 25px;
   font-weight: 800;
   color:rgb(27, 118, 69) ;
- 
+
 }
 
 
@@ -38,9 +38,9 @@
     padding: 2rem;
     margin: 15px 20px;
   }
-  
+
   .box {
-    flex-direction: column; 
-    text-align: center; 
+    flex-direction: column;
+    text-align: center;
   }
 }
