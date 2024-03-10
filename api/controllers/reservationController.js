@@ -1,5 +1,6 @@
 import Reservation from "../models/Reservation.js";
 import { createError } from "../utils/error.js";
+import mongoose from "mongoose";
 
 // CREATE a Reservation
 export const createReservation = async (req, res, next) => {
