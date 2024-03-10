@@ -7,7 +7,7 @@ import {
   deleteReservation,
   getReservationsByUser
 } from "../controllers/reservationController.js";
-import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
+import { verifyUser } from "../utils/verifyToken.js";
 import {authenticateUser} from "../controllers/authController.js";
 
 const router = express.Router();
