@@ -257,7 +257,7 @@ project/
 │   │   ├── userController.js               # Example: Controller for user-related routes
 │   │   └── ...                             # Other controllers
 │   ├── models/                             # Database models (Mongoose schemas)
-│   │   ├── User.js                         # Example: Mongoose schema for User model
+│   │   ├── userModel.js                         # Example: Mongoose schema for User model
 │   │   └── ...                             # Other model schemas
 │   ├── node_modules/                       # Node.js dependencies (generated)
 │   ├── routes/                             # Express.js route definitions
