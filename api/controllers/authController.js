@@ -57,3 +57,22 @@ export const login = async (req, res, next) => {
         next(err);
     }
 };
+
+// Added Middleware to check if the user is logged in
+// Middleware to authenticate user and attach user to a req object
+export const authenticateUser = async (req, res, next) => {
+    const token = req.headers.authorization.split(' ')[1]; // Assumes 'Bearer <token>' format
+    if (!token) {
+        console.log('No token provided');
+        return res.status(403).json({ message: 'Authentication token required' });
+    }
+
+    try {
+        const decodedToken = jwt.verify(token, process.env.JWT); // Changed from process.env.JWT_SECRET to process.env.JWT
+        req.user = await User.findById(decodedToken.id); // Assumes User is your user model
+        next();
+    } catch (err) {
+        console.log('Error verifying token:', err);
+        res.status(403).json({ message: 'Invalid or expired token' });
+    }
+};

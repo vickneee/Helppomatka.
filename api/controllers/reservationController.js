@@ -1,6 +1,4 @@
 import Reservation from "../models/Reservation.js";
-import Hotel from "../models/Hotel.js";
-import Room from "../models/Room.js";
 import { createError } from "../utils/error.js";
 
 // CREATE a Reservation
@@ -43,7 +41,7 @@ export const getReservations = async (req, res, next) => {
 // GET Reservations by user
 export const getReservationsByUser = async (req, res, next) => {
   try {
-    const userId = req.userId.id;
+    const userId = req.user.id; // Changed from req.userId.id to req.user.id
     const reservations = await Reservation.aggregate([
 
       { $match: { userId: mongoose.Types.ObjectId(userId) } },
