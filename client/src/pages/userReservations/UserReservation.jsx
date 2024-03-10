@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {useContext} from "react";
-import {SearchContext} from "../../context/SearchContext";
+// import {useNavigate} from "react-router-dom";
+// import {useContext} from "react";
+// import {SearchContext} from "../../context/SearchContext";
 import axios from "axios";
 import "./userReservations.css";
 import Header from "../../components/header/Header";
@@ -11,21 +11,21 @@ import {format} from "date-fns";
 const UserReservations = () => {
     const [reservations, setReservations] = useState([]);
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
-    const {dispatch} = useContext(SearchContext);
-    const [destination, setDestination] = useState("");
-    const [dates, setDates] = useState([
-        {
-            startDate: new Date(),
-            endDate: new Date(),
-            key: "selection",
-        },
-    ]);
-    const [options, setOptions] = useState({
-        adult: 1,
-        children: 0,
-        room: 1,
-    });
+    // const navigate = useNavigate();
+    // const {dispatch} = useContext(SearchContext);
+    // const [destination, setDestination] = useState("");
+    // const [dates, setDates] = useState([
+    //     {
+    //         startDate: new Date(),
+    //         endDate: new Date(),
+    //         key: "selection",
+    //     },
+    // ]);
+    // const [options, setOptions] = useState({
+    //     adult: 1,
+    //     children: 0,
+    //     room: 1,
+    // });
 
     useEffect(() => {
         const fetchReservations = async () => {
