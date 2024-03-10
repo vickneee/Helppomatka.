@@ -11,6 +11,10 @@ import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
+// Middleware to verify that the user is an admin
+// All routes are prefixed with /api/reservations
+// app.use("/api/reservations", reservationsRoute);
+
 // Create a reservation
 // Here we assume that both registered users and administrators can create reservations
 router.post("/", createReservation);
