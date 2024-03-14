@@ -1,11 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import authRoute from "./routes/auth.js";
-import usersRoute from "./routes/users.js";
-import hotelsRoute from "./routes/hotels.js";
-import roomsRoute from "./routes/rooms.js";
-import reservationsRoute from "./routes/reservations.js";
+import authRoute from "./routes/authRoute.js";
+import usersRoute from "./routes/usersRoute.js";
+import hotelsRoute from "./routes/hotelsRoute.js";
+import roomsRoute from "./routes/roomsRoute.js";
+import reservationsRoute from "./routes/reservationsRoute.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
