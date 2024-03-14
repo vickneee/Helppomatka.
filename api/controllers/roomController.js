@@ -1,5 +1,5 @@
-import Room from "../models/Room.js";
-import Hotel from "../models/Hotel.js";
+import Room from "../models/roomModel.js";
+import Hotel from "../models/hotelModel.js";
 import {createError} from "../utils/error.js";
 
 // CREATE a Room
