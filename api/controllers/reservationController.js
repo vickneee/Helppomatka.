@@ -1,6 +1,6 @@
-import Reservation from "../models/Reservation.js";
-import Hotel from "../models/Hotel.js";
-import Room from "../models/Room.js";
+import Reservation from "../models/reservationModel.js";
+import Hotel from "../models/hotelModel.js";
+import Room from "../models/roomModel.js";
 import { createError } from "../utils/error.js";
 
 // CREATE a Reservation
