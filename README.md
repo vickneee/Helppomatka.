@@ -14,6 +14,7 @@
 - [The project demands](#the-project-demands)
 - [Main Feature](#main-feature)
 - [Participants](#participants)
+- [Technology Stack](#technology-stack)
 - [Instructions for GitHub Collaborations](#instructions-for-github-collaborations)
     - [Pre Requirements](#pre-requirements)
         - [Cloning the project from GitHub](#cloning-the-project-from-github)
@@ -27,13 +28,11 @@
         - [Merging Your Branch to Main](#merging-your-branch-to-main)
         - [Deleting Unnecessary Branches](#deleting-unnecessary-branches)
         - [Creating a New Branch](#creating-a-new-branch)
-- [Technology Stack](#technology-stack)
 - [MERN Full Stack Project Structure](#mern-full-stack-project-structure)
 - [MongoDB and Mongoose Schema Example](#mongodb-and-mongoose-schema-example)
 - [API Endpoints Collection](#api-endpoints-collection)
 - [Bcryptjs](#bcryptjs)
 - [Deployment](#deployment-on-render)
-
 
 ## The project demands
 
@@ -53,6 +52,18 @@ The booking app enables users to effortlessly reserve accommodations in differen
 | Trello Assistant & Documentation | Victoria Vavulina          |
 
 All participants were actively engaged in the development of both the front-end and back-end components.
+
+## Technology Stack
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [React](https://react.org/) - Web Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment
+- [CSS](https://www.w3schools.com/Css/) - Stylesheets for Styling
+- [React Bootstrap](https://react-bootstrap.github.io/) - Styling Framework
+- [Postman](https://www.postman.com/) - APIs Testing Tool
+- [JSON Web Token](https://jwt.io/) - Securing APIs
+- [Bcrypt](https://www.npmjs.com/package/bcrypt) - Hashing Passwords
+- [PageSpeed Insights](https://pagespeed.web.dev/) - Performance Optimization
 
 ## Instructions for GitHub Collaborations
 
@@ -234,18 +245,6 @@ If needed, create a new branch:
     git checkout -b yourBranchName
 
 By following these steps, you can effectively manage changes and collaboration on the GitHub project.
-
-## Technology Stack
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [React](https://react.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-- [CSS](https://www.w3schools.com/Css/) - Stylesheets for Styling
-- [React Bootstrap](https://react-bootstrap.github.io/) - Styling Framework
-- [Postman](https://www.postman.com/) - APIs Testing Tool
-- [JSON Web Token](https://jwt.io/) - Securing APIs
-- [Bcrypt](https://www.npmjs.com/package/bcrypt) - Hashing Passwords
-- [PageSpeed Insights](https://pagespeed.web.dev/) - Performance Optimization
 
 ## MERN Full Stack Project Structure
 
