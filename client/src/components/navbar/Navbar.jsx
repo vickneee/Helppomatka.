@@ -72,7 +72,7 @@ const Navbar = () => {
                                                 setTimeout(() => {
                                                     window.location.reload();
                                                 }, 800);
-                                                localStorage.setItem("user", null);
+                                                localStorage.removeItem("user");
                                             }}
                                         >
                                             <Link
