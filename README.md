@@ -45,11 +45,8 @@
 The booking app enables users to effortlessly reserve accommodations in different cities and countries, offering a seamless way to find and book rooms tailored to their travel needs.
 
 ## Participants
-| Main Role                        | Name                       |
-|----------------------------------|----------------------------|
-| Scrum Master                     | Ahmed Benmouh              |
-| GitHub Assistant                 | Jose Oldemar Chaves Urbina |
-| Trello Assistant & Documentation | Victoria Vavulina          |
+
+Ahmed Benmouh, Jose Oldemar Chaves Urbina, Victoria Vavulina          |
 
 All participants were actively engaged in the development of both the front-end and back-end components.
 
@@ -646,7 +643,7 @@ export const register = async (req, res, next) => {
 
 [![Status](https://img.shields.io/badge/render-published-darkgreen.svg)]()
 
-- **Website Link**: [View Website](https://helppomatka-1.onrender.com/)
+- **Website Link**: [View Website](https://vickneee-helppomatka.onrender.com/)
 
 Deploying a full-stack project on Render involves several steps, both for the backend and frontend components. Render provides a seamless platform for hosting both parts of your application, offering automatic deploys, SSL certificates, and more. Here's a brief overview of how to deploy a full-stack project on Render:
 
