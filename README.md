@@ -46,7 +46,7 @@ The booking app enables users to effortlessly reserve accommodations in differen
 
 ## Participants
 
-Ahmed Benmouh, Jose Oldemar Chaves Urbina, Victoria Vavulina          |
+Ahmed Benmouh, Jose Oldemar Chaves Urbina, Victoria Vavulina
 
 All participants were actively engaged in the development of both the front-end and back-end components.
 
@@ -64,7 +64,7 @@ All participants were actively engaged in the development of both the front-end 
 
 ## Instructions for GitHub Collaborations
 
-- **GitHub Link**: [View GitHub](https://github.com/Bee4rt/helppomatka)
+- **GitHub Link**: [View GitHub](https://github.com/vickneee/Helppomatka.)
 
 These instructions will get you a copy of the project running on your local machine for development and testing purposes.
 
