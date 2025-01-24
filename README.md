@@ -17,7 +17,6 @@
 >As a result, you may experience a delay when the application is loading pictures, especially at the beginning. This is expected behavior given the current setup and not a bug in the application.
 
 >For a production application, it is recommended to use a dedicated MongoDB cluster to ensure optimal performance.
----
 
 ## Table of Contents
 - [The project demands](#the-project-demands)
